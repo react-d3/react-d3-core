@@ -22,7 +22,7 @@ import {
 
   const width = 960,
     height = 500,
-    margins = {top: 20, right: 50, bottom: 50, left: 50},
+    margins = {top: 20, right: 50, bottom: 20, left: 50},
     id = "test-chart",
     title = "test chart lib",
     svgClassName = "test-chart-class",
@@ -104,7 +104,6 @@ import {
       titleClassName= {titleClassName}
       yAxisClassName= {yAxisClassName}
       xAxisClassName= {xAxisClassName}
-      legendClassName= {legendClassName}
       legendPosition= 'right'
       categoricalColors= {d3.scale.category10()}
       chartSeries = {chartSeries}

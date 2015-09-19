@@ -59,6 +59,7 @@ module.exports = [{
   devtool: ENV ? "source-map": '',
   entry: {
     blankchart: './example/src/components.jsx',
+    legend: './example/src/legend.jsx'
   },
 
   output: {

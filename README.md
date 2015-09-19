@@ -47,4 +47,4 @@ export default class NewChart extends Component {
 
 ## License
 
-MIT
+Apache 2.0
