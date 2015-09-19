@@ -1,5 +1,4 @@
 .DS_Store
 node_modules
 dist/react_d3_core.js
-example/dist/blankchart.js
-example/dist/legend.js
+example/dist
