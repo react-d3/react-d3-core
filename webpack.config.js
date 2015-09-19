@@ -1,22 +1,27 @@
 
 'use strict';
 
-var
-  path            = require('path'),
-  webpack         = require('webpack'),
+var path = require('path'),
+  webpack = require('webpack'),
   nodeModulesPath = path.join(__dirname, 'node_modules');
 
 var js_dist = path.join(__dirname, './dist');
+// 0 stands for development, 1 stands for production
+// for development mode: NODE_ENV=0 webpack
+// for production mode: NODE_ENV=1 webpack
+var ENV = !!(+process.env.NODE_ENV || 0);
+
 
 module.exports = [{
   name: 'react-d3-core',
+  devtool: ENV ? 'source-map': '',
   entry: {
     react_d3_core: './index.jsx',
   },
 
   output: {
     path: js_dist,
-    filename: '[name].js'
+    filename: ENV ? '[name].min.js': '[name].js'
   },
 
   module: {
@@ -37,24 +42,28 @@ module.exports = [{
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
   },
 
-  plugins: [
+  plugins: ENV ? [
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new webpack.ProvidePlugin({
+      'd3': 'd3'
+    })
+  ]: [
     new webpack.ProvidePlugin({
       'd3': 'd3'
     })
   ]
-
-
 },{
 
 
   name: 'react-d3-core-example',
+  devtool: ENV ? "source-map": '',
   entry: {
     blankchart: './example/src/components.jsx',
   },
 
   output: {
     path: path.join(__dirname, './example/dist'),
-    filename: '[name].js'
+    filename: ENV ? '[name].min.js': '[name].js'
   },
 
   module: {
@@ -75,7 +84,12 @@ module.exports = [{
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
   },
 
-  plugins: [
+  plugins: ENV ? [
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new webpack.ProvidePlugin({
+      'd3': 'd3'
+    })
+  ]: [
     new webpack.ProvidePlugin({
       'd3': 'd3'
     })
