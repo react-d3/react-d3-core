@@ -5,7 +5,7 @@ import {
   Component,
 } from 'react';
 
-require('../css/axis.css')
+require('../css/axis.css');
 
 export default class Axis extends Component {
   constructor (props) {
@@ -125,6 +125,7 @@ export default class Axis extends Component {
 
 Axis.defaultProps = {
   initAxis: d3.svg.axis(),
+  setScale: (type, func) => {},
   range: null,
   rangeRoundBands: null,
   domain: null,

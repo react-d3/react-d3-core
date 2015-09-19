@@ -13,6 +13,8 @@ import {
   default as ChartTitle
 } from './container/title';
 
+require('./css/container.css');
+
 export default class ChartContainer extends Component {
   constructor(props) {
     super (props);

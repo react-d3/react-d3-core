@@ -11,14 +11,25 @@ export default class ChartTitle extends Component {
   }
 
   render() {
-    const { titleClassName, title } = this.props;
+    const {
+      titleClassName,
+      title,
+      width,
+     } = this.props;
+
+    var titleStyle = {
+      width: width,
+      textAlign: 'center',
+      fontSize: '2em'
+    }
 
     return (
-      <h4
+      <div
+        style= {titleStyle}
         className={titleClassName}
       >
         {title}
-      </h4>
+      </div>
     )
   }
 }
