@@ -3,15 +3,40 @@
 import {
   default as React,
   Component,
+  PropTypes,
 } from 'react';
+
+import {
+  default as CommonProps,
+} from '../commonProps';
 
 export default class ChartSvg extends Component {
   constructor(props) {
     super (props);
   }
 
+  static defaultProps = Object.assign(CommonProps, {
+    svgClassName: 'react-d3-core__container_svg',
+    id: 'react-d3-core__container_svg__' + Math.floor(Math.random() * 100000)
+  })
+
+  static propTypes = {
+    id: PropTypes.string,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    svgClassName: PropTypes.string.isRequired,
+  }
+
   render() {
-    const { height, width, margins, svgClassName, id, children } = this.props;
+    const {
+      height,
+      width,
+      margins,
+      svgClassName,
+      id,
+      children
+    } = this.props;
 
     var t = "translate(" + margins.left + "," + margins.top + ")"
 
