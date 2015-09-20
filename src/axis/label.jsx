@@ -3,15 +3,53 @@
 import {
   default as React,
   Component,
+  PropTypes,
 } from 'react';
+
+import {
+  default as CommonProps,
+} from '../commonProps';
 
 export default class Label extends Component {
   constructor (props) {
     super(props);
   }
 
+  static defaultProps = Object.assign(CommonProps, {
+    hTransform: 'rotate(0)',
+    vTransform: 'rotate(270)',
+    labelTitle: 'label title',
+    labelPosition: 'bottom',
+    labelOffset: 35,
+    textAnchor: 'end',
+    labelClassName: 'react-d3-core__label'
+  })
+
+  static propTypes = {
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    hTransform: PropTypes.string,
+    vTransform: PropTypes.string,
+    labelTitle: PropTypes.string,
+    labelPosition: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    labelOffset: PropTypes.number,
+    textAnchor: PropTypes.string,
+    labelClassName: PropTypes.string
+  }
+
   componentDidMount () {
-    const {height, width, marigns, labelOffset, labelTitle, labelPosition, vTransform, hTransform, textAnchor} = this.props;
+    const {
+      height,
+      width,
+      marigns,
+      labelOffset,
+      labelTitle,
+      labelPosition,
+      vTransform,
+      hTransform,
+      textAnchor
+    } = this.props;
 
     var labelDom = d3.select(React.findDOMNode(this.refs.labelAxis))
 
@@ -63,11 +101,4 @@ export default class Label extends Component {
       </text>
     )
   }
-}
-
-Label.defaultProps = {
-  hTransform: 'rotate(0)',
-  vTransform: 'rotate(270)',
-  labelOffset: 35,
-  textAnchor: 'end',
 }
