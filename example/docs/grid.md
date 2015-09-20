@@ -129,9 +129,19 @@ Your `xRange` prop is to set your axis range, which is your output range of your
 
 #### xScale
 
-**Required a d3 scale function (should be one of d3.scale )**
+**Required a d3 scale (should be one of the types )**
 
-Setup your scale of the axis. For instance `d3.scale.linear()`
+We support scale types:
+
+- linear
+- identity
+- sqrt
+- pow
+- log
+- quantize
+- quantile
+- ordinal
+- time
 
 #### xRangeRoundBands
 

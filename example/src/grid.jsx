@@ -22,13 +22,13 @@ import {
     },
     xDomain = d3.extent(generalChartData, x),
     xRange = [0, width - margins.left - margins.right],
-    xScale = d3.scale.linear(),
+    xScale = 'linear',
     y = (d) => {
       return d.age;
     },
     yDomain = d3.extent(generalChartData, y),
     yRange = [height - margins.top - margins.bottom, 0],
-    yScale = d3.scale.linear();
+    yScale = 'linear';
 
 
   React.render(

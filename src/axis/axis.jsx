@@ -78,15 +78,55 @@ export default class Axis extends Component {
     const {
       type,
       scale,
-      range,
-      domain,
-      rangeRoundBands,
     } = this.props;
 
-    var func = scale;
+    var func;
+
+    if(scale === 'linear')
+      func = d3.scale.linear();
+    else if(scale === 'identity')
+      func = d3.scale.identity();
+    else if(scale === 'sqrt')
+      func = d3.scale.sqrt();
+    else if(scale === 'pow')
+      func = d3.scale.pow();
+    else if(scale === 'log')
+      func = d3.scale.log();
+    else if(scale === 'quantize')
+      func = d3.scale.quantize();
+    else if(scale === 'quantile')
+      func = d3.scale.quantile();
+    else if(scale === 'ordinal')
+      func = d3.scale.ordinal();
+    else if(scale === 'time')
+      func = d3.time.scale();
+    else
+      new Error(`Please check your axis scale setting. "${scale}" scale is invalid. `)
+
+    func = this._mkScaleSettings(func);
+
+    if(type === 'x' || type === 'y') {
+      // if x, y set scale, not grid
+      this.props.setScale(type, func);
+    }
+
+    return func;
+  }
+
+  _mkScaleSettings(func) {
+
+    const {
+      type,
+      range,
+      domain,
+      rangeRoundBands
+    } = this.props;
 
     if(range)
       func.range(range)
+
+    if(domain)
+      func.domain(domain)
 
     if(rangeRoundBands) {
       const {interval, padding, outerPadding} = rangeRoundBands;
@@ -99,16 +139,10 @@ export default class Axis extends Component {
         func.rangeRoundBands(interval)
     }
 
-    if(domain)
-      func.domain(domain)
-
-    if(type === 'x' || type === 'y') {
-      // if x, y set scale, not grid
-      this.props.setScale(type, func);
-    }
-
     return func;
   }
+
+
 
   render () {
     const {gridAxisClassName, axisClassName, t, type} = this.props;
