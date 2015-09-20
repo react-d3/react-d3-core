@@ -1,8 +1,8 @@
 {
   "name": "react-d3-core",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "react chart core component",
-  "main": "./index.js",
+  "main": "./index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
