@@ -3,15 +3,44 @@
 import {
   default as React,
   Component,
+  PropTypes,
 } from 'react';
 
 import {
   default as Axis,
 } from './axis/axis';
 
+import {
+  default as CommonProps,
+} from './commonProps';
+
 export default class Grid extends Component {
   constructor(props) {
     super(props);
+  }
+
+  static defaultProps = Object.assign(CommonProps, {
+    type: 'x',
+    legendOffset: 90,
+    gridAxisClassName: 'react-d3-core__grid_axis'
+  })
+
+  static propTypes = {
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    type: PropTypes.oneOf(['x', 'y']),
+    gridAxisClassName: PropTypes.string,
+    x: PropTypes.func.isRequired,
+    xDomain: PropTypes.array.isRequired,
+    xRange: PropTypes.array.isRequired,
+    xScale: PropTypes.func.isRequired,
+    xRangeRoundBands: PropTypes.object,
+    y: PropTypes.func.isRequired,
+    yDomain: PropTypes.array.isRequired,
+    yRange: PropTypes.array.isRequired,
+    yScale: PropTypes.func.isRequired,
+    yRangeRoundBands: PropTypes.object,
   }
 
   render() {
@@ -35,6 +64,7 @@ export default class Grid extends Component {
 
     var gridAxis;
     var t;
+
 
     if(type === 'x') {
       t = `translate(0, ${height - margins.bottom - margins.top})`;

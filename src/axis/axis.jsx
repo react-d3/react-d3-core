@@ -22,6 +22,12 @@ export default class Axis extends Component {
     if(!showAxis) {
       axisDom.selectAll(".axis .tick text")
         .style("opacity", "0")
+
+      if(type === 'gridx' || type === 'gridy') {
+        // hide domain in grids
+        axisDom.selectAll(".axis .domain")
+          .style("opacity", "0")
+      }
     }
   }
 

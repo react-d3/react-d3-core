@@ -60,7 +60,8 @@ module.exports = [{
   entry: {
     blankchart: './example/src/components.jsx',
     legend: './example/src/legend.jsx',
-    container: './example/src/container.jsx'
+    container: './example/src/container.jsx',
+    grid: './example/src/grid.jsx',
   },
 
   output: {
