@@ -2,7 +2,8 @@
 
 import {
   default as React,
-  Component
+  Component,
+  PropTypes
 } from 'react';
 
 import {
@@ -13,9 +14,41 @@ import {
   default as Label
 } from './label';
 
+import {
+  default as CommonProps,
+} from '../commonProps';
+
 export default class Xaxis extends Component {
   constructor (props) {
     super(props);
+  }
+
+  static defaultProps = Object.assign(CommonProps, {
+    showXaxis: true,
+    xAxisClassName: 'react-d3-core__axis__xAxis',
+    xScale: 'linear',
+    xOrient: 'bottom',
+    xTickOrient: 'bottom'
+  })
+
+  static propTypes = {
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    showXAxis: PropTypes.bool,
+    x: PropTypes.func.isRequired,
+    xDomain: PropTypes.array,
+    xRange: PropTypes.array,
+    xScale: PropTypes.string.isRequired,
+    xOrient: PropTypes.oneOf(['top', 'bottom']),
+    xTickOrient: PropTypes.oneOf(['top', 'bottom']),
+    xAxisClassName: PropTypes.string,
+    xInnerTickSize: PropTypes.number,
+    xOuterTickSize: PropTypes.number,
+    xTickPadding: PropTypes.number,
+    xTickFormat: PropTypes.func,
+    xTicks: PropTypes.number,
+    setScale: PropTypes.func
   }
 
   render() {

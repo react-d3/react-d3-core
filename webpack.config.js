@@ -62,7 +62,8 @@ module.exports = [{
     legend: './example/src/legend.jsx',
     container: './example/src/container.jsx',
     grid: './example/src/grid.jsx',
-    label: './example/src/label.jsx'
+    label: './example/src/label.jsx',
+    xaxis: './example/src/xaxis.jsx'
   },
 
   output: {
