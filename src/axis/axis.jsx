@@ -117,7 +117,7 @@ export default class Axis extends Component {
 
     func = this._mkScaleSettings(func);
 
-    if((type === 'x' || type === 'y') && !newDomain) {
+    if(type === 'x' || type === 'y') {
       // if x, y set scale, not grid
       this.props.setScale(type, func);
     }
@@ -159,9 +159,7 @@ export default class Axis extends Component {
       newDomain
     } = nextProps;
 
-    this.props = nextProps;
-
-    if(newDomain) {
+    if(this.props.newDomain !== newDomain) {
       this._mkAxis();
     }
   }
