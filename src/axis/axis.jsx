@@ -12,7 +12,21 @@ export default class Axis extends Component {
     super(props);
   }
 
-  componentDidMount () {
+  static defaultProps = {
+    setScale: (type, func) => {},
+    range: null,
+    rangeRoundBands: null,
+    domain: null,
+    tickFormat: null,
+    tickOrient: null
+  }
+
+  componentDidMount() {
+    this._mkAxis();
+  }
+
+  _mkAxis() {
+    console.log('here')
     const {showAxis, type} = this.props;
 
     var axisDom = d3.select(React.findDOMNode(this.refs.axisGroup))
@@ -31,11 +45,9 @@ export default class Axis extends Component {
     }
   }
 
-
   _mkTickAxis () {
     const {
       type,
-      initAxis,
       orient,
       tickOrient,
       tickFormat,
@@ -48,7 +60,7 @@ export default class Axis extends Component {
       margins
     } = this.props;
 
-    var func = initAxis;
+    var func = d3.svg.axis();
 
     func.scale(this._mkScale());
 
@@ -78,6 +90,7 @@ export default class Axis extends Component {
     const {
       type,
       scale,
+      newDomain
     } = this.props;
 
     var func;
@@ -105,7 +118,7 @@ export default class Axis extends Component {
 
     func = this._mkScaleSettings(func);
 
-    if(type === 'x' || type === 'y') {
+    if((type === 'x' || type === 'y') && !newDomain) {
       // if x, y set scale, not grid
       this.props.setScale(type, func);
     }
@@ -142,7 +155,17 @@ export default class Axis extends Component {
     return func;
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {
+      newDomain
+    } = nextProps;
 
+    this.props = nextProps;
+
+    if(newDomain) {
+      this._mkAxis();
+    }
+  }
 
   render () {
     const {gridAxisClassName, axisClassName, t, type} = this.props;
@@ -162,13 +185,3 @@ export default class Axis extends Component {
     )
   }
 }
-
-Axis.defaultProps = {
-  initAxis: d3.svg.axis(),
-  setScale: (type, func) => {},
-  range: null,
-  rangeRoundBands: null,
-  domain: null,
-  tickFormat: null,
-  tickOrient: null
-};

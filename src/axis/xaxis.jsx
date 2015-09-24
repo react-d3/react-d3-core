@@ -60,6 +60,7 @@ export default class Xaxis extends Component {
       x,
       xAxisClassName,
       xDomain,
+      xDomainSet,
       xRange,
       xRangeRoundBands,
       xScale,
@@ -111,6 +112,7 @@ export default class Xaxis extends Component {
           type = "x"
           proxy = {x}
           domain = {xDomain}
+          newDomain = {xDomainSet}
           range = {xRange}
           scale = {xScale}
           orient = {xOrient}

@@ -26,6 +26,7 @@ export default class Yaxis extends Component {
       y,
       yAxisClassName,
       yDomain,
+      yDomainSet,
       yRange,
       yRangeRoundBands,
       yScale,
@@ -78,6 +79,7 @@ export default class Yaxis extends Component {
           type = "y"
           proxy = {y}
           domain = {yDomain}
+          newDomain = {yDomainSet}
           range = {yRange}
           scale = {yScale}
           orient = {yOrient}
