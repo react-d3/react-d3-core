@@ -26,7 +26,6 @@ export default class Axis extends Component {
   }
 
   _mkAxis() {
-    console.log('here')
     const {showAxis, type} = this.props;
 
     var axisDom = d3.select(React.findDOMNode(this.refs.axisGroup))
