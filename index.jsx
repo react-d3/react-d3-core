@@ -1,4 +1,12 @@
 import {
+	default as Svg,
+} from './src/container/svg';
+
+import {
+	default as Title,
+} from './src/container/title';
+
+import {
   default as Chart,
 } from './src/chartContainer';
 
@@ -26,10 +34,12 @@ import {
   default as Grid,
 } from './src/grid';
 
+export {Svg as Svg};
+export {Title as Title};
 export {Chart as Chart};
-export {Xaxis as Xaxis}
-export {Yaxis as Yaxis}
-export {Legend as Legend}
-export {Grid as Grid}
+export {Xaxis as Xaxis};
+export {Yaxis as Yaxis};
+export {Legend as Legend};
+export {Grid as Grid};
 export {Axis as Axis}
 export {Label as Label}
