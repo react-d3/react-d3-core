@@ -17,6 +17,10 @@ import {
 export default class Grid extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      xDomainSet: this.props.xDomain,
+      yDomainSet: this.props.yDomain
+    }
   }
 
   static defaultProps = Object.assign(CommonProps, {
@@ -43,7 +47,25 @@ export default class Grid extends Component {
     yRangeRoundBands: PropTypes.object,
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {
+      xDomainSet,
+    } = nextProps;
+
+    // when xDomainSet is update, xScaleSet is not update yet.
+    if(this.state.xDomainSet !== xDomainSet) {
+      this.setState({
+        xDomainSet: xDomainSet
+      });
+    }
+  }
+
   render() {
+    const {
+      xDomainSet,
+      yDomainSet
+    } = this.state;
+
     const {
       height,
       width,
@@ -65,7 +87,6 @@ export default class Grid extends Component {
     var gridAxis;
     var t;
 
-
     if(type === 'x') {
       t = `translate(0, ${height - margins.bottom - margins.top})`;
       var tickSize = height - margins.top - margins.bottom;
@@ -86,7 +107,8 @@ export default class Grid extends Component {
         tickFormat= {null}
         innerTickSize = {-tickSize}
         proxy = {x}
-        domain = {xDomain}
+        domain = {xDomainSet}
+        newDomain = {xDomainSet}
         range = {xRange}
         scale = {xScale}
         />
@@ -111,7 +133,8 @@ export default class Grid extends Component {
         tickFormat= {null}
         proxy = {y}
         scale = {yScale}
-        domain = {yDomain}
+        domain = {yDomainSet}
+        newDomain = {yDomainSet}
         range = {yRange}
         />
     }

@@ -10,6 +10,9 @@ require('../css/axis.css');
 export default class Axis extends Component {
   constructor (props) {
     super(props);
+    this.state = {
+      domain: this.props.domain
+    }
   }
 
   static defaultProps = {
@@ -156,10 +159,14 @@ export default class Axis extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      newDomain
+      type,
+      domain
     } = nextProps;
 
-    if(this.props.newDomain !== newDomain) {
+    if(this.state.domain !== domain) {
+      this.setState({
+        domain: domain
+      });
       this._mkAxis();
     }
   }
