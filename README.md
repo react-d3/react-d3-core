@@ -37,13 +37,32 @@ export default class NewChart extends Component {
 
 ## Supported Components
 
-- Chart
-- Axis
-- Xaxis
-- Yaxis
-- Label
-- Legend
-- Grid
+#### Container
+
+- [Chart](./docs/container.md)
+- [Svg](./docs/svg.md)
+- [Title](./docs/title.md)
+
+#### Axis
+
+- [Axis](./docs/axis.md)
+- [Xaxis](./docs/xaxis.md)
+- [Yaxis](./docs/yaxis.md)
+
+#### Grid
+
+- [xGrid](./docs/xgrid.md)
+- [yGrid](./docs/ygrid.md)
+
+#### Label
+
+- [Label](./docs/label.md)
+
+#### Legend
+
+- [Legend](./docs/legend.md)
+
+
 
 ## License
 
