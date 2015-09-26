@@ -69,7 +69,8 @@ Same as `xDomain` in [xGrid](./xgrid.md)
 
 #### yRange
 
-Same as `xRange` in [xGrid](./xgrid.md)
+Simalar as `xRange` in [xGrid](./xgrid.md). Your `yRange` prop is to set your axis range, which is your output range of your y scale. In most cases, it is `[height - margins.top - margins.bottom, 0]`
+
 
 #### yScale
 
