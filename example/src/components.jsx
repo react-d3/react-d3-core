@@ -7,7 +7,7 @@ import {
 
 import {
   default as BlankChart
-} from './blankChart.jsx';
+} from './blank_chart.jsx';
 
 (() => {
 
@@ -141,6 +141,6 @@ import {
       yLabel = {yLabel}
       yLabelPosition = 'left'
     />
-  , document.getElementById('blank-chart')
+  , document.getElementById('blank-blank_chart')
   )
 })()

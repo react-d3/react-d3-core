@@ -3,6 +3,7 @@
 import {
   default as React,
   Component,
+  PropTypes
 } from 'react';
 
 require('../css/axis.css');
@@ -11,7 +12,21 @@ export default class Axis extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      domain: this.props.domain
+      heightSet: this.props.height,
+      widthSet: this.props.width,
+      marginsSet: this.props.margins,
+      scaleSet: this.props.scale,
+      domainSet: this.props.domain,
+      rangeSet: this.props.range,
+      rangeRoundBandsSet: this.props.rangeRoundBandsSet,
+      showAxisSet: this.props.showAxis,
+      typeSet: this.props.type,
+      tickOrientSet: this.props.tickOrient,
+      tickFormatSet: this.props.tickFormat,
+      tickPaddingSet: this.props.tickPadding,
+      innerTickSizeSet: this.props.innerTickSize,
+      outerTickSizeSet: this.props.outerTickSize,
+      ticksSet: this.props.ticks,
     }
   }
 
@@ -24,12 +39,36 @@ export default class Axis extends Component {
     tickOrient: null
   }
 
+  static PropTypes = {
+    showAxis: PropTypes.bool,
+    type: PropTypes.string,
+    orient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    tickOrient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+  }
+
   componentDidMount() {
     this._mkAxis();
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {
+      domain
+    } = nextProps;
+
+    // check when to rebuild axis and update states
+    if(this.state.domainSet !== domain) {
+      this.setState({
+        domainSet: domain
+      });
+      this._mkAxis();
+    }
+  }
+
   _mkAxis() {
-    const {showAxis, type} = this.props;
+    const {
+      showAxis,
+      type
+    } = this.props;
 
     var axisDom = d3.select(React.findDOMNode(this.refs.axisGroup))
 
@@ -50,16 +89,12 @@ export default class Axis extends Component {
   _mkTickAxis () {
     const {
       type,
-      orient,
       tickOrient,
       tickFormat,
       tickPadding,
       innerTickSize,
       outerTickSize,
       ticks,
-      height,
-      width,
-      margins
     } = this.props;
 
     var func = d3.svg.axis();
@@ -92,7 +127,6 @@ export default class Axis extends Component {
     const {
       type,
       scale,
-      newDomain
     } = this.props;
 
     var func;
@@ -157,22 +191,14 @@ export default class Axis extends Component {
     return func;
   }
 
-  componentWillReceiveProps(nextProps) {
-    const {
-      type,
-      domain
-    } = nextProps;
 
-    if(this.state.domain !== domain) {
-      this.setState({
-        domain: domain
-      });
-      this._mkAxis();
-    }
-  }
 
   render () {
-    const {gridAxisClassName, axisClassName, t, type} = this.props;
+    const {
+      gridAxisClassName,
+      axisClassName,
+      type
+    } = this.props;
 
     if(type === 'x')
       var axisClasses = `${axisClassName} axis x`

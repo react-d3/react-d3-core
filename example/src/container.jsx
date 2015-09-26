@@ -15,9 +15,10 @@ import {
     height = 500,
     margins = {top: 20, right: 50, bottom: 20, left: 50},
     id = "test-chart",
-    title = "test chart lib",
     svgClassName = "test-chart-class",
     titleClassName = "test-chart-title-class";
+
+  var title = "test chart lib"
 
   React.render(
     <Chart
@@ -28,6 +29,6 @@ import {
       svgClassName= {svgClassName}
       titleClassName= {titleClassName}
     />
-  , document.getElementById('blank-container')
-  )
+  , document.getElementById('blank-container'))
+
 })()

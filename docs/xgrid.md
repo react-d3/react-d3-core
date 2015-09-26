@@ -1,6 +1,6 @@
-# Grid
+# xGrid
 
-Grid component documents.
+Grid component is where we construct your grid system into your chart. If you want to build a `xgrid`, set your `Grid` component type to `x`.
 
 ## Import
 
@@ -10,6 +10,12 @@ import {
 } from 'react-d3-core';
 ```
 
+## Components
+
+`grid` component contains:
+
+- [axis](./axis.md)
+
 ## Settings props
 
 You can customize `Grid` component using the following properties.
@@ -17,18 +23,13 @@ You can customize `Grid` component using the following properties.
 - width
 - height
 - margins
-- type
+- type (set `x` if building `xaxis`, `y` if building `yaxis`)
 - gridAxisClassName
 - x
 - xDomain
 - xRange
 - xScale
 - xRangeRoundBands
-- y
-- yDomain
-- yRange
-- yScale
-- yRangeRoundBands
 
 ### width
 
@@ -156,23 +157,3 @@ If you need to setup your `rangeRoundBands` at your x axis. You have to pass an 
   "outerPadding": "<your outerPadding>"
 }
 ```
-
-#### y
-
-Same as `x`
-
-#### yDomain
-
-Same as `xDomain`
-
-#### yRange
-
-Same as `xRange`
-
-#### yScale
-
-Same as `xScale`
-
-#### yRangeRoundBands
-
-Same as `xRangeRoundBands`

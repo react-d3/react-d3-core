@@ -58,9 +58,10 @@ module.exports = [{
   name: 'react-d3-core-example',
   devtool: ENV ? "source-map": '',
   entry: {
-    blankchart: './example/src/components.jsx',
+    blank_chart: './example/src/components.jsx',
     legend: './example/src/legend.jsx',
     container: './example/src/container.jsx',
+    container_update: './example/src/container_update.jsx',
     grid: './example/src/grid.jsx',
     label: './example/src/label.jsx',
     xaxis: './example/src/xaxis.jsx'
