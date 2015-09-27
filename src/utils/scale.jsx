@@ -29,11 +29,6 @@ export function scale(props) {
 
   func = _mkScaleSettings(props, func);
 
-  if(type === 'x' || type === 'y') {
-    // if x, y set scale, not grid
-    props.setScale(type, func);
-  }
-
   return func;
 }
 
