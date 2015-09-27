@@ -34,6 +34,10 @@ import {
   default as Grid,
 } from './src/grid';
 
+import {
+	scale as scale
+} from './src/utils/scale';
+
 export {Svg as Svg};
 export {Title as Title};
 export {Chart as Chart};
@@ -43,3 +47,4 @@ export {Legend as Legend};
 export {Grid as Grid};
 export {Axis as Axis}
 export {Label as Label}
+export {scale as scale};
