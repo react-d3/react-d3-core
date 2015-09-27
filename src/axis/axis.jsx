@@ -12,9 +12,6 @@ export default class Axis extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      heightSet: this.props.height,
-      widthSet: this.props.width,
-      marginsSet: this.props.margins,
       scaleSet: this.props.scale,
       domainSet: this.props.domain,
       rangeSet: this.props.range,
