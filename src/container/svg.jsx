@@ -10,6 +10,10 @@ import {
   default as CommonProps,
 } from '../commonProps';
 
+import {
+  scale as scale
+} from '../utils/scale';
+
 export default class ChartSvg extends Component {
   constructor(props) {
     super (props);
@@ -31,10 +35,23 @@ export default class ChartSvg extends Component {
 
   componentDidMount() {
     var {
+      width,
+      margins,
+      xScale,
+      xDomain,
+      xRange,
       xScaleSet,
       yScaleSet,
       onZoom
     } = this.props;
+
+    if(xScale === 'ordinal') {
+      xScaleSet = scale({
+        scale: 'linear',
+        domain: [0, width - margins.left - margins.right],
+        range: [0, width - margins.left - margins.right]
+      })
+    }
 
     var zoom = d3.behavior.zoom()
       .x(xScaleSet)
