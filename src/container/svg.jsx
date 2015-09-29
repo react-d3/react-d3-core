@@ -17,7 +17,8 @@ export default class ChartSvg extends Component {
 
   static defaultProps = Object.assign(CommonProps, {
     svgClassName: 'react-d3-core__container_svg',
-    id: 'react-d3-core__container_svg__' + Math.floor(Math.random() * 100000)
+    id: `react-d3-core__container_svg__${Math.floor(Math.random() * 100000)}`,
+    onZoom: () => {}
   })
 
   static propTypes = {
@@ -26,6 +27,23 @@ export default class ChartSvg extends Component {
     height: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
     svgClassName: PropTypes.string.isRequired,
+  }
+
+  componentDidMount() {
+    const {
+      xScaleSet,
+      yScaleSet,
+      onZoom
+    } = this.props
+
+    var zoom = d3.behavior.zoom()
+      .x(xScaleSet)
+      .y(yScaleSet)
+      .scaleExtent([1, 10])
+      .on("zoom", onZoom);
+
+    d3.select(React.findDOMNode(this.refs.svgContainer))
+      .call(zoom);
   }
 
   render() {
@@ -46,6 +64,7 @@ export default class ChartSvg extends Component {
         width = {width}
         className = {svgClassName}
         id = {id}
+        ref = "svgContainer"
       >
         <g
           transform = {t}
