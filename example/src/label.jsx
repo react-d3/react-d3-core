@@ -7,7 +7,7 @@ import {
 
 import {
   Label as Label
-} from '../../index';
+} from '../../src/index';
 
 (() => {
 

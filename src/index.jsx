@@ -1,42 +1,42 @@
 import {
 	default as Svg,
-} from './src/container/svg';
+} from './container/svg';
 
 import {
 	default as Title,
-} from './src/container/title';
+} from './container/title';
 
 import {
   default as Chart,
-} from './src/chartContainer';
+} from './chartContainer';
 
 import {
   default as Axis,
-} from './src/axis/axis';
+} from './axis/axis';
 
 import {
   default as Xaxis,
-} from './src/axis/xaxis';
+} from './axis/xaxis';
 
 import {
   default as Yaxis,
-} from './src/axis/yaxis';
+} from './axis/yaxis';
 
 import {
   default as Label,
-} from './src/axis/label';
+} from './axis/label';
 
 import {
   default as Legend,
-} from './src/legend';
+} from './legend';
 
 import {
   default as Grid,
-} from './src/grid';
+} from './grid';
 
 import {
 	scale as scale
-} from './src/utils/scale';
+} from './utils/scale';
 
 export {Svg as Svg};
 export {Title as Title};

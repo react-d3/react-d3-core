@@ -13,7 +13,7 @@ import {
   Legend as Legend,
   Grid as Grid,
   Label as Label,
-} from '../../index';
+} from '../../src/index';
 
 export default class BlankChart extends Component {
 

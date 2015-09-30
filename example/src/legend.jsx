@@ -7,7 +7,7 @@ import {
 
 import {
   Legend as Legend
-} from '../../index.jsx';
+} from '../../src/index.jsx';
 
 (() => {
   const width = 960,

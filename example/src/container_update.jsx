@@ -7,7 +7,7 @@ import {
 
 import {
   Chart
-} from '../../index.jsx';
+} from '../../src/index.jsx';
 
 require('./css/container_update.css')
 

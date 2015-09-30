@@ -7,7 +7,7 @@ import {
 
 import {
   Grid as Grid
-} from '../../index';
+} from '../../src/index';
 
 (() => {
 

@@ -7,7 +7,7 @@ import {
 
 import {
   Chart as Chart,
-} from '../../index.jsx';
+} from '../../src/index.jsx';
 
 (() => {
 
