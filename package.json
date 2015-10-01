@@ -1,11 +1,11 @@
 {
   "name": "react-d3-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react chart core component",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "rm -rf ./lib && babel --stage 0 src --out-dir lib"
+    "es5": "rm -rf ./lib && babel --stage 0 src --out-dir lib"
   },
   "author": "ElixirDoc team",
   "license": "Apache 2.0",
