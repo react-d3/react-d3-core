@@ -1,5 +1,7 @@
 # react-d3-core
 
+[![Dependency Status](https://gemnasium.com/react-d3/react-d3-core.svg)](https://gemnasium.com/react-d3/react-d3-core)
+
 react d3 core components for reusability.
 
 ## Install
