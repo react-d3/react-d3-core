@@ -47,55 +47,70 @@
 	/* WEBPACK VAR INJECTION */(function(d3) {"use strict";
 
 	var React = __webpack_require__(2);
-	var Xaxis = __webpack_require__(158);
+	var Xaxis = __webpack_require__(158).Xaxis;
 
 	(function() {
-	  var generalChartData = __webpack_require__(174);
-	  var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
+	  // load your general data, for building xDomain.
+	  var chartData = __webpack_require__(175);
+	  // your date format, use for parsing
+	  var parseDate = d3.time.format("%YM%m").parse;
 
-	  generalChartData.forEach(function(d) {
-	    var y0 = 0;
-	    d.ages = ageNames.map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-	    d.total = d.ages[d.ages.length - 1].y1;
-	  });
-
-	  var width = 960,
-	    height = 500,
+	  // setting you svg width
+	  var width = 400,
+	    // setting your svg height
+	    height = 100,
+	    // setting your margins of your svg
 	    margins = {top: 20, right: 50, bottom: 20, left: 50},
-	    showXAxis = true,
+	    // your x Axis accessor
 	    x = function(d) {
-	      return d.State;
+	      return parseDate(d.month);
 	    },
-	    xOrient = 'bottom',
-	    xTickOrient = 'bottom',
-	    xDomain = generalChartData.map(function(d) { return d.State; }),
-	    xRangeRoundBands = {interval: [0, width - margins.left - margins.right], padding: .1},
-	    xScale = 'ordinal',
-	    xLabel = "Age";
+	    // set your x domain
+	    xDomain = d3.extent(chartData, function(d){ return x(d) }),
+	    // set your x range
+	    xRange = [0, width - margins.left - margins.right],
+	    // your scale type 'linear', 'ordinal', 'time'... etc.
+	    xScale = 'time',
+	    // set your label name
+	    xLabel = "Month";
+
+	  var ClickAxis = React.createClass({displayName: "ClickAxis",
+	    getInitialState: function() {
+	      return {
+	        expend: false
+	      }
+	    },
+	    _onClick: function() {
+	      this.setState({
+	        expend: !this.state.expend
+	      })
+	    },
+	    render: function() {
+	      var expend = this.state.expend;
+	      var newWidth = expend? (width + 100): width;
+	      var newRange = expend? ([0, width - margins.left - margins.right + 100]): ([0, width - margins.left - margins.right]);
+
+	      return (
+	        React.createElement("svg", {width: newWidth, height: height, onClick: this._onClick}, 
+	          React.createElement(Xaxis, {
+	            width: newWidth, 
+	            height: height, 
+	            margins: margins, 
+	            x: x, 
+	            xDomain: xDomain, 
+	            xRange: newRange, 
+	            xScale: xScale, 
+	            xLabel: xLabel}
+	          )
+	        )
+	      )
+	    }
+	  })
 
 	  React.render(
-	    React.createElement("svg", {width: width, height: height}, 
-	      React.createElement(Xaxis, {
-	        width: width, 
-	        height: height, 
-	        margins: margins, 
-	        showXAxis: showXAxis, 
-	        x: x, 
-	        xDomain: xDomain, 
-	        xRangeRoundBands: xRangeRoundBands, 
-	        xScale: xScale, 
-	        xOrient: xOrient, 
-	        xTickOrient: xTickOrient, 
-	        xTickPadding: 3, 
-	        xInnerTickSize: 6, 
-	        xOuterTickSize: 6, 
-	        xLabel: xLabel, 
-	        xLabelPosition: "bottom"}
-	      )
-	    )
-	  , document.getElementById('blank-xaxis')
+	    React.createElement(ClickAxis, null)
+	  , document.getElementById('click-xaxis')
 	  )
-
 	})()
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -31612,71 +31627,11 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */
+/* 174 */,
+/* 175 */
 /***/ function(module, exports) {
 
-	module.exports = [
-		{
-			"State": "CA",
-			"Under 5 Years": "2704659",
-			"5 to 13 Years": "4499890",
-			"14 to 17 Years": "2159981",
-			"18 to 24 Years": "3853788",
-			"25 to 44 Years": "10604510",
-			"45 to 64 Years": "8819342",
-			"65 Years and Over": "4114496"
-		},
-		{
-			"State": "TX",
-			"Under 5 Years": "2027307",
-			"5 to 13 Years": "3277946",
-			"14 to 17 Years": "1420518",
-			"18 to 24 Years": "2454721",
-			"25 to 44 Years": "7017731",
-			"45 to 64 Years": "5656528",
-			"65 Years and Over": "2472223"
-		},
-		{
-			"State": "NY",
-			"Under 5 Years": "1208495",
-			"5 to 13 Years": "2141490",
-			"14 to 17 Years": "1058031",
-			"18 to 24 Years": "1999120",
-			"25 to 44 Years": "5355235",
-			"45 to 64 Years": "5120254",
-			"65 Years and Over": "2607672"
-		},
-		{
-			"State": "FL",
-			"Under 5 Years": "1140516",
-			"5 to 13 Years": "1938695",
-			"14 to 17 Years": "925060",
-			"18 to 24 Years": "1607297",
-			"25 to 44 Years": "4782119",
-			"45 to 64 Years": "4746856",
-			"65 Years and Over": "3187797"
-		},
-		{
-			"State": "IL",
-			"Under 5 Years": "894368",
-			"5 to 13 Years": "1558919",
-			"14 to 17 Years": "725973",
-			"18 to 24 Years": "1311479",
-			"25 to 44 Years": "3596343",
-			"45 to 64 Years": "3239173",
-			"65 Years and Over": "1575308"
-		},
-		{
-			"State": "PA",
-			"Under 5 Years": "737462",
-			"5 to 13 Years": "1345341",
-			"14 to 17 Years": "679201",
-			"18 to 24 Years": "1203944",
-			"25 to 44 Years": "3157759",
-			"45 to 64 Years": "3414001",
-			"65 Years and Over": "1910571"
-		}
-	];
+	module.exports = [{"month":"2001M01","total":"770095","incineration":"295355","garbageBury":"339023","largeGarbageRecycle":"0","foodWaste":"0","recycle":"75630","other":"60087","average":"1.124"},{"month":"2001M02","total":"629350","incineration":"248283","garbageBury":"256351","largeGarbageRecycle":"0","foodWaste":"0","recycle":"74732","other":"49983","average":"1.016"},{"month":"2001M03","total":"663170","incineration":"271344","garbageBury":"264674","largeGarbageRecycle":"0","foodWaste":"0","recycle":"77137","other":"50015","average":"0.966"},{"month":"2001M04","total":"650177","incineration":"279304","garbageBury":"250420","largeGarbageRecycle":"0","foodWaste":"0","recycle":"72205","other":"48249","average":"0.976"},{"month":"2001M05","total":"713649","incineration":"326336","garbageBury":"246014","largeGarbageRecycle":"0","foodWaste":"0","recycle":"96295","other":"45004","average":"1.034"},{"month":"2001M06","total":"695624","incineration":"326309","garbageBury":"236874","largeGarbageRecycle":"0","foodWaste":"0","recycle":"91924","other":"40516","average":"1.041"},{"month":"2001M07","total":"704734","incineration":"356180","garbageBury":"206992","largeGarbageRecycle":"0","foodWaste":"0","recycle":"96427","other":"45136","average":"1.020"},{"month":"2001M08","total":"693821","incineration":"345400","garbageBury":"211975","largeGarbageRecycle":"0","foodWaste":"0","recycle":"98186","other":"38261","average":"1.005"},{"month":"2001M09","total":"795625","incineration":"362212","garbageBury":"304039","largeGarbageRecycle":"0","foodWaste":"0","recycle":"88582","other":"40793","average":"1.192"},{"month":"2001M10","total":"726018","incineration":"315929","garbageBury":"270775","largeGarbageRecycle":"0","foodWaste":"0","recycle":"101538","other":"37775","average":"1.052"},{"month":"2001M11","total":"650861","incineration":"285575","garbageBury":"236909","largeGarbageRecycle":"0","foodWaste":"0","recycle":"94331","other":"34046","average":"0.973"},{"month":"2001M12","total":"640683","incineration":"324674","garbageBury":"191039","largeGarbageRecycle":"0","foodWaste":"0","recycle":"89766","other":"35205","average":"0.926"},{"month":"2002M01","total":"683665","incineration":"345433","garbageBury":"198188","largeGarbageRecycle":"0","foodWaste":"0","recycle":"108206","other":"31838","average":"0.988"},{"month":"2002M02","total":"672584","incineration":"353367","garbageBury":"198474","largeGarbageRecycle":"0","foodWaste":"0","recycle":"95222","other":"25522","average":"1.075"},{"month":"2002M03","total":"652716","incineration":"341320","garbageBury":"182254","largeGarbageRecycle":"0","foodWaste":"0","recycle":"102716","other":"26426","average":"0.942"},{"month":"2002M04","total":"662728","incineration":"363258","garbageBury":"181085","largeGarbageRecycle":"0","foodWaste":"0","recycle":"93790","other":"24595","average":"0.987"},{"month":"2002M05","total":"694568","incineration":"380675","garbageBury":"189499","largeGarbageRecycle":"0","foodWaste":"0","recycle":"102992","other":"21401","average":"1.001"},{"month":"2002M06","total":"671190","incineration":"373771","garbageBury":"176130","largeGarbageRecycle":"0","foodWaste":"0","recycle":"92674","other":"28614","average":"1.003"},{"month":"2002M07","total":"691517","incineration":"390530","garbageBury":"170942","largeGarbageRecycle":"0","foodWaste":"0","recycle":"103016","other":"27029","average":"1.003"},{"month":"2002M08","total":"681693","incineration":"382657","garbageBury":"163702","largeGarbageRecycle":"0","foodWaste":"0","recycle":"108936","other":"26397","average":"0.989"},{"month":"2002M09","total":"649518","incineration":"359573","garbageBury":"165399","largeGarbageRecycle":"0","foodWaste":"0","recycle":"102177","other":"22369","average":"0.975"},{"month":"2002M10","total":"668299","incineration":"343228","garbageBury":"185622","largeGarbageRecycle":"0","foodWaste":"0","recycle":"110382","other":"29066","average":"0.970"},{"month":"2002M11","total":"612179","incineration":"328975","garbageBury":"156378","largeGarbageRecycle":"0","foodWaste":"0","recycle":"107199","other":"19628","average":"0.917"},{"month":"2002M12","total":"644181","incineration":"353381","garbageBury":"162517","largeGarbageRecycle":"0","foodWaste":"0","recycle":"114527","other":"13756","average":"0.933"},{"month":"2003M01","total":"710215","incineration":"397710","garbageBury":"174292","largeGarbageRecycle":"0","foodWaste":"8948","recycle":"113909","other":"15356","average":"1.023"},{"month":"2003M02","total":"550699","incineration":"316471","garbageBury":"123177","largeGarbageRecycle":"0","foodWaste":"10139","recycle":"90116","other":"10796","average":"0.876"},{"month":"2003M03","total":"610571","incineration":"353792","garbageBury":"128981","largeGarbageRecycle":"0","foodWaste":"11510","recycle":"103688","other":"12600","average":"0.878"},{"month":"2003M04","total":"627469","incineration":"363105","garbageBury":"133639","largeGarbageRecycle":"0","foodWaste":"12352","recycle":"100401","other":"17973","average":"0.930"},{"month":"2003M05","total":"668782","incineration":"360933","garbageBury":"164640","largeGarbageRecycle":"0","foodWaste":"13815","recycle":"116191","other":"13203","average":"0.959"},{"month":"2003M06","total":"654195","incineration":"371453","garbageBury":"147821","largeGarbageRecycle":"0","foodWaste":"13498","recycle":"110205","other":"11219","average":"0.969"},{"month":"2003M07","total":"675156","incineration":"377136","garbageBury":"146773","largeGarbageRecycle":"0","foodWaste":"14882","recycle":"126174","other":"10192","average":"0.969"},{"month":"2003M08","total":"656865","incineration":"376204","garbageBury":"135333","largeGarbageRecycle":"0","foodWaste":"14614","recycle":"121063","other":"9651","average":"0.942"},{"month":"2003M09","total":"668895","incineration":"384371","garbageBury":"136603","largeGarbageRecycle":"0","foodWaste":"15800","recycle":"123077","other":"9045","average":"0.990"},{"month":"2003M10","total":"639074","incineration":"351194","garbageBury":"135405","largeGarbageRecycle":"0","foodWaste":"16410","recycle":"127017","other":"9048","average":"0.915"},{"month":"2003M11","total":"602510","incineration":"313748","garbageBury":"145138","largeGarbageRecycle":"0","foodWaste":"17277","recycle":"114353","other":"11994","average":"0.890"},{"month":"2003M12","total":"643587","incineration":"339933","garbageBury":"141087","largeGarbageRecycle":"0","foodWaste":"19356","recycle":"132965","other":"10246","average":"0.920"},{"month":"2004M01","total":"696099","incineration":"395233","garbageBury":"151548","largeGarbageRecycle":"0","foodWaste":"21789","recycle":"117914","other":"9614","average":"0.995"},{"month":"2004M02","total":"591716","incineration":"326367","garbageBury":"117994","largeGarbageRecycle":"0","foodWaste":"21379","recycle":"117710","other":"8266","average":"0.904"},{"month":"2004M03","total":"627731","incineration":"349888","garbageBury":"116664","largeGarbageRecycle":"0","foodWaste":"22963","recycle":"131049","other":"7166","average":"0.896"},{"month":"2004M04","total":"619103","incineration":"339664","garbageBury":"124011","largeGarbageRecycle":"0","foodWaste":"23390","recycle":"121882","other":"10156","average":"0.913"},{"month":"2004M05","total":"651088","incineration":"361769","garbageBury":"137501","largeGarbageRecycle":"0","foodWaste":"25916","recycle":"118645","other":"7257","average":"0.929"},{"month":"2004M06","total":"669185","incineration":"387857","garbageBury":"117681","largeGarbageRecycle":"0","foodWaste":"26548","recycle":"131773","other":"5327","average":"0.987"},{"month":"2004M07","total":"667594","incineration":"394328","garbageBury":"116719","largeGarbageRecycle":"0","foodWaste":"25424","recycle":"126374","other":"4748","average":"0.953"},{"month":"2004M08","total":"656224","incineration":"382116","garbageBury":"114372","largeGarbageRecycle":"0","foodWaste":"24301","recycle":"130745","other":"4691","average":"0.936"},{"month":"2004M09","total":"640068","incineration":"366284","garbageBury":"111339","largeGarbageRecycle":"0","foodWaste":"24823","recycle":"132611","other":"5012","average":"0.943"},{"month":"2004M10","total":"619278","incineration":"330194","garbageBury":"124193","largeGarbageRecycle":"0","foodWaste":"25208","recycle":"134844","other":"4839","average":"0.882"},{"month":"2004M11","total":"626843","incineration":"332284","garbageBury":"123097","largeGarbageRecycle":"0","foodWaste":"27554","recycle":"136315","other":"7594","average":"0.922"},{"month":"2004M12","total":"650031","incineration":"341754","garbageBury":"119047","largeGarbageRecycle":"0","foodWaste":"29970","recycle":"152944","other":"6317","average":"0.925"},{"month":"2005M01","total":"656035","incineration":"380660","garbageBury":"104940","largeGarbageRecycle":"2574","foodWaste":"35827","recycle":"126559","other":"5475","average":"0.933"},{"month":"2005M02","total":"640793","incineration":"370156","garbageBury":"104681","largeGarbageRecycle":"2200","foodWaste":"36133","recycle":"123289","other":"4334","average":"1.009"},{"month":"2005M03","total":"650863","incineration":"359579","garbageBury":"98553","largeGarbageRecycle":"1347","foodWaste":"37432","recycle":"150645","other":"3307","average":"0.926"},{"month":"2005M04","total":"633506","incineration":"332646","garbageBury":"104069","largeGarbageRecycle":"1512","foodWaste":"42990","recycle":"147234","other":"5054","average":"0.931"},{"month":"2005M05","total":"666509","incineration":"359270","garbageBury":"106375","largeGarbageRecycle":"1561","foodWaste":"43718","recycle":"150256","other":"5328","average":"0.947"},{"month":"2005M06","total":"670038","incineration":"380450","garbageBury":"90663","largeGarbageRecycle":"2163","foodWaste":"41526","recycle":"151669","other":"3566","average":"0.984"},{"month":"2005M07","total":"683512","incineration":"385660","garbageBury":"96356","largeGarbageRecycle":"4873","foodWaste":"37372","recycle":"156553","other":"2697","average":"0.971"},{"month":"2005M08","total":"679191","incineration":"382372","garbageBury":"93080","largeGarbageRecycle":"2675","foodWaste":"37483","recycle":"162856","other":"725","average":"0.965"},{"month":"2005M09","total":"660542","incineration":"364280","garbageBury":"89777","largeGarbageRecycle":"3153","foodWaste":"37439","recycle":"163373","other":"2521","average":"0.969"},{"month":"2005M10","total":"629688","incineration":"335791","garbageBury":"97689","largeGarbageRecycle":"2773","foodWaste":"37973","recycle":"153757","other":"1705","average":"0.894"},{"month":"2005M11","total":"622630","incineration":"318023","garbageBury":"99670","largeGarbageRecycle":"2573","foodWaste":"37572","recycle":"162304","other":"2488","average":"0.913"},{"month":"2005M12","total":"635378","incineration":"331511","garbageBury":"98745","largeGarbageRecycle":"2171","foodWaste":"38736","recycle":"161159","other":"3055","average":"0.901"},{"month":"2006M01","total":"687321","incineration":"367784","garbageBury":"103616","largeGarbageRecycle":"3578","foodWaste":"41125","recycle":"167722","other":"3496","average":"0.975"},{"month":"2006M02","total":"596097","incineration":"324825","garbageBury":"84760","largeGarbageRecycle":"1464","foodWaste":"42845","recycle":"140125","other":"2079","average":"0.935"},{"month":"2006M03","total":"635158","incineration":"326259","garbageBury":"82062","largeGarbageRecycle":"2267","foodWaste":"44991","recycle":"178157","other":"1421","average":"0.899"},{"month":"2006M04","total":"612048","incineration":"320099","garbageBury":"73868","largeGarbageRecycle":"1566","foodWaste":"48058","recycle":"166801","other":"1658","average":"0.895"},{"month":"2006M05","total":"665768","incineration":"344364","garbageBury":"84207","largeGarbageRecycle":"2364","foodWaste":"50420","recycle":"183442","other":"972","average":"0.942"},{"month":"2006M06","total":"668101","incineration":"359602","garbageBury":"70987","largeGarbageRecycle":"2698","foodWaste":"48985","recycle":"185276","other":"554","average":"0.977"},{"month":"2006M07","total":"670102","incineration":"367193","garbageBury":"65409","largeGarbageRecycle":"1660","foodWaste":"46399","recycle":"188806","other":"636","average":"0.948"},{"month":"2006M08","total":"671907","incineration":"361360","garbageBury":"63265","largeGarbageRecycle":"2053","foodWaste":"48268","recycle":"196416","other":"544","average":"0.950"},{"month":"2006M09","total":"637838","incineration":"344741","garbageBury":"57317","largeGarbageRecycle":"2529","foodWaste":"48448","recycle":"183949","other":"853","average":"0.931"},{"month":"2006M10","total":"655268","incineration":"352267","garbageBury":"58321","largeGarbageRecycle":"2832","foodWaste":"50159","recycle":"190016","other":"1673","average":"0.926"},{"month":"2006M11","total":"646579","incineration":"350407","garbageBury":"50525","largeGarbageRecycle":"2949","foodWaste":"50462","recycle":"190084","other":"2152","average":"0.943"},{"month":"2006M12","total":"645418","incineration":"345067","garbageBury":"56679","largeGarbageRecycle":"2687","foodWaste":"50017","recycle":"189318","other":"1652","average":"0.911"},{"month":"2007M01","total":"669649","incineration":"371663","garbageBury":"48035","largeGarbageRecycle":"3038","foodWaste":"50076","recycle":"195990","other":"848","average":"0.944"},{"month":"2007M02","total":"658237","incineration":"386836","garbageBury":"48880","largeGarbageRecycle":"3037","foodWaste":"50669","recycle":"167897","other":"918","average":"1.028"},{"month":"2007M03","total":"671883","incineration":"368444","garbageBury":"44152","largeGarbageRecycle":"1988","foodWaste":"55526","recycle":"200943","other":"831","average":"0.948"},{"month":"2007M04","total":"641209","incineration":"353137","garbageBury":"45477","largeGarbageRecycle":"2178","foodWaste":"53678","recycle":"185143","other":"1597","average":"0.934"},{"month":"2007M05","total":"674137","incineration":"365524","garbageBury":"50618","largeGarbageRecycle":"2829","foodWaste":"56691","recycle":"196456","other":"2019","average":"0.950"},{"month":"2007M06","total":"680109","incineration":"381399","garbageBury":"37541","largeGarbageRecycle":"2341","foodWaste":"57053","recycle":"198560","other":"3215","average":"0.990"},{"month":"2007M07","total":"680124","incineration":"375015","garbageBury":"38329","largeGarbageRecycle":"2724","foodWaste":"58048","recycle":"204876","other":"1132","average":"0.958"},{"month":"2007M08","total":"695753","incineration":"385436","garbageBury":"37044","largeGarbageRecycle":"3091","foodWaste":"58798","recycle":"211228","other":"157","average":"0.980"},{"month":"2007M09","total":"639221","incineration":"348446","garbageBury":"30804","largeGarbageRecycle":"2508","foodWaste":"55275","recycle":"202044","other":"145","average":"0.930"},{"month":"2007M10","total":"676374","incineration":"355058","garbageBury":"45373","largeGarbageRecycle":"2738","foodWaste":"54999","recycle":"210818","other":"7387","average":"0.952"},{"month":"2007M11","total":"620035","incineration":"310086","garbageBury":"43163","largeGarbageRecycle":"2570","foodWaste":"54493","recycle":"202630","other":"7094","average":"0.901"},{"month":"2007M12","total":"642717","incineration":"334726","garbageBury":"35531","largeGarbageRecycle":"2188","foodWaste":"57485","recycle":"205608","other":"7179","average":"0.904"},{"month":"2008M01","total":"682388","incineration":"382802","garbageBury":"27405","largeGarbageRecycle":"2676","foodWaste":"58545","recycle":"210784","other":"176","average":"0.959"},{"month":"2008M02","total":"629922","incineration":"365300","garbageBury":"23174","largeGarbageRecycle":"2292","foodWaste":"57652","recycle":"181373","other":"133","average":"0.946"},{"month":"2008M03","total":"606304","incineration":"337292","garbageBury":"18753","largeGarbageRecycle":"2161","foodWaste":"57681","recycle":"190267","other":"151","average":"0.851"},{"month":"2008M04","total":"611410","incineration":"337406","garbageBury":"17960","largeGarbageRecycle":"2301","foodWaste":"57321","recycle":"196263","other":"158","average":"0.887"},{"month":"2008M05","total":"647752","incineration":"354148","garbageBury":"21247","largeGarbageRecycle":"2399","foodWaste":"61232","recycle":"208717","other":"8","average":"0.909"},{"month":"2008M06","total":"644275","incineration":"353399","garbageBury":"17489","largeGarbageRecycle":"2955","foodWaste":"60109","recycle":"210316","other":"8","average":"0.934"},{"month":"2008M07","total":"646515","incineration":"360850","garbageBury":"19080","largeGarbageRecycle":"4325","foodWaste":"58798","recycle":"203454","other":"7","average":"0.907"},{"month":"2008M08","total":"622844","incineration":"333976","garbageBury":"17645","largeGarbageRecycle":"4321","foodWaste":"56479","recycle":"210417","other":"7","average":"0.874"},{"month":"2008M09","total":"642632","incineration":"348806","garbageBury":"18396","largeGarbageRecycle":"5525","foodWaste":"57677","recycle":"212179","other":"49","average":"0.931"},{"month":"2008M10","total":"621165","incineration":"331001","garbageBury":"19926","largeGarbageRecycle":"6097","foodWaste":"55602","recycle":"208531","other":"7","average":"0.871"},{"month":"2008M11","total":"573100","incineration":"299502","garbageBury":"18319","largeGarbageRecycle":"4644","foodWaste":"53494","recycle":"197134","other":"7","average":"0.830"},{"month":"2008M12","total":"609066","incineration":"332802","garbageBury":"16728","largeGarbageRecycle":"4770","foodWaste":"56603","recycle":"198125","other":"37","average":"0.853"},{"month":"2009M01","total":"666916","incineration":"387876","garbageBury":"19520","largeGarbageRecycle":"5776","foodWaste":"57250","recycle":"196486","other":"8","average":"0.934"},{"month":"2009M02","total":"603384","incineration":"321171","garbageBury":"16055","largeGarbageRecycle":"4367","foodWaste":"58098","recycle":"203687","other":"7","average":"0.935"},{"month":"2009M03","total":"618851","incineration":"329950","garbageBury":"15827","largeGarbageRecycle":"4397","foodWaste":"58772","recycle":"209899","other":"7","average":"0.866"},{"month":"2009M04","total":"620060","incineration":"328230","garbageBury":"14598","largeGarbageRecycle":"4227","foodWaste":"59782","recycle":"213217","other":"7","average":"0.896"},{"month":"2009M05","total":"635779","incineration":"334901","garbageBury":"14086","largeGarbageRecycle":"4430","foodWaste":"60543","recycle":"221473","other":"346","average":"0.889"},{"month":"2009M06","total":"674564","incineration":"357906","garbageBury":"14520","largeGarbageRecycle":"5072","foodWaste":"63185","recycle":"232980","other":"900","average":"0.975"},{"month":"2009M07","total":"664885","incineration":"344645","garbageBury":"14165","largeGarbageRecycle":"5678","foodWaste":"62929","recycle":"237461","other":"7","average":"0.930"},{"month":"2009M08","total":"685801","incineration":"363353","garbageBury":"21476","largeGarbageRecycle":"8009","foodWaste":"58633","recycle":"234323","other":"7","average":"0.959"},{"month":"2009M09","total":"642615","incineration":"311225","garbageBury":"14501","largeGarbageRecycle":"6346","foodWaste":"58567","recycle":"251969","other":"7","average":"0.928"},{"month":"2009M10","total":"655304","incineration":"328883","garbageBury":"13837","largeGarbageRecycle":"6016","foodWaste":"61217","recycle":"245343","other":"7","average":"0.915"},{"month":"2009M11","total":"634043","incineration":"314302","garbageBury":"13897","largeGarbageRecycle":"5590","foodWaste":"61198","recycle":"239049","other":"7","average":"0.915"},{"month":"2009M12","total":"643817","incineration":"313962","garbageBury":"13282","largeGarbageRecycle":"5565","foodWaste":"61296","recycle":"249704","other":"7","average":"0.899"},{"month":"2010M01","total":"670991","incineration":"338901","garbageBury":"13836","largeGarbageRecycle":"7365","foodWaste":"60115","recycle":"250768","other":"7","average":"0.936"},{"month":"2010M02","total":"671571","incineration":"359297","garbageBury":"15164","largeGarbageRecycle":"6993","foodWaste":"59564","recycle":"230547","other":"6","average":"1.037"},{"month":"2010M03","total":"674038","incineration":"329915","garbageBury":"14762","largeGarbageRecycle":"5636","foodWaste":"62408","recycle":"261310","other":"7","average":"0.940"},{"month":"2010M04","total":"642960","incineration":"314467","garbageBury":"13777","largeGarbageRecycle":"5729","foodWaste":"60830","recycle":"246841","other":"1316","average":"0.927"},{"month":"2010M05","total":"672954","incineration":"334249","garbageBury":"17138","largeGarbageRecycle":"6135","foodWaste":"64227","recycle":"251199","other":"7","average":"0.938"},{"month":"2010M06","total":"686566","incineration":"344352","garbageBury":"14371","largeGarbageRecycle":"6625","foodWaste":"63947","recycle":"257265","other":"7","average":"0.989"},{"month":"2010M07","total":"674449","incineration":"331610","garbageBury":"14506","largeGarbageRecycle":"7257","foodWaste":"65827","recycle":"255243","other":"7","average":"0.940"},{"month":"2010M08","total":"669168","incineration":"323818","garbageBury":"14150","largeGarbageRecycle":"6657","foodWaste":"66142","recycle":"258394","other":"7","average":"0.933"},{"month":"2010M09","total":"689302","incineration":"335753","garbageBury":"17222","largeGarbageRecycle":"8548","foodWaste":"66129","recycle":"260843","other":"807","average":"0.993"},{"month":"2010M10","total":"638173","incineration":"300518","garbageBury":"15645","largeGarbageRecycle":"7447","foodWaste":"65678","recycle":"248879","other":"7","average":"0.889"},{"month":"2010M11","total":"634052","incineration":"288684","garbageBury":"17198","largeGarbageRecycle":"6278","foodWaste":"66135","recycle":"255750","other":"7","average":"0.913"},{"month":"2010M12","total":"633376","incineration":"287077","garbageBury":"14001","largeGarbageRecycle":"5550","foodWaste":"68162","recycle":"258579","other":"7","average":"0.882"},{"month":"2011M01","total":"669127","incineration":"322138","garbageBury":"17760","largeGarbageRecycle":"9852","foodWaste":"66990","recycle":"252380","other":"7","average":"0.932"},{"month":"2011M02","total":"579427","incineration":"282685","garbageBury":"14229","largeGarbageRecycle":"4601","foodWaste":"63782","recycle":"214123","other":"6","average":"0.893"},{"month":"2011M03","total":"630674","incineration":"284573","garbageBury":"18352","largeGarbageRecycle":"6012","foodWaste":"65822","recycle":"255909","other":"6","average":"0.878"},{"month":"2011M04","total":"621122","incineration":"276972","garbageBury":"12358","largeGarbageRecycle":"5094","foodWaste":"66971","recycle":"259720","other":"6","average":"0.894"},{"month":"2011M05","total":"645598","incineration":"294537","garbageBury":"11292","largeGarbageRecycle":"5501","foodWaste":"70548","recycle":"263714","other":"6","average":"0.899"},{"month":"2011M06","total":"644114","incineration":"296265","garbageBury":"11173","largeGarbageRecycle":"6317","foodWaste":"70774","recycle":"259579","other":"6","average":"0.926"},{"month":"2011M07","total":"640912","incineration":"299283","garbageBury":"10312","largeGarbageRecycle":"7062","foodWaste":"70499","recycle":"253750","other":"6","average":"0.892"},{"month":"2011M08","total":"645523","incineration":"296319","garbageBury":"9600","largeGarbageRecycle":"6981","foodWaste":"70300","recycle":"262317","other":"6","average":"0.898"},{"month":"2011M09","total":"627089","incineration":"289489","garbageBury":"8694","largeGarbageRecycle":"7061","foodWaste":"66350","recycle":"255489","other":"6","average":"0.901"},{"month":"2011M10","total":"621275","incineration":"279523","garbageBury":"8765","largeGarbageRecycle":"7167","foodWaste":"67568","recycle":"258246","other":"6","average":"0.864"},{"month":"2011M11","total":"596078","incineration":"259332","garbageBury":"10777","largeGarbageRecycle":"7116","foodWaste":"66306","recycle":"252540","other":"6","average":"0.856"},{"month":"2011M12","total":"633650","incineration":"287505","garbageBury":"8843","largeGarbageRecycle":"7563","foodWaste":"65288","recycle":"264447","other":"6","average":"0.880"},{"month":"2012M01","total":"663145","incineration":"318630","garbageBury":"10593","largeGarbageRecycle":"7588","foodWaste":"67470","recycle":"258847","other":"17","average":"0.921"},{"month":"2012M02","total":"581227","incineration":"254533","garbageBury":"8053","largeGarbageRecycle":"6046","foodWaste":"65086","recycle":"247502","other":"7","average":"0.863"},{"month":"2012M03","total":"625485","incineration":"278802","garbageBury":"8637","largeGarbageRecycle":"7025","foodWaste":"68433","recycle":"262582","other":"7","average":"0.868"},{"month":"2012M04","total":"595741","incineration":"267364","garbageBury":"7935","largeGarbageRecycle":"6751","foodWaste":"67688","recycle":"245997","other":"6","average":"0.854"},{"month":"2012M05","total":"624899","incineration":"274088","garbageBury":"8742","largeGarbageRecycle":"7039","foodWaste":"71326","recycle":"263698","other":"6","average":"0.867"},{"month":"2012M06","total":"640348","incineration":"289514","garbageBury":"8872","largeGarbageRecycle":"6907","foodWaste":"72368","recycle":"262682","other":"6","average":"0.918"},{"month":"2012M07","total":"620990","incineration":"277878","garbageBury":"7728","largeGarbageRecycle":"7953","foodWaste":"71502","recycle":"255924","other":"6","average":"0.861"},{"month":"2012M08","total":"626361","incineration":"279670","garbageBury":"8819","largeGarbageRecycle":"9360","foodWaste":"70211","recycle":"258296","other":"6","average":"0.868"},{"month":"2012M09","total":"595516","incineration":"253637","garbageBury":"8060","largeGarbageRecycle":"7927","foodWaste":"68466","recycle":"257419","other":"6","average":"0.853"},{"month":"2012M10","total":"613300","incineration":"259450","garbageBury":"8860","largeGarbageRecycle":"7079","foodWaste":"71640","recycle":"266265","other":"6","average":"0.850"},{"month":"2012M11","total":"605045","incineration":"256114","garbageBury":"7869","largeGarbageRecycle":"8203","foodWaste":"70894","recycle":"261958","other":"6","average":"0.866"},{"month":"2012M12","total":"611852","incineration":"267574","garbageBury":"7885","largeGarbageRecycle":"7104","foodWaste":"69456","recycle":"259827","other":"6","average":"0.847"},{"month":"2013M01","total":"634231","incineration":"285083","garbageBury":"8605","largeGarbageRecycle":"8120","foodWaste":"66933","recycle":"265484","other":"6","average":"0.877"},{"month":"2013M02","total":"597573","incineration":"278109","garbageBury":"9499","largeGarbageRecycle":"6196","foodWaste":"65033","recycle":"238730","other":"6","average":"0.915"},{"month":"2013M03","total":"615770","incineration":"266933","garbageBury":"7803","largeGarbageRecycle":"5800","foodWaste":"68278","recycle":"266950","other":"6","average":"0.851"},{"month":"2013M04","total":"613496","incineration":"273477","garbageBury":"6841","largeGarbageRecycle":"6414","foodWaste":"68389","recycle":"258369","other":"6","average":"0.876"},{"month":"2013M05","total":"613277","incineration":"264877","garbageBury":"7849","largeGarbageRecycle":"7006","foodWaste":"70454","recycle":"263084","other":"6","average":"0.848"},{"month":"2013M06","total":"610220","incineration":"268879","garbageBury":"7478","largeGarbageRecycle":"6562","foodWaste":"68135","recycle":"259159","other":"6","average":"0.871"},{"month":"2013M07","total":"643080","incineration":"285548","garbageBury":"8092","largeGarbageRecycle":"8651","foodWaste":"68956","recycle":"271828","other":"6","average":"0.889"},{"month":"2013M08","total":"624524","incineration":"273663","garbageBury":"7052","largeGarbageRecycle":"6940","foodWaste":"67517","recycle":"269347","other":"6","average":"0.863"},{"month":"2013M09","total":"592806","incineration":"257769","garbageBury":"6928","largeGarbageRecycle":"7476","foodWaste":"61939","recycle":"258687","other":"6","average":"0.846"},{"month":"2013M10","total":"606793","incineration":"254716","garbageBury":"7054","largeGarbageRecycle":"7407","foodWaste":"63403","recycle":"274207","other":"6","average":"0.838"},{"month":"2013M11","total":"583401","incineration":"241141","garbageBury":"6827","largeGarbageRecycle":"6786","foodWaste":"63101","recycle":"265540","other":"6","average":"0.832"},{"month":"2013M12","total":"599406","incineration":"258519","garbageBury":"7328","largeGarbageRecycle":"6653","foodWaste":"63075","recycle":"263825","other":"6","average":"0.827"},{"month":"2014M01","total":"661470","incineration":"298125","garbageBury":"8774","largeGarbageRecycle":"7347","foodWaste":"64992","recycle":"282226","other":"6","average":"0.913"},{"month":"2014M02","total":"582868","incineration":"253420","garbageBury":"7097","largeGarbageRecycle":"3780","foodWaste":"60760","recycle":"257804","other":"6","average":"0.890"},{"month":"2014M03","total":"606147","incineration":"264120","garbageBury":"6772","largeGarbageRecycle":"5218","foodWaste":"60993","recycle":"269039","other":"6","average":"0.836"},{"month":"2014M04","total":"598134","incineration":"255984","garbageBury":"6626","largeGarbageRecycle":"5271","foodWaste":"59764","recycle":"270484","other":"6","average":"0.853"},{"month":"2014M05","total":"619557","incineration":"266883","garbageBury":"6217","largeGarbageRecycle":"4990","foodWaste":"61535","recycle":"279926","other":"6","average":"0.855"},{"month":"2014M06","total":"620332","incineration":"277195","garbageBury":"6300","largeGarbageRecycle":"5903","foodWaste":"60625","recycle":"270303","other":"6","average":"0.884"},{"month":"2014M07","total":"641095","incineration":"281291","garbageBury":"6523","largeGarbageRecycle":"5765","foodWaste":"60970","recycle":"286538","other":"8","average":"0.884"},{"month":"2014M08","total":"621297","incineration":"273004","garbageBury":"5994","largeGarbageRecycle":"5379","foodWaste":"59319","recycle":"277595","other":"6","average":"0.856"},{"month":"2014M09","total":"621172","incineration":"265693","garbageBury":"8995","largeGarbageRecycle":"6071","foodWaste":"59416","recycle":"280991","other":"6","average":"0.885"},{"month":"2014M10","total":"607449","incineration":"255810","garbageBury":"6869","largeGarbageRecycle":"6034","foodWaste":"57933","recycle":"280796","other":"6","average":"0.837"},{"month":"2014M11","total":"569058","incineration":"232157","garbageBury":"6476","largeGarbageRecycle":"4845","foodWaste":"56412","recycle":"269162","other":"6","average":"0.810"},{"month":"2014M12","total":"620859","incineration":"265775","garbageBury":"6492","largeGarbageRecycle":"5235","foodWaste":"57654","recycle":"285696","other":"6","average":"0.855"},{"month":"2015M01","total":"608176","incineration":"266883","garbageBury":"7578","largeGarbageRecycle":"5478","foodWaste":"50964","recycle":"277237","other":"36","average":"0.837"},{"month":"2015M02","total":"588467","incineration":"274532","garbageBury":"7385","largeGarbageRecycle":"5472","foodWaste":"47830","recycle":"253243","other":"6","average":"0.897"},{"month":"2015M03","total":"617597","incineration":"270293","garbageBury":"6915","largeGarbageRecycle":"5030","foodWaste":"52152","recycle":"283193","other":"15","average":"0.850"}]
 
 /***/ }
 /******/ ]);

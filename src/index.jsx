@@ -45,6 +45,6 @@ export {Xaxis as Xaxis};
 export {Yaxis as Yaxis};
 export {Legend as Legend};
 export {Grid as Grid};
-export {Axis as Axis}
-export {Label as Label}
+export {Axis as Axis};
+export {Label as Label};
 export {scale as scale};

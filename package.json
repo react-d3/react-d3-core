@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "es5": "rm -rf ./lib && babel --stage 0 src --out-dir lib"
+    "es5": "rm -rf ./lib && babel -w --stage 0 src --out-dir lib"
   },
   "author": "ElixirDoc team",
   "license": "Apache 2.0",
@@ -13,6 +13,7 @@
     "babel-core": "^5.8.24",
     "babel-loader": "^5.3.2",
     "css-loader": "^0.18.0",
+    "dsv-loader": "^1.0.0",
     "json-loader": "^0.5.3",
     "jsx-loader": "^0.13.2",
     "react-hot-loader": "^1.3.0",

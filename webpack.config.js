@@ -61,7 +61,8 @@ module.exports = [{
   name: 'react-d3-core-example-es5',
   devtool: ENV ? "source-map": '',
   entry: {
-    xaxis: './example/src_es5/xaxis.jsx'
+    xaxis: './example/src_es5/xaxis.jsx',
+    xaxis_click: './example/src_es5/xaxis_click.jsx'
   },
 
   output: {

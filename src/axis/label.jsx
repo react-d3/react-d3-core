@@ -13,6 +13,17 @@ import {
 export default class Label extends Component {
   constructor (props) {
     super(props);
+    this.state = {
+      widthSet: this.props.width,
+      heightSet: this.props.height,
+      marginsSet: this.props.margins,
+      labelOffsetSet: this.props.labelOffset,
+      labelTitleSet: this.props.labelTitle,
+      labelPositionSet: this.props.labelPosition,
+      vTransformSet: this.props.vTransform,
+      hTransformSet: this.props.hTransform,
+      textAnchor: this.props.textAnchor
+    }
   }
 
   static defaultProps = Object.assign(CommonProps, {
@@ -39,6 +50,25 @@ export default class Label extends Component {
   }
 
   componentDidMount () {
+    this._mkLabel();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // check when to rebuild label and update states
+    const keys = Object.keys(this.state);
+
+    keys.forEach((k) => {
+      var kn = k.slice(0,-3);
+      if(this.state[k] !== nextProps[kn]) {
+        this.setState({
+          [k]: kn
+        });
+        this._mkLabel();
+      }
+    })
+  }
+
+  _mkLabel() {
     const {
       height,
       width,
@@ -88,8 +118,6 @@ export default class Label extends Component {
         .style('text-anchor', textAnchor)
         .text(labelTitle)
     }
-
-
   }
 
   render() {

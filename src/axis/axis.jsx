@@ -16,10 +16,12 @@ export default class Axis extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      widthSet: this.props.width,
+      heightSet: this.props.height,
       scaleSet: this.props.scale,
       domainSet: this.props.domain,
       rangeSet: this.props.range,
-      rangeRoundBandsSet: this.props.rangeRoundBandsSet,
+      rangeRoundBandsSet: this.props.rangeRoundBands,
       showAxisSet: this.props.showAxis,
       typeSet: this.props.type,
       tickOrientSet: this.props.tickOrient,
@@ -52,17 +54,18 @@ export default class Axis extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      domain
-    } = nextProps;
-
     // check when to rebuild axis and update states
-    if(this.state.domainSet !== domain) {
-      this.setState({
-        domainSet: domain
-      });
-      this._mkAxis();
-    }
+    const keys = Object.keys(this.state);
+
+    keys.forEach((k) => {
+      var kn = k.slice(0,-3);
+      if(this.state[k] !== nextProps[kn]) {
+        this.setState({
+          [k]: kn
+        });
+        this._mkAxis();
+      }
+    })
   }
 
   _mkAxis() {
