@@ -15,22 +15,6 @@ require('../../css/axis.css');
 export default class Axis extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      widthSet: this.props.width,
-      heightSet: this.props.height,
-      scaleSet: this.props.scale,
-      domainSet: this.props.domain,
-      rangeSet: this.props.range,
-      rangeRoundBandsSet: this.props.rangeRoundBands,
-      showAxisSet: this.props.showAxis,
-      typeSet: this.props.type,
-      tickOrientSet: this.props.tickOrient,
-      tickFormatSet: this.props.tickFormat,
-      tickPaddingSet: this.props.tickPadding,
-      innerTickSizeSet: this.props.innerTickSize,
-      outerTickSizeSet: this.props.outerTickSize,
-      ticksSet: this.props.ticks,
-    }
   }
 
   static defaultProps = {
@@ -55,14 +39,24 @@ export default class Axis extends Component {
 
   componentWillReceiveProps(nextProps) {
     // check when to rebuild axis and update states
-    const keys = Object.keys(this.state);
+    const keys = [
+      'type',
+      'showAxis',
+      'scale',
+      'range',
+      'domain',
+      'range',
+      'rangeRoundBands',
+      'tickOrient',
+      'tickFormat',
+      'tickPadding',
+      'innerTickSize',
+      'outerTickSize',
+      'ticks'
+    ];
 
     keys.forEach((k) => {
-      var kn = k.slice(0,-3);
-      if(this.state[k] !== nextProps[kn]) {
-        this.setState({
-          [k]: kn
-        });
+      if(this.props[k] !== nextProps[k]) {
         this._mkAxis();
       }
     })
