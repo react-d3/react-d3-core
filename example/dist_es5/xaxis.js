@@ -30998,7 +30998,7 @@
 	  }], [{
 	    key: 'defaultProps',
 	    value: Object.assign(_commonProps2['default'], {
-	      showXaxis: true,
+	      showXAxis: true,
 	      xAxisClassName: 'react-d3-core__axis__xAxis',
 	      xScale: 'linear',
 	      xOrient: 'bottom',
@@ -31176,6 +31176,10 @@
 
 	var _label2 = _interopRequireDefault(_label);
 
+	var _commonProps = __webpack_require__(160);
+
+	var _commonProps2 = _interopRequireDefault(_commonProps);
+
 	var Yaxis = (function (_Component) {
 	  _inherits(Yaxis, _Component);
 
@@ -31260,6 +31264,38 @@
 	        axisLabel
 	      );
 	    }
+	  }], [{
+	    key: 'defaultProps',
+	    value: Object.assign(_commonProps2['default'], {
+	      showYAxis: true,
+	      yAxisClassName: 'react-d3-core__axis__xAxis',
+	      yScale: 'linear',
+	      yOrient: 'bottom',
+	      yTickOrient: 'bottom'
+	    }),
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      height: PropTypes.number.isRequired,
+	      width: PropTypes.number.isRequired,
+	      margins: PropTypes.object.isRequired,
+	      showXAxis: PropTypes.bool,
+	      y: PropTypes.func.isRequired,
+	      yDomain: PropTypes.array,
+	      yRange: PropTypes.array,
+	      yScale: PropTypes.string.isRequired,
+	      yOrient: PropTypes.oneOf(['left', 'right']),
+	      yTickOrient: PropTypes.oneOf(['left', 'right']),
+	      yAxisClassName: PropTypes.string,
+	      yInnerTickSize: PropTypes.number,
+	      yOuterTickSize: PropTypes.number,
+	      yTickPadding: PropTypes.number,
+	      yTickFormat: PropTypes.func,
+	      yTicks: PropTypes.number,
+	      setScale: PropTypes.func
+	    },
+	    enumerable: true
 	  }]);
 
 	  return Yaxis;
