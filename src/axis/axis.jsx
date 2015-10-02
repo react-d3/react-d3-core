@@ -34,7 +34,7 @@ export default class Axis extends Component {
   }
 
   componentDidMount() {
-    this._mkAxis();
+    this._mkAxis(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,24 +53,24 @@ export default class Axis extends Component {
       'innerTickSize',
       'outerTickSize',
       'ticks'
-    ];
+    ]
 
     keys.forEach((k) => {
       if(this.props[k] !== nextProps[k]) {
-        this._mkAxis();
+        this._mkAxis(nextProps);
       }
     })
   }
 
-  _mkAxis() {
+  _mkAxis(props) {
     const {
       showAxis,
       type
-    } = this.props;
+    } = props;
 
     var axisDom = d3.select(React.findDOMNode(this.refs.axisGroup))
 
-    axisDom.call(this._mkTickAxis());
+    axisDom.call(this._mkTickAxis(props));
 
     if(!showAxis) {
       axisDom.selectAll(".axis .tick text")
@@ -84,7 +84,7 @@ export default class Axis extends Component {
     }
   }
 
-  _mkTickAxis () {
+  _mkTickAxis (props) {
     const {
       type,
       tickOrient,
@@ -93,11 +93,11 @@ export default class Axis extends Component {
       innerTickSize,
       outerTickSize,
       ticks,
-    } = this.props;
+    } = props;
 
     var func = d3.svg.axis();
 
-    func.scale(this._mkScale());
+    func.scale(this._mkScale(props));
 
     if(tickOrient)
       func.orient(tickOrient);
@@ -121,13 +121,13 @@ export default class Axis extends Component {
 
   }
 
-  _mkScale () {
+  _mkScale (props) {
 
     const{
       type
-    } = this.props;
+    } = props;
 
-    var func = scale(this.props);
+    var func = scale(props);
 
     if(type === 'x' || type === 'y') {
       // if x, y set scale, not grid

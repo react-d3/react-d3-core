@@ -39,7 +39,7 @@ export default class Label extends Component {
   }
 
   componentDidMount () {
-    this._mkLabel();
+    this._mkLabel(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,12 +59,12 @@ export default class Label extends Component {
 
     keys.forEach((k) => {
       if(this.props[k] !== nextProps[k]) {
-        this._mkLabel();
+        this._mkLabel(nextProps);
       }
     })
   }
 
-  _mkLabel() {
+  _mkLabel(props) {
     const {
       height,
       width,
@@ -75,7 +75,7 @@ export default class Label extends Component {
       vTransform,
       hTransform,
       textAnchor
-    } = this.props;
+    } = props;
 
     var labelDom = d3.select(React.findDOMNode(this.refs.labelAxis))
 

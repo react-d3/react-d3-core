@@ -31,6 +31,31 @@ export default class Legend extends Component {
   }
 
   componentDidMount () {
+    this._mkLegend(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // check when to rebuild axis and update states
+    const keys = [
+      'width',
+      'height',
+      'margins',
+      'legendClassName',
+      'legendOffset',
+      'legendPosition',
+      'chartSeries'
+    ];
+
+    keys.forEach((k) => {
+      if(this.props[k] !== nextProps[k]) {
+        d3.select(React.findDOMNode(this.refs.legendArea))
+          .html('')
+        this._mkLegend(nextProps);
+      }
+    })
+  }
+
+  _mkLegend(props) {
     const {
       width,
       margins,
@@ -38,10 +63,10 @@ export default class Legend extends Component {
       legendClassName,
       legendPosition,
       legendOffset
-    } = this.props;
+    } = props;
 
-    var legendArea = d3.selectAll(React.findDOMNode(this.refs.legendArea));
-
+    var legendArea = d3.select(React.findDOMNode(this.refs.legendArea))
+      .selectAll('g');
     // make legends
     var legend = legendArea
       .data(chartSeries)

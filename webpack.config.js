@@ -62,7 +62,8 @@ module.exports = [{
   devtool: ENV ? "source-map": '',
   entry: {
     xaxis: './example/src_es5/xaxis.jsx',
-    xaxis_click: './example/src_es5/xaxis_click.jsx'
+    xaxis_click: './example/src_es5/xaxis_click.jsx',
+    legend_click: './example/src_es5/legend_click.jsx'
   },
 
   output: {
