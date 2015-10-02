@@ -24,7 +24,7 @@ export default class Xaxis extends Component {
   }
 
   static defaultProps = Object.assign(CommonProps, {
-    showXaxis: true,
+    showXAxis: true,
     xAxisClassName: 'react-d3-core__axis__xAxis',
     xScale: 'linear',
     xOrient: 'bottom',

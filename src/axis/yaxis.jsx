@@ -13,9 +13,41 @@ import {
   default as Label
 } from './label';
 
+import {
+  default as CommonProps,
+} from '../commonProps';
+
 export default class Yaxis extends Component {
   constructor (props) {
     super(props);
+  }
+
+  static defaultProps = Object.assign(CommonProps, {
+    showYAxis: true,
+    yAxisClassName: 'react-d3-core__axis__xAxis',
+    yScale: 'linear',
+    yOrient: 'bottom',
+    yTickOrient: 'bottom'
+  })
+
+  static propTypes = {
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    showXAxis: PropTypes.bool,
+    y: PropTypes.func.isRequired,
+    yDomain: PropTypes.array,
+    yRange: PropTypes.array,
+    yScale: PropTypes.string.isRequired,
+    yOrient: PropTypes.oneOf(['left', 'right']),
+    yTickOrient: PropTypes.oneOf(['left', 'right']),
+    yAxisClassName: PropTypes.string,
+    yInnerTickSize: PropTypes.number,
+    yOuterTickSize: PropTypes.number,
+    yTickPadding: PropTypes.number,
+    yTickFormat: PropTypes.func,
+    yTicks: PropTypes.number,
+    setScale: PropTypes.func
   }
 
   render() {
