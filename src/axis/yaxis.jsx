@@ -2,7 +2,8 @@
 
 import {
   default as React,
-  Component
+  Component,
+  PropTypes
 } from 'react';
 
 import {
