@@ -1,8 +1,7 @@
 "use strict";
 
 var React = require('react');
-var Legend = require('react-d3-core').Legend;
-
+var Legend = require('../../lib/index').Legend;
 
 (function() {
   var width = 960,

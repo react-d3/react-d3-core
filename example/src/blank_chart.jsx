@@ -1,23 +1,17 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-  PropTypes,
-} from 'react';
+var React = require('react');
 
-import {
-  Chart as Chart,
-  Xaxis as Xaxis,
-  Yaxis as Yaxis,
-  Legend as Legend,
-  Grid as Grid,
-  Label as Label,
-} from '../../src/index';
+var Chart = require('../../lib').Chart;
+var Xaxis = require('../../lib').Xaxis;
+var Yaxis = require('../../lib').Yaxis;
+var Legend = require('../../lib').Legend;
+var Grid = require('../../lib').Grid;
+var Label = require('../../lib').Label;
 
-export default class BlankChart extends Component {
+var BlankChart = React.createClass({
 
-  render() {
+  render: function() {
 
     return (
       <Chart {...this.props}>
@@ -29,4 +23,6 @@ export default class BlankChart extends Component {
       </Chart>
     )
   }
-}
+})
+
+module.exports = BlankChart;

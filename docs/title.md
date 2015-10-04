@@ -5,7 +5,7 @@ Your chart title.
 ## Import
 
 ```js
-var Title = require('react-d3-core');
+var Title = require('react-d3-core').Title;
 ```
 
 ## Example

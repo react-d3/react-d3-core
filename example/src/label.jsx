@@ -1,14 +1,15 @@
 "use strict";
 
 var React = require('react');
-var Label = require('react-d3-core').Label;
+var Label = require('../../lib/index').Label;
 
 (function() {
 
   var width = 960,
     height = 500,
     margins = {top: 20, right: 50, bottom: 30, left: 50},
-    labelTitle = 'new label title'
+    labelTitle = 'new label title',
+    labelPosition = 'right'
 
 
   React.render(

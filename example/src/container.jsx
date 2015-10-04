@@ -1,7 +1,7 @@
 "use strict";
 
 var React = require('react');
-var Chart = require('react-d3-core').Chart;
+var Chart = require('../../lib/index').Chart;
 
 // Example
 (function() {

@@ -1,17 +1,11 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-} from 'react';
+var React = require('react');
+var BlankChart = require('./blank_chart.jsx');
 
-import {
-  default as BlankChart
-} from './blank_chart.jsx';
+(function() {
 
-(() => {
-
-  var generalChartData = require("json!./state_age.json");
+  var generalChartData = require("json!./data/state_age.json");
   var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
 
   generalChartData.forEach(function(d) {
@@ -20,7 +14,7 @@ import {
     d.total = d.ages[d.ages.length - 1].y1;
   });
 
-  const width = 960,
+  var width = 960,
     height = 500,
     margins = {top: 20, right: 50, bottom: 20, left: 50},
     id = "test-chart",
@@ -69,24 +63,24 @@ import {
       },
 
     ],
-    x = (d) => {
+    x = function(d) {
       return d.State;
     },
     xOrient = 'bottom',
     xTickOrient = 'bottom',
-    xDomain = generalChartData.map((d) => { return d.State; }),
+    xDomain = generalChartData.map(function(d) { return d.State; }),
     xRangeRoundBands = {interval: [0, width - margins.left - margins.right], padding: .1},
-    xScale = d3.scale.ordinal(),
+    xScale = 'ordinal',
     xAxisClassName = 'x-axis',
     xLabel = "Age",
-    y = (d) => {
+    y = function(d) {
       return +d;
     },
     yOrient = 'left',
     yTickOrient = 'left',
     yRange = [height - margins.top - margins.bottom, 0],
     yDomain = [0, d3.max(generalChartData, function(d) { return d.total; })],
-    yScale = d3.scale.linear(),
+    yScale = 'linear',
     yAxisClassName = 'y-axis',
     yLabel = "Population",
     yTickFormat = d3.format(".2s");

@@ -4,10 +4,6 @@ examples = [
     "title": "Container"
   },
   {
-    "link": "container_update",
-    "title": "Container Update"
-  },
-  {
     "link": "grid",
     "title": "Grid"
   },

@@ -1,29 +1,22 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-} from 'react';
+var React = require('react');
+var Grid = require('../../lib/index').Grid;
 
-import {
-  Grid as Grid
-} from '../../src/index';
+(function() {
+  var generalChartData = require('json!./data/user_sample.json');
 
-(() => {
-
-  var generalChartData = require('json!./user_sample.json');
-
-  const width = 960,
+  var width = 960,
     height = 500,
     margins = {top: 20, right: 50, bottom: 30, left: 50},
     gridAxisClassName = "test-grid-class",
-    x = (d) => {
+    x = function(d) {
       return d.index;
     },
     xDomain = d3.extent(generalChartData, x),
     xRange = [0, width - margins.left - margins.right],
     xScale = 'linear',
-    y = (d) => {
+    y = function(d) {
       return d.age;
     },
     yDomain = d3.extent(generalChartData, y),
