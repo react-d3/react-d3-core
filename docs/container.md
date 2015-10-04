@@ -78,16 +78,10 @@ If you have new `group`, `rect`, `text` and you want to put into the `svg` that 
 For example:
 
 ```js
-import {
-  Chart as Chart
-} from 'react-d3-core';
+var React = require('react');
+var Chart = require('react-d3-core').Chart;
 
-import {
-  default as React,
-  component,
-} from 'react';
-
-(() => {
+(function() {
   React.render(
     <Chart {...this.props}>
       <g>
