@@ -16,33 +16,6 @@ npm install react-d3-core
 
 Such as we need xaxis, yaxis, grid in a new chart.  We can install `react-d3-core` and import them.
 
-```js
-
-import {
-  Chart as Chart,
-  Xaxis as Xaxis,
-  Yaxis as Yaxis,
-  Grid as Grid,
-} from 'react-d3-core';
-
-export default class NewChart extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    return (
-      <Chart {...this.props} >
-        <Xaxis {...this.props} />
-        <Yaxis {...this.props} />
-        <Grid {...this.props} />
-      </Chart>
-      )
-  }
-}
-
-```
-
 ## Supported Components
 
 #### Container
