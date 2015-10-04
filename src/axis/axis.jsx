@@ -10,8 +10,6 @@ import {
   scale as scale
 } from '../utils/scale';
 
-require('../../css/axis.css');
-
 export default class Axis extends Component {
   constructor (props) {
     super(props);

@@ -45,22 +45,26 @@ export default class ChartSvg extends Component {
       onZoom
     } = this.props;
 
-    if(xScale === 'ordinal') {
-      xScaleSet = scale({
-        scale: 'linear',
-        domain: [0, width - margins.left - margins.right],
-        range: [0, width - margins.left - margins.right]
-      })
+    // implement zoom if xscale and y scale is set!
+    if(xScaleSet && yScaleSet) {
+      if(xScale === 'ordinal') {
+        // if ordinal tramsform to linear
+        xScaleSet = scale({
+          scale: 'linear',
+          domain: [0, width - margins.left - margins.right],
+          range: [0, width - margins.left - margins.right]
+        })
+      }
+
+      var zoom = d3.behavior.zoom()
+        .x(xScaleSet)
+        .y(yScaleSet)
+        .scaleExtent([1, 10])
+        .on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet) });
+
+      d3.select(React.findDOMNode(this.refs.svgContainer))
+        .call(zoom);
     }
-
-    var zoom = d3.behavior.zoom()
-      .x(xScaleSet)
-      .y(yScaleSet)
-      .scaleExtent([1, 10])
-      .on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet) });
-
-    d3.select(React.findDOMNode(this.refs.svgContainer))
-      .call(zoom);
   }
 
   render() {
@@ -73,7 +77,7 @@ export default class ChartSvg extends Component {
       children
     } = this.props;
 
-    var t = "translate(" + margins.left + "," + margins.top + ")"
+    var t = `translate(${margins.left}, ${margins.top})`;
 
     return (
       <svg

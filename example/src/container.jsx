@@ -26,6 +26,7 @@ import {
       width= {width}
       height= {height}
       margins= {margins}
+      id= {id}
       svgClassName= {svgClassName}
       titleClassName= {titleClassName}
     />
