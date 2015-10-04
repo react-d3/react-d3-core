@@ -119,11 +119,11 @@ You can customize `Legend` component using the following properties.
 
 #### legendPosition = 'left'
 
-![legendPositionLeft](./imgs/legend-left.png)
+![legendPositionLeft](./img/legend-left.png)
 
 #### legendPosition = 'right'
 
-![legendPositionRight](./imgs/legend-right.png)
+![legendPositionRight](./img/legend-right.png)
 
 ### legendOffset
 
@@ -181,4 +181,4 @@ For instance:
 
 is the `chartSeries` of the legend shown below.
 
-![legend](./imgs/legend.png)
+![legend](./img/legend.png)
