@@ -10,6 +10,20 @@ import {
 } from 'react-d3-core';
 ```
 
+## Usage
+
+```js
+<Svg
+  width= {width}
+  height= {height}
+  margins= {margins}
+  id= {id}
+  svgClassName= {svgClassName}
+  >
+  {children}
+</Svg>
+```
+
 ## Setting props
 
 You can customize `Svg` component using the following properties.

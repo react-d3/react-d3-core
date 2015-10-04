@@ -38,6 +38,8 @@ import {
 	scale as scale
 } from './utils/scale';
 
+require('../css/axis.css')
+
 export {Svg as Svg};
 export {Title as Title};
 export {Chart as Chart};
