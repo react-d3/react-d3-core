@@ -5,9 +5,7 @@ Yaxis component documents. Yaxis is a component, which including Axis, Label com
 ## Import
 
 ```js
-import {
-  Yaxis as Yaxis
-} from 'react-d3-core';
+var Yaxis = require('react-d3-core').Yaxis;
 ```
 
 ## Settings props

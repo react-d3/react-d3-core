@@ -5,9 +5,24 @@ Your chart title.
 ## Import
 
 ```js
-import {
-  Title as Title
-} from 'react-d3-core'
+var Title = require('react-d3-core');
+```
+
+## Example
+
+```js
+var title = "test-chart",
+  titleClassName = "test-chart-class";
+
+(function() {
+  React.render(
+    <Title
+      title= {title}
+      titleClassName= {titleClassName}
+      />
+  , document.getElementById('title')
+  )
+})()
 ```
 
 ## Setting props

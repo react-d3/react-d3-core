@@ -5,23 +5,31 @@ Building a blank Svg for your charts!
 ## Import
 
 ```js
-import {
-  Svg as Svg
-} from 'react-d3-core';
+var Svg = require('react-d3-core').Svg;
 ```
 
 ## Usage
 
 ```js
-<Svg
-  width= {width}
-  height= {height}
-  margins= {margins}
-  id= {id}
-  svgClassName= {svgClassName}
-  >
-  {children}
-</Svg>
+var width = 960,
+  height = 500,
+  margins = {top: 20, right: 50, bottom: 20, left: 50},
+  id = "test-chart",
+  svgClassName = "test-chart-class";
+
+(function() {
+  React.render(
+    <Svg
+      width= {width}
+      height= {height}
+      margins= {margins}
+      id= {id}
+      svgClassName= {svgClassName}
+      >
+    </Svg>
+  , document.getElementById('new-svg')
+  )
+})()
 ```
 
 ## Setting props

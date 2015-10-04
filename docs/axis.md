@@ -5,14 +5,12 @@ Building Axis in this component.  Here is where xaxis and yaxis and grid system 
 ## Import
 
 ```js
-import {
-  Axis as Axis
-} from 'react-d3-core';
+var Axis = require('react-d3-core').Axis;
 ```
 
 ## Setting props
 
-You can customize `Axis` component using the following properties.
+You can customize `Axis` component using the following properties. Most of the time you will only use `Xaxis`, `Yaxis`.
 
 ### Basics
 

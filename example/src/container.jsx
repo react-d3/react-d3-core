@@ -1,17 +1,12 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-} from 'react';
+var React = require('react');
+var Chart = require('react-d3-core').Chart;
 
-import {
-  Chart as Chart,
-} from '../../src/index.jsx';
+// Example
+(function() {
 
-(() => {
-
-  const width = 960,
+  var width = 960,
     height = 500,
     margins = {top: 20, right: 50, bottom: 20, left: 50},
     id = "test-chart",

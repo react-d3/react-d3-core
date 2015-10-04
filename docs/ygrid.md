@@ -5,9 +5,45 @@ Grid component is where we construct your grid system into your chart. If you wa
 ## Import
 
 ```js
-import {
-  Grid as Grid
-} from 'react-d3-core';
+var Grid = require('react-d3-core').Grid;
+```
+
+## Example
+
+```js
+(function() {
+
+  var generalChartData = require('json!./user_sample.json');
+
+  var width = 960,
+    height = 500,
+    margins = {top: 20, right: 50, bottom: 30, left: 50},
+    gridAxisClassName = "test-grid-class",
+    y = function(d) {
+      return d.age;
+    },
+    yDomain = d3.extent(generalChartData, y),
+    yRange = [height - margins.top - margins.bottom, 0],
+    yScale = 'linear';
+
+
+  React.render(
+    <svg width={width} height={height}>
+      <Grid
+        width= {width}
+        height= {height}
+        margins= {margins}
+        type= {'y'}
+        gridAxisClassName= {gridAxisClassName}
+        y= {y}
+        yDomain= {yDomain}
+        yRange= {yRange}
+        yScale= {yScale}
+      />
+    </svg>
+  , document.getElementById('blank-grid')
+  )
+})()
 ```
 
 `grid` component contains:

@@ -1,17 +1,11 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-} from 'react';
+var React = require('react');
+var Label = require('react-d3-core').Label;
 
-import {
-  Label as Label
-} from '../../src/index';
+(function() {
 
-(() => {
-
-  const width = 960,
+  var width = 960,
     height = 500,
     margins = {top: 20, right: 50, bottom: 30, left: 50},
     labelTitle = 'new label title'

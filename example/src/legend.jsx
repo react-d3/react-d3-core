@@ -1,16 +1,11 @@
 "use strict";
 
-import {
-  default as React,
-  Component,
-} from 'react';
+var React = require('react');
+var Legend = require('react-d3-core').Legend;
 
-import {
-  Legend as Legend
-} from '../../src/index.jsx';
 
-(() => {
-  const width = 960,
+(function() {
+  var width = 960,
     height = 500,
     margins = {top: 40, right: 50, bottom: 40, left: 50},
     legendClassName = "test-legend-class",

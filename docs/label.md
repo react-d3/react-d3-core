@@ -5,9 +5,36 @@ Label component documents. `Label` component often goes with `Axis` component. s
 ## Import
 
 ```js
-import {
-  Label as Label
-} from 'react-d3-core'
+var Label = require('react-d3-core').Label;
+```
+
+## Example
+
+```js
+var React = require('react');
+var Label = require('react-d3-core').Label;
+
+(function() {
+
+  var width = 960,
+    height = 500,
+    margins = {top: 20, right: 50, bottom: 30, left: 50},
+    labelTitle = 'new label title'
+
+
+  React.render(
+    <svg width={width} height={height}>
+      <Label
+        width= {width}
+        height= {height}
+        margins= {margins}
+        labelTitle= {labelTitle}
+        labelPosition= {labelPosition}
+      />
+    </svg>
+  , document.getElementById('blank-label')
+  )
+})()
 ```
 
 ## Settings props
