@@ -71,7 +71,15 @@ export default class Legend extends Component {
     var legend = legendArea
       .data(chartSeries)
     .enter().append("g")
-      .attr("class", `${legendClassName} legend`)
+      .attr("class", `${legendClassName} legend`);
+
+    var bgRect = legend.append("rect")
+      .attr("x", -20)
+      .attr("y", -4)
+      .attr("width", 220)
+      .attr("height", 20)
+      .style("fill", "#EEE")
+      .style("fill-opacity", 0.3);
 
     var rect = legend.append("rect")
       .attr("width", 18)
@@ -81,7 +89,7 @@ export default class Legend extends Component {
     var text = legend.append("text")
       .attr("y", 9)
       .attr("dy", ".35em")
-      .text((d) => { return d.name; });
+      .text((d) => { return d.name.substring(0, 20); });
 
     if(legendPosition === 'right') {
       legend.attr("transform", (d, i) => { return `translate(${width - margins.right - legendOffset}, ${margins.top + i * 20})`; });
