@@ -74,7 +74,6 @@ export default class Legend extends Component {
       .attr("class", `${legendClassName} legend`);
 
     var bgRect = legend.append("rect")
-      .attr("x", -20)
       .attr("y", -4)
       .attr("width", 220)
       .attr("height", 20)
@@ -89,18 +88,25 @@ export default class Legend extends Component {
     var text = legend.append("text")
       .attr("y", 9)
       .attr("dy", ".35em")
-      .text((d) => { return d.name.substring(0, 20); });
+      .text((d) => {
+        if(d.name.length > 20)
+          return `${d.name.substring(0, 20)}...`;
+        else
+          return d.name;
+      });
 
     if(legendPosition === 'right') {
       legend.attr("transform", (d, i) => { return `translate(${width - margins.right - legendOffset}, ${margins.top + i * 20})`; });
       rect.attr("x", -18)
       text.attr("x", -24)
         .style("text-anchor", "end")
+      bgRect.attr("x", -200)
     }else if(legendPosition === 'left') {
       legend.attr("transform", (d, i) => { return `translate(${margins.left + legendOffset}, ${margins.top + i * 20})`; });
       rect.attr("x", 0)
       text.attr("x", 24)
         .style("text-anchor", "start")
+      bgRect.attr("x", -20)
     }
   }
 

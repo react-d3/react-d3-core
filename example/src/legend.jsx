@@ -8,7 +8,7 @@ var Legend = require('../../lib/index').Legend;
     height = 500,
     margins = {top: 40, right: 50, bottom: 40, left: 50},
     legendClassName = "test-legend-class",
-    legendPosition = 'left',
+    legendPosition = 'right',
     legendOffset = 90,
     chartSeries = [
       {
