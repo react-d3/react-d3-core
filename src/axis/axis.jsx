@@ -84,11 +84,6 @@ export default class Axis extends Component {
 
     var func = scale(this.props);
 
-    if(type === 'x' || type === 'y') {
-      // if x, y set scale, not grid
-      this.props.setScale(type, func);
-    }
-
     return func;
   }
 
