@@ -7,6 +7,10 @@ import {
 } from 'react';
 
 import {
+  default as ReactFauxDOM
+} from 'react-faux-dom';
+
+import {
   default as CommonProps,
 } from './commonProps';
 
@@ -30,32 +34,7 @@ export default class Legend extends Component {
     legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
   }
 
-  componentDidMount () {
-    this._mkLegend(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // check when to rebuild axis and update states
-    const keys = [
-      'width',
-      'height',
-      'margins',
-      'legendClassName',
-      'legendOffset',
-      'legendPosition',
-      'chartSeries'
-    ];
-
-    keys.forEach((k) => {
-      if(this.props[k] !== nextProps[k]) {
-        d3.select(React.findDOMNode(this.refs.legendArea))
-          .html('')
-        this._mkLegend(nextProps);
-      }
-    })
-  }
-
-  _mkLegend(props) {
+  _mkLegend(dom) {
     const {
       width,
       margins,
@@ -63,12 +42,12 @@ export default class Legend extends Component {
       legendClassName,
       legendPosition,
       legendOffset
-    } = props;
+    } = this.props;
 
-    var legendArea = d3.select(React.findDOMNode(this.refs.legendArea))
-      .selectAll('g');
+    var legendArea = d3.select(dom);
     // make legends
     var legend = legendArea
+      .selectAll('g')
       .data(chartSeries)
     .enter().append("g")
       .attr("class", `${legendClassName} legend`);
@@ -108,14 +87,21 @@ export default class Legend extends Component {
         .style("text-anchor", "start")
       bgRect.attr("x", -20)
     }
+
+    return legendArea;
   }
 
   render() {
-    return (
-      <g
-        ref= "legendArea"
-        >
-      </g>
-    )
+    const {
+      legendClassName
+    } = this.props;
+
+    var legendGroup = ReactFauxDOM.createElement('g');
+    var legendClasses = `${legendClassName} legend`;
+    legendGroup.setAttribute('class', legendClasses);
+
+    var legendDom = this._mkLegend(legendGroup);
+    
+    return legendDom.node().toReact();
   }
 }

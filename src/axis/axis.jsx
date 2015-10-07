@@ -7,6 +7,14 @@ import {
 } from 'react';
 
 import {
+  default as d3
+} from 'd3';
+
+import {
+  default as ReactFauxDOM
+} from 'react-faux-dom';
+
+import {
   scale as scale
 } from '../utils/scale';
 
@@ -31,58 +39,7 @@ export default class Axis extends Component {
     tickOrient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   }
 
-  componentDidMount() {
-    this._mkAxis(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // check when to rebuild axis and update states
-    const keys = [
-      'type',
-      'showAxis',
-      'scale',
-      'range',
-      'domain',
-      'range',
-      'rangeRoundBands',
-      'tickOrient',
-      'tickFormat',
-      'tickPadding',
-      'innerTickSize',
-      'outerTickSize',
-      'ticks'
-    ]
-
-    keys.forEach((k) => {
-      if(this.props[k] !== nextProps[k]) {
-        this._mkAxis(nextProps);
-      }
-    })
-  }
-
-  _mkAxis(props) {
-    const {
-      showAxis,
-      type
-    } = props;
-
-    var axisDom = d3.select(React.findDOMNode(this.refs.axisGroup))
-
-    axisDom.call(this._mkTickAxis(props));
-
-    if(!showAxis) {
-      axisDom.selectAll(".axis .tick text")
-        .style("opacity", "0")
-
-      if(type === 'gridx' || type === 'gridy') {
-        // hide domain in grids
-        axisDom.selectAll(".axis .domain")
-          .style("opacity", "0")
-      }
-    }
-  }
-
-  _mkTickAxis (props) {
+  _mkTickAxis () {
     const {
       type,
       tickOrient,
@@ -91,11 +48,11 @@ export default class Axis extends Component {
       innerTickSize,
       outerTickSize,
       ticks,
-    } = props;
+    } = this.props;
 
     var func = d3.svg.axis();
 
-    func.scale(this._mkScale(props));
+    func.scale(this._mkScale(this.props));
 
     if(tickOrient)
       func.orient(tickOrient);
@@ -119,13 +76,13 @@ export default class Axis extends Component {
 
   }
 
-  _mkScale (props) {
+  _mkScale () {
 
     const{
       type
-    } = props;
+    } = this.props;
 
-    var func = scale(props);
+    var func = scale(this.props);
 
     if(type === 'x' || type === 'y') {
       // if x, y set scale, not grid
@@ -136,11 +93,15 @@ export default class Axis extends Component {
   }
 
   render () {
+
     const {
+      showAxis,
       gridAxisClassName,
       axisClassName,
       type
     } = this.props;
+
+    var axisGroup = ReactFauxDOM.createElement('g');
 
     if(type === 'x')
       var axisClasses = `${axisClassName} axis x`
@@ -149,11 +110,22 @@ export default class Axis extends Component {
     else if(type === 'gridx' || type === 'gridy')
       var axisClasses = `${gridAxisClassName} grid-axis axis`
 
-    return (
-      <g
-        className = {axisClasses}
-        ref = 'axisGroup'
-      ></g>
-    )
+    axisGroup.setAttribute('class', axisClasses);
+
+    var axisDom = d3.select(axisGroup);
+
+    axisDom.call(this._mkTickAxis());
+
+    if(!showAxis) {
+      axisDom.selectAll(".axis .tick text")
+        .style("opacity", "0")
+      if(type === 'gridx' || type === 'gridy') {
+        // hide domain in grids
+        axisDom.selectAll(".axis .domain")
+          .style("opacity", "0")
+      }
+    }
+
+    return axisDom.node().toReact();
   }
 }

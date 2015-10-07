@@ -7,6 +7,14 @@ import {
 } from 'react';
 
 import {
+  default as d3
+} from 'd3';
+
+import {
+  default as ReactFauxDOM
+} from 'react-faux-dom';
+
+import {
   default as CommonProps,
 } from '../commonProps';
 
@@ -38,33 +46,7 @@ export default class Label extends Component {
     labelClassName: PropTypes.string
   }
 
-  componentDidMount () {
-    this._mkLabel(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // check when to rebuild label and update states
-    const keys = [
-      'width',
-      'height',
-      'margins',
-      'hTransform',
-      'vTransform',
-      'textAnchor',
-      'labelTitle',
-      'labelPosition',
-      'labelOffset',
-      'labelClassName'
-    ];
-
-    keys.forEach((k) => {
-      if(this.props[k] !== nextProps[k]) {
-        this._mkLabel(nextProps);
-      }
-    })
-  }
-
-  _mkLabel(props) {
+  _mkLabel(dom) {
     const {
       height,
       width,
@@ -75,9 +57,9 @@ export default class Label extends Component {
       vTransform,
       hTransform,
       textAnchor
-    } = props;
+    } = this.props;
 
-    var labelDom = d3.select(React.findDOMNode(this.refs.labelAxis))
+    var labelDom = d3.select(dom)
 
     if (labelPosition === 'top') {
 
@@ -114,15 +96,21 @@ export default class Label extends Component {
         .style('text-anchor', textAnchor)
         .text(labelTitle)
     }
+
+    return labelDom;
   }
 
   render() {
-    return (
-      <text
-        ref="labelAxis"
-        >
+    const {
+      labelClassName
+    } = this.props;
 
-      </text>
-    )
+    var labelText = ReactFauxDOM.createElement('text');
+    var labelClasses = `${labelClassName} label`;
+    labelText.setAttribute('class', labelClasses);
+
+    var labelDom = this._mkLabel(labelText);
+
+    return labelDom.node().toReact();
   }
 }

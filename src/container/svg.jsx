@@ -7,6 +7,10 @@ import {
 } from 'react';
 
 import {
+  default as d3
+} from 'd3';
+
+import {
   default as CommonProps,
 } from '../commonProps';
 

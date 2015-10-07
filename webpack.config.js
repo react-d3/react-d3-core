@@ -48,13 +48,7 @@ module.exports = [{
   },
 
   plugins: ENV ? [
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new webpack.ProvidePlugin({
-      'd3': 'd3'
-    })
-  ]: [
-    new webpack.ProvidePlugin({
-      'd3': 'd3'
-    })
-  ]
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
+  ]:[]
+
 }];
