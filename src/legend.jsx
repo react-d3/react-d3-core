@@ -7,6 +7,10 @@ import {
 } from 'react';
 
 import {
+  default as d3
+} from 'd3';
+
+import {
   default as ReactFauxDOM
 } from 'react-faux-dom';
 
@@ -101,7 +105,7 @@ export default class Legend extends Component {
     legendGroup.setAttribute('class', legendClasses);
 
     var legendDom = this._mkLegend(legendGroup);
-    
+
     return legendDom.node().toReact();
   }
 }
