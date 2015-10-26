@@ -1,6 +1,6 @@
 {
   "name": "react-d3-core",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "react-d3 chart core component",
   "main": "./lib/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "d3": "^3.5.6",
     "react": "^0.14.0",
-    "react-faux-dom": "^1.1.0"
+    "react-faux-dom": "^2.0.1"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/babel-jest",
