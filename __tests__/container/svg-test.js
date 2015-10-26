@@ -3,19 +3,21 @@ jest.dontMock('./svg_change');
 
 import {
   default as React
-} from 'react/addons';
+} from 'react';
+
+import {
+  default as TestUtils
+} from 'react-addons-test-utils';
 
 const d3 = require('d3');
 const Svg = require('../../lib/container/svg');
 const SvgClick = require('./svg_change');
 
-var TestUtils = React.addons.TestUtils;
 var width = 960,
   height = 500,
   margins = {top: 20, right: 50, bottom: 20, left: 50},
   id = "test-chart",
   svgClassName = "test-chart-class";
-
 
 describe('SVG', () => {
 
@@ -40,14 +42,10 @@ describe('SVG', () => {
       newSvg,
       "g"
     );
-
-    var findDom = svgDom.getDOMNode();
-    var findgDom = gDom.getDOMNode();
-
-    expect(findDom.id).toEqual(id);
-    expect(+findDom.getAttribute('width')).toEqual(width);
-    expect(+findDom.getAttribute('height')).toEqual(height);
-    expect(findgDom.getAttribute('transform')).toEqual('translate(' + margins.left + ', ' + margins.top + ')');
+    expect(svgDom.id).toEqual(id);
+    expect(+svgDom.getAttribute('width')).toEqual(width);
+    expect(+svgDom.getAttribute('height')).toEqual(height);
+    expect(gDom.getAttribute('transform')).toEqual('translate(' + margins.left + ', ' + margins.top + ')');
 
   })
 
@@ -74,15 +72,12 @@ describe('SVG', () => {
       "g"
     );
 
-    var findDom = svgDom.getDOMNode();
-    var findgDom = gDom.getDOMNode();
-
     clickSvg._onClick();
 
-    expect(findDom.id).toEqual(id + '1');
-    expect(+findDom.getAttribute('width')).toEqual(width + 100);
-    expect(+findDom.getAttribute('height')).toEqual(height + 100);
-    expect(findgDom.getAttribute('transform')).toEqual('translate(' + margins.left + ', ' + (+margins.top + 10) + ')');
+    expect(svgDom.id).toEqual(id + '1');
+    expect(+svgDom.getAttribute('width')).toEqual(width + 100);
+    expect(+svgDom.getAttribute('height')).toEqual(height + 100);
+    expect(gDom.getAttribute('transform')).toEqual('translate(' + margins.left + ', ' + (+margins.top + 10) + ')');
   })
 
   it('svg with children', () => {
@@ -104,9 +99,7 @@ describe('SVG', () => {
       "test-rect"
     );
 
-    var findRectDom = rectDom.getDOMNode();
-
-    expect(+findRectDom.getAttribute('width')).toEqual(100);
-    expect(+findRectDom.getAttribute('height')).toEqual(100);
+    expect(+rectDom.getAttribute('width')).toEqual(100);
+    expect(+rectDom.getAttribute('height')).toEqual(100);
   })
 })

@@ -2,13 +2,14 @@ jest.dontMock('../lib/chartContainer.js');
 
 import {
   default as React
-} from 'react/addons';
+} from 'react';
+
+import {
+  default as TestUtils
+} from 'react-addons-test-utils';
 
 const d3 = require('d3');
 const ChartContainer = require('../lib/chartContainer');
-
-
-var TestUtils = React.addons.TestUtils;
 
 var width = 960,
   height = 500,
@@ -38,10 +39,7 @@ describe('Container', () => {
       "div"
     );
 
-
-    var findDom = containerDom.getDOMNode();
-
-    expect(findDom.children.length).toEqual(2);
+    expect(containerDom.children.length).toEqual(2);
 
   })
 })

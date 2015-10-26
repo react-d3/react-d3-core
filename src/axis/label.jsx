@@ -89,6 +89,7 @@ export default class Label extends Component {
         .text(labelTitle)
 
     }else if (labelPosition === 'right') {
+
       labelDom
         .attr('transform', vTransform)
         .attr('y', +labelOffset)

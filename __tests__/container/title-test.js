@@ -3,14 +3,16 @@ jest.dontMock('./title_change');
 
 import {
   default as React
-} from 'react/addons';
+} from 'react';
+
+import {
+  default as TestUtils
+} from 'react-addons-test-utils';
 
 const d3 = require('d3');
 const Title = require('../../lib/container/title');
 const TitleChange = require('./title_change');
 
-
-var TestUtils = React.addons.TestUtils;
 var title = "test-chart",
   titleClassName = "test-chart-class";
 
@@ -30,10 +32,7 @@ describe('Title', () => {
       "test-chart-class"
     );
 
-
-    var findDom = titleDom.getDOMNode();
-
-    expect(findDom.textContent).toEqual('test-chart');
+    expect(titleDom.textContent).toEqual('test-chart');
 
   })
 
@@ -51,12 +50,9 @@ describe('Title', () => {
       "test-chart-class"
     );
 
-
-    var findDom = titleDom.getDOMNode();
-
     newTitle._onClick();
 
-    expect(findDom.textContent).toEqual('test-chart1');
+    expect(titleDom.textContent).toEqual('test-chart1');
 
   })
 })
