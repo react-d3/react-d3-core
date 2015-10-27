@@ -25,10 +25,10 @@ export default class Yaxis extends Component {
 
   static defaultProps = Object.assign(CommonProps, {
     showYAxis: true,
-    yAxisClassName: 'react-d3-core__axis__xAxis',
+    yAxisClassName: 'react-d3-core__axis__yAxis',
     yScale: 'linear',
-    yOrient: 'bottom',
-    yTickOrient: 'bottom'
+    yOrient: 'left',
+    yTickOrient: 'left'
   })
 
   static propTypes = {
