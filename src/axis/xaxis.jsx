@@ -28,7 +28,8 @@ export default class Xaxis extends Component {
     xAxisClassName: 'react-d3-core__axis__xAxis',
     xScale: 'linear',
     xOrient: 'bottom',
-    xTickOrient: 'bottom'
+    xTickOrient: 'bottom',
+    xLabelPosition: 'bottom'
   })
 
   static propTypes = {
@@ -47,8 +48,7 @@ export default class Xaxis extends Component {
     xOuterTickSize: PropTypes.number,
     xTickPadding: PropTypes.number,
     xTickFormat: PropTypes.func,
-    xTicks: PropTypes.number,
-    setScale: PropTypes.func
+    xTicks: PropTypes.number
   }
 
   render() {
@@ -70,7 +70,6 @@ export default class Xaxis extends Component {
       xOuterTickSize,
       xTickFormat,
       xTicks,
-      setScale,
       xLabel,
       xLabelPosition,
       labelOffset
@@ -120,7 +119,6 @@ export default class Xaxis extends Component {
           innerTickSize = {xInnerTickSize}
           outerTickSize = {xOuterTickSize}
           ticks = {xTicks}
-          setScale = {setScale}
           />
         {axisLabel}
       </g>
