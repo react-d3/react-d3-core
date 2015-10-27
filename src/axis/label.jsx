@@ -28,7 +28,7 @@ export default class Label extends Component {
     vTransform: 'rotate(270)',
     labelTitle: 'label title',
     labelPosition: 'bottom',
-    labelOffset: 35,
+    labelOffset: 40,
     textAnchor: 'end',
     labelClassName: 'react-d3-core__label'
   })

@@ -28,7 +28,8 @@ export default class Yaxis extends Component {
     yAxisClassName: 'react-d3-core__axis__yAxis',
     yScale: 'linear',
     yOrient: 'left',
-    yTickOrient: 'left'
+    yTickOrient: 'left',
+    yLabelPosition: 'left'
   })
 
   static propTypes = {
