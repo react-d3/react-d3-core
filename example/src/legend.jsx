@@ -1,16 +1,11 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Legend = require('../../lib/index').Legend;
 
 (function() {
-  var width = 960,
-    height = 500,
-    margins = {top: 40, right: 50, bottom: 40, left: 50},
-    legendClassName = "test-legend-class",
-    legendPosition = 'right',
-    legendOffset = 90,
-    chartSeries = [
+  var chartSeries = [
       {
         field: 'Under 5 Years',
         name: 'Under 5 Years',
@@ -49,19 +44,16 @@ var Legend = require('../../lib/index').Legend;
 
     ]
 
-  React.render(
-    <svg width= {width} height= {height}>
-      <rect height= {"100%"} width= {"100%"} fill= {"#CCC"} />
+  ReactDOM.render(
+    <div>
+      <svg width= {960} height= {500}>
+        <rect height= {"100%"} width= {"100%"} fill= {"#CCC"} />
+      </svg>
       <Legend
-        width= {width}
-        height= {height}
-        margins= {margins}
-        legendClassName= {legendClassName}
-        legendPosition= {legendPosition}
-        legendOffset= {legendOffset}
+        width= {960}
         chartSeries = {chartSeries}
       />
-    </svg>
+    </div>
   , document.getElementById('blank-legend')
   )
 })()

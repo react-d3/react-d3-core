@@ -29,7 +29,7 @@ export default class Label extends Component {
     labelTitle: 'label title',
     labelPosition: 'bottom',
     labelOffset: 40,
-    textAnchor: 'end',
+    textAnchor: 'middle',
     labelClassName: 'react-d3-core__label'
   })
 
@@ -50,7 +50,7 @@ export default class Label extends Component {
     const {
       height,
       width,
-      marigns,
+      margins,
       labelOffset,
       labelTitle,
       labelPosition,
@@ -59,14 +59,16 @@ export default class Label extends Component {
       textAnchor
     } = this.props;
 
-    var labelDom = d3.select(dom)
+    var labelDom = d3.select(dom);
+    var fixWidth = width - margins.left - margins.right;
+    var fixHeight = height - margins.top - margins.bottom;
 
     if (labelPosition === 'top') {
 
       labelDom
         .attr('transform', hTransform)
         .attr('y', -labelOffset)
-        .attr('x', width / 2)
+        .attr('x', fixWidth / 2)
         .style('text-anchor', textAnchor)
         .text(labelTitle)
 
@@ -75,7 +77,7 @@ export default class Label extends Component {
       labelDom
         .attr('transform', hTransform)
         .attr('y', +labelOffset)
-        .attr('x', width / 2)
+        .attr('x', fixWidth / 2)
         .style('text-anchor', textAnchor)
         .text(labelTitle)
 
@@ -84,7 +86,7 @@ export default class Label extends Component {
       labelDom
         .attr('transform', vTransform)
         .attr('y', -labelOffset)
-        .attr('x', -height / 2)
+        .attr('x', -fixHeight / 2)
         .style('text-anchor', textAnchor)
         .text(labelTitle)
 
@@ -93,7 +95,7 @@ export default class Label extends Component {
       labelDom
         .attr('transform', vTransform)
         .attr('y', +labelOffset)
-        .attr('x', -height / 2)
+        .attr('x', -fixHeight / 2)
         .style('text-anchor', textAnchor)
         .text(labelTitle)
     }

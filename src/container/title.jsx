@@ -36,7 +36,8 @@ export default class ChartTitle extends Component {
     var titleStyle = {
       width: width,
       textAlign: 'center',
-      fontSize: '2em'
+      fontSize: '2em',
+      paddingBottom: '1.3em'
     }
 
     return (

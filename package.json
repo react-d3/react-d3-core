@@ -27,6 +27,7 @@
   "dependencies": {
     "d3": "^3.5.6",
     "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "react-faux-dom": "^2.0.1"
   },
   "jest": {

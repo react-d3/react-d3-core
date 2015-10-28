@@ -29,7 +29,10 @@ export default class Xaxis extends Component {
     xScale: 'linear',
     xOrient: 'bottom',
     xTickOrient: 'bottom',
-    xLabelPosition: 'bottom'
+    xLabelPosition: 'bottom',
+    xTickPadding: 3,
+    xInnerTickSize: 6,
+    xOuterTickSize: 6
   })
 
   static propTypes = {
@@ -52,7 +55,7 @@ export default class Xaxis extends Component {
   }
 
   render() {
-    const {
+    var {
       height,
       width,
       margins,
@@ -77,6 +80,10 @@ export default class Xaxis extends Component {
 
     var t;
     var axisLabel;
+
+    if(!xRange) {
+      xRange = [0, width - margins.left - margins.right];
+    }
 
     if (xOrient === 'bottom') {
       // x - bottom

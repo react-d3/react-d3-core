@@ -1,23 +1,18 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Label = require('../../lib/index').Label;
 
 (function() {
 
-  var width = 960,
-    height = 500,
-    margins = {top: 20, right: 50, bottom: 30, left: 50},
-    labelTitle = 'new label title',
+  var labelTitle = 'new label title',
     labelPosition = 'right'
 
 
-  React.render(
-    <svg width={width} height={height}>
+  ReactDOM.render(
+    <svg width={960} height={500}>
       <Label
-        width= {width}
-        height= {height}
-        margins= {margins}
         labelTitle= {labelTitle}
         labelPosition= {labelPosition}
       />

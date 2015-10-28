@@ -24,6 +24,7 @@ export default class Legend extends Component {
   }
 
   static defaultProps = Object.assign(CommonProps, {
+    legendHeight: 50,
     legendPosition: 'left',
     legendOffset: 90,
     legendClassName: 'react-d3-core__legend'
@@ -49,48 +50,32 @@ export default class Legend extends Component {
     } = this.props;
 
     var legendArea = d3.select(dom);
+
     // make legends
     var legend = legendArea
-      .selectAll('g')
+      .selectAll('div')
       .data(chartSeries)
-    .enter().append("g")
-      .attr("class", `${legendClassName} legend`);
+    .enter().append("div")
+      .attr("class", `${legendClassName} legend`)
+      .style("width", 120)
+      .style("height", 30)
+      .style("padding", 5)
+      .style("float", legendPosition);
 
-    var bgRect = legend.append("rect")
-      .attr("y", -4)
-      .attr("width", 220)
-      .attr("height", 20)
-      .style("fill", "#EEE")
-      .style("fill-opacity", 0.3);
+    var rect = legend.append("div")
+      .style("width", 18)
+      .style("height", 18)
+      .style("background-color", (d) => { return d.color; })
+      .style("float", legendPosition);
 
-    var rect = legend.append("rect")
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", (d) => { return d.color; });
-
-    var text = legend.append("text")
-      .attr("y", 9)
-      .attr("dy", ".35em")
+    var text = legend.append("span")
+      .style("width", 92)
+      .style("padding-left", 5)
+      .style("padding-right", 5)
       .text((d) => {
-        if(d.name.length > 20)
-          return `${d.name.substring(0, 20)}...`;
-        else
-          return d.name;
-      });
-
-    if(legendPosition === 'right') {
-      legend.attr("transform", (d, i) => { return `translate(${width - margins.right - legendOffset}, ${margins.top + i * 20})`; });
-      rect.attr("x", -18)
-      text.attr("x", -24)
-        .style("text-anchor", "end")
-      bgRect.attr("x", -200)
-    }else if(legendPosition === 'left') {
-      legend.attr("transform", (d, i) => { return `translate(${margins.left + legendOffset}, ${margins.top + i * 20})`; });
-      rect.attr("x", 0)
-      text.attr("x", 24)
-        .style("text-anchor", "start")
-      bgRect.attr("x", -20)
-    }
+        return d.name;
+      })
+      .style("float", legendPosition);
 
     return legendArea;
   }
@@ -100,8 +85,9 @@ export default class Legend extends Component {
       legendClassName
     } = this.props;
 
-    var legendGroup = ReactFauxDOM.createElement('g');
+    var legendGroup = ReactFauxDOM.createElement('div');
     var legendClasses = `${legendClassName} legend`;
+
     legendGroup.setAttribute('class', legendClasses);
 
     var legendDom = this._mkLegend(legendGroup);

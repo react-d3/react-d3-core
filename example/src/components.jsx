@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var BlankChart = require('./blank_chart.jsx');
 
 (function() {
@@ -16,7 +17,7 @@ var BlankChart = require('./blank_chart.jsx');
 
   var width = 960,
     height = 500,
-    margins = {top: 20, right: 50, bottom: 20, left: 50},
+    margins = {top: 50, right: 50, bottom: 100, left: 100},
     id = "test-chart",
     title = "test chart lib",
     svgClassName = "test-chart-class",
@@ -78,14 +79,13 @@ var BlankChart = require('./blank_chart.jsx');
     },
     yOrient = 'left',
     yTickOrient = 'left',
-    yRange = [height - margins.top - margins.bottom, 0],
     yDomain = [0, d3.max(generalChartData, function(d) { return d.total; })],
     yScale = 'linear',
     yAxisClassName = 'y-axis',
     yLabel = "Population",
     yTickFormat = d3.format(".2s");
 
-  React.render(
+  ReactDOM.render(
     <BlankChart
       title= {title}
       data= {generalChartData}
@@ -93,8 +93,8 @@ var BlankChart = require('./blank_chart.jsx');
       height= {height}
       id= {id}
       margins= {margins}
+      labelOffset = {70}
       svgClassName= {svgClassName}
-      labelOffset = {30}
       titleClassName= {titleClassName}
       yAxisClassName= {yAxisClassName}
       xAxisClassName= {xAxisClassName}
@@ -124,7 +124,6 @@ var BlankChart = require('./blank_chart.jsx');
       y= {y}
       showYGrid= {true}
       yOrient= {yOrient}
-      yRange= {yRange}
       yDomain= {yDomain}
       yScale= {yScale}
       yTickOrient= {yTickOrient}

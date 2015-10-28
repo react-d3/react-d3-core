@@ -29,7 +29,10 @@ export default class Yaxis extends Component {
     yScale: 'linear',
     yOrient: 'left',
     yTickOrient: 'left',
-    yLabelPosition: 'left'
+    yLabelPosition: 'left',
+    yTickPadding: 3,
+    yInnerTickSize: 6,
+    yOuterTickSize: 6
   })
 
   static propTypes = {
@@ -52,7 +55,7 @@ export default class Yaxis extends Component {
   }
 
   render() {
-    const {
+    var {
       width,
       height,
       margins,
@@ -77,6 +80,10 @@ export default class Yaxis extends Component {
 
     var t;
     var axisLabel;
+
+    if(!yRange) {
+      yRange = [height - margins.top - margins.bottom, 0];
+    }
 
     if (yOrient === 'right') {
       // y - right

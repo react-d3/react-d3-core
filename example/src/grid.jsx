@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Grid = require('../../lib/index').Grid;
 
 (function() {
@@ -24,7 +25,7 @@ var Grid = require('../../lib/index').Grid;
     yScale = 'linear';
 
 
-  React.render(
+  ReactDOM.render(
     <svg width={width} height={height}>
       <Grid
         width= {width}

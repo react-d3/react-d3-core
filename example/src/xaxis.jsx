@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Xaxis = require('../../lib').Xaxis;
 
 (function() {
@@ -13,38 +14,22 @@ var Xaxis = require('../../lib').Xaxis;
     d.total = d.ages[d.ages.length - 1].y1;
   });
 
-  var width = 960,
-    height = 500,
-    margins = {top: 20, right: 50, bottom: 20, left: 50},
-    showXAxis = true,
-    x = function(d) {
+  var x = function(d) {
       return d.State;
     },
-    xOrient = 'bottom',
-    xTickOrient = 'bottom',
     xDomain = generalChartData.map(function(d) { return d.State; }),
-    xRangeRoundBands = {interval: [0, width - margins.left - margins.right], padding: .1},
+    xRangeRoundBands = {interval: [0, 860], padding: .1},
     xScale = 'ordinal',
     xLabel = "Age";
 
-  React.render(
-    <svg width={width} height={height}>
+  ReactDOM.render(
+    <svg width={960} height={500}>
       <Xaxis
-        width= {width}
-        height= {height}
-        margins= {margins}
-        showXAxis= {showXAxis}
         x= {x}
         xDomain= {xDomain}
         xRangeRoundBands= {xRangeRoundBands}
         xScale= {xScale}
-        xOrient= {xOrient}
-        xTickOrient= {xTickOrient}
-        xTickPadding = {3}
-        xInnerTickSize = {6}
-        xOuterTickSize = {6}
         xLabel = {xLabel}
-        xLabelPosition = 'bottom'
       />
     </svg>
   , document.getElementById('blank-xaxis')

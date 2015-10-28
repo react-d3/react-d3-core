@@ -96,7 +96,7 @@ You can customize `Xaxis` component using the following properties.
 
 ### margins
 
-**default as `{top: 20, right: 50, bottom: 20, left: 50}` (object)**
+**default as `{top: 50, right: 50, bottom: 50, left: 50}` (object)**
 
 `margins` prop is the margins of the parent `svg` that wrap the legend component.
 

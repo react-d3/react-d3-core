@@ -21,7 +21,6 @@ export default class Grid extends Component {
 
   static defaultProps = Object.assign(CommonProps, {
     type: 'x',
-    legendOffset: 90,
     gridAxisClassName: 'react-d3-core__grid_axis'
   })
 
@@ -45,7 +44,7 @@ export default class Grid extends Component {
 
   render() {
 
-    const {
+    var {
       height,
       width,
       margins,
@@ -65,6 +64,14 @@ export default class Grid extends Component {
 
     var gridAxis;
     var t;
+
+    if(!yRange) {
+      yRange = [height - margins.top - margins.bottom, 0];
+    }
+
+    if(!xRange) {
+      xRange = [0, width - margins.left - margins.right];
+    }
 
     if(type === 'x') {
       t = `translate(0, ${height - margins.bottom - margins.top})`;

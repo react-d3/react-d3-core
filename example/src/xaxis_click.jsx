@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Xaxis = require('../../lib/index.js').Xaxis;
 
 (function() {
@@ -61,7 +62,7 @@ var Xaxis = require('../../lib/index.js').Xaxis;
     }
   })
 
-  React.render(
+  ReactDOM.render(
     <ClickAxis />
   , document.getElementById('click-xaxis')
   )

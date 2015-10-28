@@ -17,9 +17,8 @@ var BlankChart = React.createClass({
       <Chart {...this.props}>
         <Grid type="x" {...this.props} {...this.state} />
         <Grid type="y" {...this.props} {...this.state} />
-        <Legend {...this.props} {...this.state} />
-        <Xaxis {...this.props} {...this.state} setScale={this.setScale} />
-        <Yaxis {...this.props} {...this.state} setScale={this.setScale} />
+        <Xaxis {...this.props} {...this.state} />
+        <Yaxis {...this.props} {...this.state} />
       </Chart>
     )
   }

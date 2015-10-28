@@ -24,7 +24,6 @@ export default class Axis extends Component {
   }
 
   static defaultProps = {
-    setScale: (type, func) => {},
     range: null,
     rangeRoundBands: null,
     domain: null,
