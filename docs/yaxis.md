@@ -47,7 +47,7 @@ You can customize `Yaxis` component using the following properties.
 
 ### margins
 
-**default as `{top: 20, right: 50, bottom: 20, left: 50}` (object)**
+**default as `{top: 50, right: 50, bottom: 50, left: 50}` (object)**
 
 `margins` prop is the margins of the parent `svg` that wrap the legend component.
 
@@ -122,11 +122,15 @@ Your `yDomain` prop is to set your yaxis domain, which is your input domain of y
 
 **Required (array)**
 
+**default as `[height - margins.top - margins.bottom, 0]`**
+
 Your `yRange` prop is to set your axis range, which is your output range of your y scale. In most cases, it is `[height - margins.top - margins.bottom, 0]`
 
 #### yScale
 
 **Required a d3 scale (should be one of the types )**
+
+**default as `linear`**
 
 We support scale types:
 

@@ -57,17 +57,17 @@ var Legend = require('react-d3-core').Legend;
     ]
 
   React.render(
+    <Legend
+      width= {width}
+      height= {height}
+      margins= {margins}
+      legendClassName= {legendClassName}
+      legendPosition= {legendPosition}
+      legendOffset= {legendOffset}
+      chartSeries = {chartSeries}
+    />
     <svg width= {width} height= {height}>
       <rect height= {"100%"} width= {"100%"} fill= {"#CCC"} />
-      <Legend
-        width= {width}
-        height= {height}
-        margins= {margins}
-        legendClassName= {legendClassName}
-        legendPosition= {legendPosition}
-        legendOffset= {legendOffset}
-        chartSeries = {chartSeries}
-      />
     </svg>
   , document.getElementById('blank-legend')
   )
@@ -101,7 +101,7 @@ You can customize `Legend` component using the following properties.
 
 ### margins
 
-**default as `{top: 20, right: 50, bottom: 20, left: 50}`**
+**default as `{top: 50, right: 50, bottom: 50, left: 50}`**
 
 `margins` prop is the margins of the parent `svg` that wrap the legend component.
 
@@ -115,15 +115,15 @@ You can customize `Legend` component using the following properties.
 
 **default as `left`**
 
-`legendPosition` can be set as `left` or `right`, which will automatically set your legend to the left or right of your chart.
+`legendPosition` can be set as `left` or `right`, which will automatically set your legend align form the left or right of your chart.
 
 #### legendPosition = 'left'
 
-![legendPositionLeft](./img/legend-left.png)
+Align legend from left.
 
 #### legendPosition = 'right'
 
-![legendPositionRight](./img/legend-right.png)
+Align legend from right.
 
 ### legendOffset
 
@@ -180,5 +180,3 @@ For instance:
 ```
 
 is the `chartSeries` of the legend shown below.
-
-![legend](./img/legend.png)

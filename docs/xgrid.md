@@ -81,7 +81,7 @@ You can customize `Grid` component using the following properties.
 
 ### margins
 
-**default as `{top: 20, right: 50, bottom: 20, left: 50}` (object)**
+**default as `{top: 50, right: 50, bottom: 50, left: 50}` (object)**
 
 `margins` prop is the margins of the parent `svg` that wrap the legend component.
 
@@ -162,11 +162,15 @@ Your `xDomain` prop is to set your xaxis domain, which is your input domain of y
 
 **Required (array)**
 
+**Default as `[0, width - margins.left - margins.right]`**
+
 Your `xRange` prop is to set your axis range, which is your output range of your x scale. In most cases, it is `[0, width - margins.left - margins.right]`
 
 #### xScale
 
 **Required a d3 scale (should be one of the types )**
+
+**Default as `linear`**
 
 We support scale types:
 
