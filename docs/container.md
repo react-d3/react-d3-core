@@ -47,6 +47,7 @@ var Chart = require('react-d3-core').Chart;
 
 - [Svg](./svg.md)
 - [Title](./title.md)
+- [Legend](./legend.md)
 
 
 ## Settings props
@@ -69,6 +70,10 @@ see detail in [Title component](./title.md)
 
 - title
 - titleClassName
+
+#### Legend
+
+see detail in [Legend component](./legend.md)
 
 
 ## New components or html tags in svg
