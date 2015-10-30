@@ -39,6 +39,32 @@ export default class Legend extends Component {
     legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
   }
 
+  _series(props) {
+    var {
+      chartSeries,
+      categoricalColors
+    } = props;
+
+    categoricalColors = categoricalColors || d3.scale.category10();
+
+    var series = chartSeries.map((f, i) => {
+
+      // set a color if not set
+      f.color = f.color || categoricalColors(i);
+
+      // set name if not set
+      f.name = f.name || f.field;
+
+      return {
+        color: f.color,
+        name: f.name,
+        field: f.field
+      }
+    })
+
+    return series;
+  }
+
   _mkLegend(dom) {
     const {
       width,
@@ -50,11 +76,12 @@ export default class Legend extends Component {
     } = this.props;
 
     var legendArea = d3.select(dom);
+    var series = this._series(this.props);
 
     // make legends
     var legend = legendArea
       .selectAll('div')
-      .data(chartSeries)
+      .data(series)
     .enter().append("div")
       .attr("class", `${legendClassName} legend`)
       .style("width", 120)

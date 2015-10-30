@@ -7,14 +7,10 @@ var Legend = require('../../lib/index').Legend;
 (function() {
   var chartSeries = [
       {
-        field: 'Under 5 Years',
-        name: 'Under 5 Years',
-        color: '#1f77b4'
+        field: 'Under 5 Years'
       },
       {
-        field: '5 to 13 Years',
-        name: '5 to 13 Years',
-        color: '#ff7f0e'
+        field: '5 to 13 Years'
       },
       {
         field: '14 to 17 Years',
