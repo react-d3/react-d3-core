@@ -51,7 +51,7 @@ export default class Yaxis extends Component {
     yOuterTickSize: PropTypes.number,
     yTickPadding: PropTypes.number,
     yTickFormat: PropTypes.func,
-    yTicks: PropTypes.number
+    yTicks: PropTypes.array
   }
 
   render() {

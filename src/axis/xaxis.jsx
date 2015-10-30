@@ -51,7 +51,7 @@ export default class Xaxis extends Component {
     xOuterTickSize: PropTypes.number,
     xTickPadding: PropTypes.number,
     xTickFormat: PropTypes.func,
-    xTicks: PropTypes.number
+    xTicks: PropTypes.array
   }
 
   render() {
