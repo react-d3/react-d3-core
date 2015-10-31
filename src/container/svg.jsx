@@ -11,6 +11,10 @@ import {
 } from 'd3';
 
 import {
+  default as ReactDOM
+} from 'react-dom';
+
+import {
   default as CommonProps,
 } from '../commonProps';
 
@@ -66,7 +70,7 @@ export default class ChartSvg extends Component {
         .scaleExtent([1, 10])
         .on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet) });
 
-      d3.select(React.findDOMNode(this.refs.svgContainer))
+      d3.select(ReactDOM.findDOMNode(this.refs.svgContainer))
         .call(zoom);
     }
   }
