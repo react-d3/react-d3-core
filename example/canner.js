@@ -33,7 +33,7 @@ examples = [
 var canner = examples.map(function(d) {
   return {
     "layout": "./layout.hbs",
-    "filename": './example/' + d.link + '.html',
+    "filename": './' + d.link + '.html',
     "data": {
       "link": d.link,
       "title": d.title

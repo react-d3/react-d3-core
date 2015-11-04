@@ -41,6 +41,7 @@ function _mkScaleSettings(props, func) {
     type,
     range,
     domain,
+    scale,
     rangeRoundBands
   } = props;
 
@@ -50,7 +51,7 @@ function _mkScaleSettings(props, func) {
   if(domain)
     func.domain(domain)
 
-  if(rangeRoundBands) {
+  if(scale === 'ordinal' && rangeRoundBands) {
     const {interval, padding, outerPadding} = rangeRoundBands;
 
     if(padding && outerPadding)
