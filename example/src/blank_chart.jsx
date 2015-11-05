@@ -2,6 +2,7 @@
 
 var React = require('react');
 
+
 var Chart = require('../../lib').Chart;
 var Xaxis = require('../../lib').Xaxis;
 var Yaxis = require('../../lib').Yaxis;

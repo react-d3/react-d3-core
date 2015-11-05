@@ -2,8 +2,12 @@ export function yDomain(props, stack) {
   const {
     data,
     chartSeries,
-    y
+    y,
+    yDomain
   } = props;
+
+  if(yDomain)
+    return yDomain;
 
   if(stack) {
     // stack

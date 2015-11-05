@@ -2,8 +2,12 @@ export function xDomain(props) {
   const {
     data,
     x,
-    xScale
+    xScale,
+    xDomain
   } = props;
+
+  if(xDomain)
+    return xDomain;
 
   if(xScale === 'ordinal') {
     return data.map((d) => { return x(d); });
