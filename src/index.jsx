@@ -34,9 +34,6 @@ import {
   default as Grid,
 } from './grid';
 
-import {
-	scale as scale
-} from './utils/scale';
 
 require('../css/axis.css')
 
@@ -49,4 +46,21 @@ export {Legend as Legend};
 export {Grid as Grid};
 export {Axis as Axis};
 export {Label as Label};
+
+// utils
+
+import {
+	scale
+} from './utils/scale';
+
+import {
+	xDomain
+} from './utils/xDomain';
+
+import {
+	yDomain
+} from './utils/yDomain';
+
 export {scale as scale};
+export {xDomain as xDomainCount};
+export {yDomain as yDomainCount};
