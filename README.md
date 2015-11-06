@@ -49,6 +49,13 @@ http://reactd3.org/docs/core
 - [Legend](./docs/legend.md)
 
 
+## Develop
+
+```
+$ npm install
+$ webpack -w
+```
+
 
 ## License
 
