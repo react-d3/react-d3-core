@@ -36,7 +36,7 @@ var Legend = require('../../lib/index').Legend;
         field: '65 Years and Over',
         name: '65 Years and Over',
         color: '#e377c2'
-      },
+      }
 
     ]
 

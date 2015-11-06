@@ -84,8 +84,8 @@ export default class Legend extends Component {
       .data(series)
     .enter().append("div")
       .attr("class", `${legendClassName} legend`)
-      .style("width", 120)
-      .style("height", 30)
+      // .style("width", 120)
+      .style("height", 20)
       .style("padding", 5)
       .style("background-color", '#EEE')
       .style("display", "inline-block");
@@ -97,7 +97,7 @@ export default class Legend extends Component {
       .style("float", legendPosition);
 
     var text = legend.append("div")
-      .style("width", 92)
+      // .style("width", 92)
       .style("padding-left", 5)
       .style("padding-right", 5)
       .text((d) => {
