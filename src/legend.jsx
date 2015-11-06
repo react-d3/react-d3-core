@@ -120,7 +120,6 @@ export default class Legend extends Component {
 
     legendGroup.setAttribute('class', legendClasses);
     legendGroup.style.width = width;
-    legendGroup.style.height = height;
     legendGroup.style.textAlign = 'center';
 
     var legendDom = this._mkLegend(legendGroup);
