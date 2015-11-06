@@ -87,7 +87,8 @@ export default class Legend extends Component {
       .style("width", 120)
       .style("height", 30)
       .style("padding", 5)
-      .style("float", legendPosition);
+      .style("background-color", '#EEE')
+      .style("display", "inline-block");
 
     var rect = legend.append("div")
       .style("width", 18)
@@ -95,7 +96,7 @@ export default class Legend extends Component {
       .style("background-color", (d) => { return d.color; })
       .style("float", legendPosition);
 
-    var text = legend.append("span")
+    var text = legend.append("div")
       .style("width", 92)
       .style("padding-left", 5)
       .style("padding-right", 5)
@@ -109,13 +110,18 @@ export default class Legend extends Component {
 
   render() {
     const {
-      legendClassName
+      legendClassName,
+      width,
+      height
     } = this.props;
 
     var legendGroup = ReactFauxDOM.createElement('div');
     var legendClasses = `${legendClassName} legend`;
 
     legendGroup.setAttribute('class', legendClasses);
+    legendGroup.style.width = width;
+    legendGroup.style.height = height;
+    legendGroup.style.textAlign = 'center';
 
     var legendDom = this._mkLegend(legendGroup);
 
