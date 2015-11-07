@@ -4,6 +4,97 @@
 
 react d3 core components for reusability.
 
+## Quick example
+
+#### With webpack
+
+- Legend
+
+```html
+"use strict";
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Legend = require('../../lib/index').Legend;
+
+(function() {
+  var chartSeries = [
+      {
+        field: 'Under 5 Years'
+      },
+      {
+        field: '5 to 13 Years'
+      }
+    ]
+
+  ReactDOM.render(
+    <div>
+      <svg width= {960} height= {500}>
+        <rect height= {"100%"} width= {"100%"} fill= {"#CCC"} />
+      </svg>
+      <Legend
+        width= {960}
+        chartSeries = {chartSeries}
+      />
+    </div>
+  , document.getElementById('blank-legend')
+  )
+})()
+```
+
+
+#### In HTML (without build tools)
+
+Clone code `react-d3-core.js` or minify js `react-d3-core.min.js` and include the script in your HTML.
+
+You'll also need `react`, `react-dom`, `d3`
+
+- Legend
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Line Chart example
+    </title>
+  </head>
+  <body>
+    <div id="blank-legend"></div>
+    <script src="https://fb.me/react-0.14.2.js"></script>
+    <script src="https://fb.me/react-dom-0.14.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="../react-d3-core.min.js"></script>
+    <script type="text/babel">
+      var Legend = ReactD3Core.Legend;
+      var chartSeries = [
+          {
+            field: 'Under 5 Years'
+          },
+          {
+            field: '5 to 13 Years'
+          }
+        ]
+
+      ReactDOM.render(
+        <div>
+          <svg width= {960} height= {500}>
+            <rect height= {"100%"} width= {"100%"} fill= {"#CCC"} />
+          </svg>
+          <Legend
+            width= {960}
+            chartSeries = {chartSeries}
+          />
+        </div>
+      , document.getElementById('blank-legend')
+      )
+    </script>
+  </body>
+</html>
+```
+
+
 ## Install
 
 ```

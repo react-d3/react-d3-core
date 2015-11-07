@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "BABEL_JEST_STAGE=0 jest",
-    "build": "rm -rf ./lib && babel -w --stage 0 src --out-dir lib"
+    "build": "rm -rf ./lib && babel -w --stage 0 src --out-dir lib",
+    "prod": "NODE_ENV=0 webpack --config webpack.prod.config.js && NODE_ENV=1 webpack --config webpack.prod.config.js"
   },
   "author": "ElixirDoc team",
   "license": "Apache 2.0",
