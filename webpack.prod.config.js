@@ -29,7 +29,7 @@ module.exports = [{
     loaders: [
       {
         test: [/\.jsx$/, /\.js$/],
-        include: /detail/,
+        exclude: /node_modules/,
         loaders: ["jsx-loader"],
       },
       {
