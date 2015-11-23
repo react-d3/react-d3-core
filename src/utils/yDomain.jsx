@@ -1,3 +1,5 @@
+import d3 from 'd3';
+
 export function yDomain(props, stack) {
   const {
     data,
