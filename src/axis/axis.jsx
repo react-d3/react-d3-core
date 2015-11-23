@@ -120,6 +120,23 @@ export default class Axis extends Component {
       }
     }
 
+    // basic styles
+    axisDom.selectAll('.axis path')
+      .style('fill', 'none')
+      .style('stroke', '#000')
+      .style('shape-rendering', 'crispEdges');
+
+    axisDom.selectAll('.axis line')
+      .style('fill', 'none')
+      .style('stroke', '#000')
+      .style('shape-rendering', 'crispEdges');
+
+    axisDom.selectAll('.tick line')
+      .style('opacity', .2)
+
+    axisDom.selectAll('.x.axis path')
+      .style('display', 'none')
+
     return axisDom.node().toReact();
   }
 }

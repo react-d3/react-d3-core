@@ -34,9 +34,6 @@ import {
   default as Grid,
 } from './grid';
 
-
-require('../css/axis.css')
-
 export {Svg as Svg};
 export {Title as Title};
 export {Chart as Chart};
