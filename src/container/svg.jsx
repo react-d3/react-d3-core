@@ -29,7 +29,6 @@ export default class ChartSvg extends Component {
 
   static defaultProps = Object.assign(CommonProps, {
     svgClassName: 'react-d3-core__container_svg',
-    id: `react-d3-core__container_svg__${Math.floor(Math.random() * 100000)}`,
     onZoom: () => {}
   })
 
