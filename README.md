@@ -144,6 +144,8 @@ http://reactd3.org/docs/core
 
 ```
 $ npm install
+$ npm install -g babel@5.8.23
+$ npm run build
 $ webpack -w
 ```
 
