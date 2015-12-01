@@ -29,7 +29,8 @@ export default class ChartSvg extends Component {
 
   static defaultProps = Object.assign(CommonProps, {
     svgClassName: 'react-d3-core__container_svg',
-    onZoom: () => {}
+    onZoom: () => {},
+    scaleExtent: [1, 10]
   })
 
   static propTypes = {
@@ -49,7 +50,10 @@ export default class ChartSvg extends Component {
       xRange,
       xScaleSet,
       yScaleSet,
-      onZoom
+      onZoom,
+      scaleExtent,
+      xExtent,
+      yExtent
     } = this.props;
 
     // implement zoom if xscale and y scale is set!
@@ -66,8 +70,18 @@ export default class ChartSvg extends Component {
       var zoom = d3.behavior.zoom()
         .x(xScaleSet)
         .y(yScaleSet)
-        .scaleExtent([1, 10])
+        .scaleExtent(scaleExtent)
         .on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet) });
+
+      if(xExtent)
+        zoom.xExtent(xExtent)
+      else
+        zoom.xExtent(xScaleSet.domain())
+
+      if(yExtent)
+        zoom.yExtent(yExtent)
+      else
+        zoom.yExtent(yScaleSet.domain())
 
       d3.select(ReactDOM.findDOMNode(this.refs.svgContainer))
         .call(zoom);
