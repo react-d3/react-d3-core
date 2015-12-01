@@ -51,9 +51,7 @@ export default class ChartSvg extends Component {
       xScaleSet,
       yScaleSet,
       onZoom,
-      scaleExtent,
-      xExtent,
-      yExtent
+      scaleExtent
     } = this.props;
 
     // implement zoom if xscale and y scale is set!
@@ -72,16 +70,6 @@ export default class ChartSvg extends Component {
         .y(yScaleSet)
         .scaleExtent(scaleExtent)
         .on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet) });
-
-      if(xExtent)
-        zoom.xExtent(xExtent)
-      else
-        zoom.xExtent(xScaleSet.domain())
-
-      if(yExtent)
-        zoom.yExtent(yExtent)
-      else
-        zoom.yExtent(yScaleSet.domain())
 
       d3.select(ReactDOM.findDOMNode(this.refs.svgContainer))
         .call(zoom);
