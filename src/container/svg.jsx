@@ -41,42 +41,6 @@ export default class ChartSvg extends Component {
     svgClassName: PropTypes.string.isRequired,
   }
 
-  componentDidMount() {
-    var {
-      width,
-      margins,
-      xScale,
-      xDomain,
-      xRange,
-      xScaleSet,
-      yScaleSet,
-      onZoom,
-      scaleExtent
-    } = this.props;
-
-    // implement zoom if xscale and y scale is set!
-    if(xScaleSet && yScaleSet) {
-      if(xScale === 'ordinal') {
-        // if ordinal tramsform to linear
-        xScaleSet = scale({
-          scale: 'linear',
-          domain: [0, width - margins.left - margins.right],
-          range: [0, width - margins.left - margins.right]
-        })
-      }
-
-      var zoom = d3.behavior.zoom()
-        .x(xScaleSet)
-        .y(yScaleSet)
-        .scaleExtent(scaleExtent)
-
-      zoom.on("zoom", () => { onZoom.call(this, xScaleSet, yScaleSet, zoom); });
-
-      d3.select(ReactDOM.findDOMNode(this.refs.svgContainer))
-        .call(zoom);
-    }
-  }
-
   render() {
     const {
       height,
