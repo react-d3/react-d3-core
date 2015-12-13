@@ -25,7 +25,13 @@ var BlankChart = React.createClass({
             "transform": "rotate(45deg)"
           }}
           />
-        <Yaxis {...this.props} {...this.state} />
+        <Yaxis
+          {...this.props}
+          {...this.state}
+          style= {{
+            "transform": "rotate(-45deg)"
+          }}
+          />
       </Chart>
     )
   }
