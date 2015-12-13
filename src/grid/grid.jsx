@@ -8,11 +8,11 @@ import {
 
 import {
   default as Axis,
-} from './axis/axis';
+} from '../axis/axis';
 
 import {
   default as CommonProps,
-} from './commonProps';
+} from '../commonProps';
 
 export default class Grid extends Component {
   constructor(props) {

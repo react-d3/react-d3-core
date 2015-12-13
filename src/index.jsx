@@ -1,63 +1,19 @@
-import {
-	default as Svg,
-} from './container/svg';
+export {default as Svg} from './container/svg';
+export {default as Title} from './container/title';
+export {default as Chart} from './chartContainer';
+export {default as Axis} from './axis/axis';
+export {default as Xaxis} from './axis/xaxis';
+export {default as Yaxis} from './axis/yaxis';
+export {default as Label} from './axis/label';
+export {default as Legend} from './legend';
 
-import {
-	default as Title,
-} from './container/title';
-
-import {
-  default as Chart,
-} from './chartContainer';
-
-import {
-  default as Axis,
-} from './axis/axis';
-
-import {
-  default as Xaxis,
-} from './axis/xaxis';
-
-import {
-  default as Yaxis,
-} from './axis/yaxis';
-
-import {
-  default as Label,
-} from './axis/label';
-
-import {
-  default as Legend,
-} from './legend';
-
-import {
-  default as Grid,
-} from './grid';
-
-export {Svg as Svg};
-export {Title as Title};
-export {Chart as Chart};
-export {Xaxis as Xaxis};
-export {Yaxis as Yaxis};
-export {Legend as Legend};
-export {Grid as Grid};
-export {Axis as Axis};
-export {Label as Label};
+// grid
+export {default as Grid} from './grid/grid';
+export {default as XGrid} from './grid/xgrid';
+export {default as YGrid} from './grid/ygrid';
 
 // utils
 
-import {
-	scale
-} from './utils/scale';
-
-import {
-	xDomain
-} from './utils/xDomain';
-
-import {
-	yDomain
-} from './utils/yDomain';
-
-export {scale as scale};
-export {xDomain as xDomainCount};
-export {yDomain as yDomainCount};
+export {scale} from './utils/scale';
+export {xDomain} from './utils/xDomain';
+export {yDomain} from './utils/yDomain';
