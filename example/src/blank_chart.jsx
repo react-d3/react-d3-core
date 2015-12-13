@@ -18,7 +18,13 @@ var BlankChart = React.createClass({
       <Chart {...this.props}>
         <Grid type="x" {...this.props} {...this.state} />
         <Grid type="y" {...this.props} {...this.state} />
-        <Xaxis {...this.props} {...this.state} />
+        <Xaxis
+          {...this.props}
+          {...this.state}
+          style= {{
+            "transform": "rotate(45deg)"
+          }}
+          />
         <Yaxis {...this.props} {...this.state} />
       </Chart>
     )

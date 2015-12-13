@@ -30,6 +30,9 @@ var Xaxis = require('../../lib').Xaxis;
         xRangeRoundBands= {xRangeRoundBands}
         xScale= {xScale}
         xLabel = {xLabel}
+        style = {{
+          "transform": "rotate(45deg)"
+        }}
       />
     </svg>
   , document.getElementById('blank-xaxis')

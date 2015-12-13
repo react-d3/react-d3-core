@@ -92,7 +92,8 @@ export default class Axis extends Component {
       showAxis,
       gridAxisClassName,
       axisClassName,
-      type
+      type,
+      style
     } = this.props;
 
     var axisGroup = ReactFauxDOM.createElement('g');
@@ -134,8 +135,16 @@ export default class Axis extends Component {
     axisDom.selectAll('.tick line')
       .style('opacity', .2)
 
-    axisDom.selectAll('.x.axis path')
+    axisDom.selectAll('.axis path')
       .style('display', 'none')
+
+    var axisText = axisDom.selectAll('.axis text')
+
+    if(style) {
+      for(var key in style) {
+        axisText.style(key, style[key]);
+      }
+    }
 
     return axisDom.node().toReact();
   }
