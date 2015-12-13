@@ -15,5 +15,5 @@ export {default as YGrid} from './grid/ygrid';
 // utils
 
 export {scale} from './utils/scale';
-export {xDomain} from './utils/xDomain';
-export {yDomain} from './utils/yDomain';
+export {xDomain as xDomainCount} from './utils/xDomain';
+export {yDomain as yDomainCount} from './utils/yDomain';
