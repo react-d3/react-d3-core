@@ -40,7 +40,7 @@ export default class Xaxis extends Component {
     width: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
     showXAxis: PropTypes.bool,
-    x: PropTypes.func.isRequired,
+    x: PropTypes.func,
     xDomain: PropTypes.array,
     xRange: PropTypes.array,
     xScale: PropTypes.string.isRequired,

@@ -40,7 +40,7 @@ export default class Yaxis extends Component {
     width: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
     showXAxis: PropTypes.bool,
-    y: PropTypes.func.isRequired,
+    y: PropTypes.func,
     yDomain: PropTypes.array,
     yRange: PropTypes.array,
     yScale: PropTypes.string.isRequired,

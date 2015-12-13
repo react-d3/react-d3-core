@@ -9,8 +9,8 @@ export {default as Legend} from './legend';
 
 // grid
 export {default as Grid} from './grid/grid';
-export {default as XGrid} from './grid/xgrid';
-export {default as YGrid} from './grid/ygrid';
+export {default as Xgrid} from './grid/xgrid';
+export {default as Ygrid} from './grid/ygrid';
 
 // utils
 
