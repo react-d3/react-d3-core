@@ -1,6 +1,3 @@
-jest.dontMock('../../lib/container/svg.js');
-jest.dontMock('./svg_change');
-
 import {
   default as React
 } from 'react';
@@ -10,6 +7,7 @@ import {
 } from 'react-addons-test-utils';
 
 const d3 = require('d3');
+const expect = require('expect');
 const Svg = require('../../lib/container/svg');
 const SvgClick = require('./svg_change');
 

@@ -28,7 +28,7 @@ var ClickSvg = React.createClass({
     height = expend? (height + 100): height;
     className = expend? (className + '1'): className;
     id = expend? (id + '1'): id;
-    
+
     var newMargins= expend? ({top: 30, right: 50, bottom: 20, left: 50}): margins;
 
     return (

@@ -1,6 +1,3 @@
-jest.dontMock('../../lib/container/title.js');
-jest.dontMock('./title_change');
-
 import {
   default as React
 } from 'react';
@@ -10,6 +7,7 @@ import {
 } from 'react-addons-test-utils';
 
 const d3 = require('d3');
+const expect = require('expect');
 const Title = require('../../lib/container/title');
 const TitleChange = require('./title_change');
 
