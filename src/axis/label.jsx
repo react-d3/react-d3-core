@@ -7,9 +7,7 @@ import {
 } from 'react';
 
 import d3 from 'd3';
-
 import ReactFauxDOM from 'react-faux-dom';
-
 import CommonProps from '../commonProps';
 
 export default class Label extends Component {
