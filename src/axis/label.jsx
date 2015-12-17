@@ -6,17 +6,11 @@ import {
   PropTypes,
 } from 'react';
 
-import {
-  default as d3
-} from 'd3';
+import d3 from 'd3';
 
-import {
-  default as ReactFauxDOM
-} from 'react-faux-dom';
+import ReactFauxDOM from 'react-faux-dom';
 
-import {
-  default as CommonProps,
-} from '../commonProps';
+import CommonProps from '../commonProps';
 
 export default class Label extends Component {
   constructor (props) {

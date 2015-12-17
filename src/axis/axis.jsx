@@ -6,17 +6,9 @@ import {
   PropTypes
 } from 'react';
 
-import {
-  default as d3
-} from 'd3';
-
-import {
-  default as ReactFauxDOM
-} from 'react-faux-dom';
-
-import {
-  scale as scale
-} from '../utils/scale';
+import d3 from 'd3';
+import ReactFauxDOM from 'react-faux-dom';
+import {scale} from '../utils/scale';
 
 export default class Axis extends Component {
   constructor (props) {

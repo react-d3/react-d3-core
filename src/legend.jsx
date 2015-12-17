@@ -6,17 +6,9 @@ import {
   PropTypes,
 } from 'react';
 
-import {
-  default as d3
-} from 'd3';
-
-import {
-  default as ReactFauxDOM
-} from 'react-faux-dom';
-
-import {
-  default as CommonProps,
-} from './commonProps';
+import d3 from 'd3';
+import ReactFauxDOM from 'react-faux-dom';
+import CommonProps from './commonProps';
 
 export default class Legend extends Component {
   constructor (props) {

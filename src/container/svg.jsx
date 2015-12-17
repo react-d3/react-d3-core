@@ -6,21 +6,9 @@ import {
   PropTypes,
 } from 'react';
 
-import {
-  default as d3
-} from 'd3';
-
-import {
-  default as ReactDOM
-} from 'react-dom';
-
-import {
-  default as CommonProps,
-} from '../commonProps';
-
-import {
-  scale as scale
-} from '../utils/scale';
+import d3 from 'd3';
+import CommonProps from '../commonProps';
+import {scale} from '../utils/scale';
 
 export default class ChartSvg extends Component {
   constructor(props) {

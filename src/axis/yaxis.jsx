@@ -6,17 +6,9 @@ import {
   PropTypes
 } from 'react';
 
-import {
-  default as Axis,
-} from './axis';
-
-import {
-  default as Label
-} from './label';
-
-import {
-  default as CommonProps,
-} from '../commonProps';
+import Axis from './axis';
+import Label from './label';
+import CommonProps from '../commonProps';
 
 export default class Yaxis extends Component {
   constructor (props) {

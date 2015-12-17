@@ -6,9 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
-import {
-  default as CommonProps,
-} from '../commonProps';
+import CommonProps from '../commonProps';
 
 export default class ChartTitle extends Component {
   constructor(props) {

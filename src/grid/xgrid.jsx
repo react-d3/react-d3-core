@@ -5,9 +5,7 @@ import {
   Component
 } from 'react';
 
-import {
-  default as Grid
-} from './grid';
+import Grid from './grid';
 
 export default class XGrid extends Component {
   constructor(props) {

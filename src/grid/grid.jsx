@@ -6,13 +6,8 @@ import {
   PropTypes,
 } from 'react';
 
-import {
-  default as Axis,
-} from '../axis/axis';
-
-import {
-  default as CommonProps,
-} from '../commonProps';
+import Axis from '../axis/axis';
+import CommonProps from '../commonProps';
 
 export default class Grid extends Component {
   constructor(props) {

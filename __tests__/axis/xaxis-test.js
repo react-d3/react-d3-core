@@ -6,6 +6,7 @@ const d3 = require('d3');
 const expect = require('expect');
 const Xaxis = require('../../lib/axis/xaxis');
 const data = require('json!../data/user_sample.json');
+const common = require('../../lib/commonProps');
 
 describe('Axes, set x accessor', () => {
 
@@ -18,8 +19,11 @@ describe('Axes, set x accessor', () => {
       />
     );
 
+    var height = common.height;
+    var margins = common.margins;
+
     var dom = ReactDOM.findDOMNode(newGroup)
-    expect(dom.getAttribute('transform')).toEqual('translate(0, 340)')
+    expect(dom.getAttribute('transform')).toEqual(`translate(0, ${height - margins.top - margins.bottom})`)
   })
 
   it('Create xaxis, orient in bottom', () => {
@@ -32,8 +36,11 @@ describe('Axes, set x accessor', () => {
       />
     );
 
+    var height = common.height;
+    var margins = common.margins;
+
     var dom = ReactDOM.findDOMNode(newGroup)
-    expect(dom.getAttribute('transform')).toEqual('translate(0, 340)')
+    expect(dom.getAttribute('transform')).toEqual(`translate(0, ${height - margins.top - margins.bottom})`)
   })
 
   it('Create xaxis, orient in top', () => {
