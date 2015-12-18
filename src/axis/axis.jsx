@@ -95,7 +95,7 @@ export default class Axis extends Component {
     else if(type === 'y')
       var axisClasses = `${axisClassName} axis y`
     else if(type === 'gridx' || type === 'gridy')
-      var axisClasses = `${gridAxisClassName} grid-axis axis`
+      var axisClasses = `${gridAxisClassName} grid-axis`
 
     axisGroup.setAttribute('class', axisClasses);
 
@@ -104,11 +104,12 @@ export default class Axis extends Component {
     axisDom.call(this._mkTickAxis());
 
     if(!showAxis) {
-      axisDom.selectAll(".axis .tick text")
+      axisDom.selectAll(".grid-axis .tick text")
         .style("opacity", "0")
+
       if(type === 'gridx' || type === 'gridy') {
         // hide domain in grids
-        axisDom.selectAll(".axis .domain")
+        axisDom.selectAll(".grid-axis .domain")
           .style("opacity", "0")
       }
     }
@@ -124,8 +125,11 @@ export default class Axis extends Component {
       .style('stroke', '#000')
       .style('shape-rendering', 'crispEdges');
 
-    axisDom.selectAll('.tick line')
+    axisDom.selectAll('.grid-axis line')
       .style('opacity', .2)
+      .style('fill', 'none')
+      .style('stroke', '#000')
+      .style('stroke-width', '1.5px')
 
     axisDom.selectAll('.axis path')
       .style('display', 'none')
