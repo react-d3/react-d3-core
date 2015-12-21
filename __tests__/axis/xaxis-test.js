@@ -56,6 +56,4 @@ describe('Axes, set x accessor', () => {
     var dom = ReactDOM.findDOMNode(newGroup)
     expect(dom.getAttribute('transform')).toEqual('translate(0, 0)')
   })
-
-
 })
