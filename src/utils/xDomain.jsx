@@ -3,6 +3,7 @@ import d3 from 'd3';
 export function xDomain(props, stack, horizonal) {
   const {
     data,
+    chartSeries,
     x,
     xScale,
     xDomain
