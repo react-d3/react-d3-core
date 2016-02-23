@@ -19,7 +19,8 @@ export default class Legend extends Component {
     legendHeight: 50,
     legendPosition: 'left',
     legendOffset: 90,
-    legendClassName: 'react-d3-core__legend'
+    legendClassName: 'react-d3-core__legend',
+    swatchShape: 'square'
   })
 
   static propTypes = {
@@ -29,6 +30,13 @@ export default class Legend extends Component {
     legendOffset: PropTypes.number.isRequired,
     legendClassName: PropTypes.string.isRequired,
     legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
+    swatchShape: PropTypes.oneOf(['circle', 'square']),
+  }
+
+  _radius(swatchShape) {
+    return swatchShape === 'circle'
+      ? 18
+      : 0;
   }
 
   _series(props) {
@@ -64,11 +72,13 @@ export default class Legend extends Component {
       chartSeries,
       legendClassName,
       legendPosition,
-      legendOffset
+      legendOffset,
+      swatchShape,
     } = this.props;
 
     var legendArea = d3.select(dom);
     var series = this._series(this.props);
+    var radius = this._radius(swatchShape);
 
     // make legends
     var legend = legendArea
@@ -76,7 +86,6 @@ export default class Legend extends Component {
       .data(series)
     .enter().append("div")
       .attr("class", `${legendClassName} legend`)
-      // .style("width", 120)
       .style("height", 20)
       .style("padding", 5)
       .style("background-color", '#EEE')
@@ -85,16 +94,14 @@ export default class Legend extends Component {
     var rect = legend.append("div")
       .style("width", 18)
       .style("height", 18)
-      .style("background-color", (d) => { return d.color; })
+      .style("border-radius", radius)
+      .style("background-color", d => d.color)
       .style("float", legendPosition);
 
     var text = legend.append("div")
-      // .style("width", 92)
       .style("padding-left", 5)
       .style("padding-right", 5)
-      .text((d) => {
-        return d.name;
-      })
+      .text(d => d.name)
       .style("float", legendPosition);
 
     return legendArea;
@@ -116,6 +123,8 @@ export default class Legend extends Component {
 
     var legendDom = this._mkLegend(legendGroup);
 
-    return legendDom.node().toReact();
+    return legendDom
+      .node()
+      .toReact();
   }
 }
