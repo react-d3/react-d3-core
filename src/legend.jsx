@@ -16,6 +16,7 @@ export default class Legend extends Component {
   }
 
   static defaultProps =  {
+    backgroundColor: '#FFF',
     legendHeight: 50,
     legendPosition: 'left',
     legendOffset: 90,
@@ -25,6 +26,7 @@ export default class Legend extends Component {
   }
 
   static propTypes = {
+    backgroundColor: PropTypes.string,
     width: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
     chartSeries: PropTypes.array.isRequired,
@@ -35,9 +37,7 @@ export default class Legend extends Component {
   }
 
   _radius(swatchShape) {
-    return swatchShape === 'circle'
-      ? 18
-      : 0;
+    return swatchShape === 'circle' ? 18 : 0;
   }
 
   _series(props) {
@@ -57,13 +57,14 @@ export default class Legend extends Component {
 
   _mkLegend(dom) {
     const {
-      width,
-      margins,
-      chartSeries,
       legendClassName,
+      backgroundColor,
       legendPosition,
       legendOffset,
       swatchShape,
+      chartSeries,
+      margins,
+      width,
     } = this.props;
 
     const legendArea = d3.select(dom);
@@ -78,7 +79,7 @@ export default class Legend extends Component {
       .attr("class", `${legendClassName} legend`)
       .style("height", 20)
       .style("padding", 5)
-      .style("background-color", '#EEE')
+      .style("background-color", backgroundColor)
       .style("display", "inline-block");
 
     const rect = legend.append("div")
