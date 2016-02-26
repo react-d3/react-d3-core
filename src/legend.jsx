@@ -15,13 +15,14 @@ export default class Legend extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps =  {
     legendHeight: 50,
     legendPosition: 'left',
     legendOffset: 90,
     legendClassName: 'react-d3-core__legend',
-    swatchShape: 'square'
-  })
+    swatchShape: 'square',
+    ...CommonProps,
+  }
 
   static propTypes = {
     width: PropTypes.number.isRequired,
@@ -40,29 +41,18 @@ export default class Legend extends Component {
   }
 
   _series(props) {
-    var {
+    const {
       chartSeries,
       categoricalColors
     } = props;
 
     categoricalColors = categoricalColors || d3.scale.category10();
 
-    var series = chartSeries.map((f, i) => {
-
-      // set a color if not set
-      f.color = f.color || categoricalColors(i);
-
-      // set name if not set
-      f.name = f.name || f.field;
-
-      return {
-        color: f.color,
-        name: f.name,
-        field: f.field
-      }
-    })
-
-    return series;
+    return chartSeries.map(({ name, color, field }, i) => ({
+      color: color || categoricalColors(i),
+      name: name || field,
+      field,
+    }));
   }
 
   _mkLegend(dom) {
@@ -76,12 +66,12 @@ export default class Legend extends Component {
       swatchShape,
     } = this.props;
 
-    var legendArea = d3.select(dom);
-    var series = this._series(this.props);
-    var radius = this._radius(swatchShape);
+    const legendArea = d3.select(dom);
+    const series = this._series(this.props);
+    const radius = this._radius(swatchShape);
 
     // make legends
-    var legend = legendArea
+    const legend = legendArea
       .selectAll('div')
       .data(series)
     .enter().append("div")
@@ -91,14 +81,14 @@ export default class Legend extends Component {
       .style("background-color", '#EEE')
       .style("display", "inline-block");
 
-    var rect = legend.append("div")
+    const rect = legend.append("div")
       .style("width", 18)
       .style("height", 18)
       .style("border-radius", radius)
       .style("background-color", d => d.color)
       .style("float", legendPosition);
 
-    var text = legend.append("div")
+    const text = legend.append("div")
       .style("padding-left", 5)
       .style("padding-right", 5)
       .text(d => d.name)
@@ -114,17 +104,17 @@ export default class Legend extends Component {
       height
     } = this.props;
 
-    var legendGroup = ReactFauxDOM.createElement('div');
-    var legendClasses = `${legendClassName} legend`;
+    const legendGroup = ReactFauxDOM.createElement('div');
+    const legendClasses = `${legendClassName} legend`;
 
     legendGroup.setAttribute('class', legendClasses);
     legendGroup.style.width = width;
     legendGroup.style.textAlign = 'center';
 
-    var legendDom = this._mkLegend(legendGroup);
-
-    return legendDom
+    return this
+      ._mkLegend(legendGroup)
       .node()
       .toReact();
+
   }
 }

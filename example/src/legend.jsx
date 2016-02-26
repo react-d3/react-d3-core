@@ -48,6 +48,7 @@ var Legend = require('../../lib/index').Legend;
       <Legend
         width= {960}
         chartSeries = {chartSeries}
+        swatchShape= 'circle'
       />
     </div>
   , document.getElementById('blank-legend')
