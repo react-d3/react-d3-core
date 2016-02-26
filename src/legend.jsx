@@ -46,10 +46,10 @@ export default class Legend extends Component {
       categoricalColors
     } = props;
 
-    categoricalColors = categoricalColors || d3.scale.category10();
+    const colors = categoricalColors || d3.scale.category10();
 
     return chartSeries.map(({ name, color, field }, i) => ({
-      color: color || categoricalColors(i),
+      color: color || colors(i),
       name: name || field,
       field,
     }));
