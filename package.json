@@ -5,6 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "karma start",
+    "dev-server": "webpack-dev-server",
     "build": "rm -rf ./lib && babel src --out-dir lib",
     "prod": "NODE_ENV=0 webpack --config webpack.prod.config.js && NODE_ENV=1 webpack --config webpack.prod.config.js"
   },
