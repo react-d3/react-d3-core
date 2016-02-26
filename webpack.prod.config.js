@@ -1,7 +1,7 @@
 'use strict';
 
-var path            = require('path'),
-  webpack         = require('webpack'),
+var path = require('path'),
+  webpack = require('webpack'),
   nodeModulesPath = path.join(__dirname, 'node_modules');
 
 var js_root = './lib/';
@@ -22,21 +22,21 @@ module.exports = [{
     libraryTarget: "var",
     library: "ReactD3Core",
     path: js_dist,
-    filename: ENV ? '[name].min.js': '[name].js'
+    filename: ENV ? '[name].min.js' : '[name].js'
   },
 
   module: {
-    loaders: [
-      {
-        test: [/\.jsx$/, /\.js$/],
-        exclude: /node_modules/,
-        loaders: ["jsx-loader"],
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
+    loaders: [{
+      loader: 'babel-loader',
+      test: [/\.jsx$/, /\.js$/],
+      exclude: /node_modules/,
+      query: {
+        presets: ['react', 'es2015', 'stage-0']
       }
-    ],
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    }],
   },
 
   resolve: {
@@ -59,7 +59,7 @@ module.exports = [{
     new webpack.ProvidePlugin({
       'd3': 'd3'
     })
-  ]: [
+  ] : [
     new webpack.ProvidePlugin({
       'd3': 'd3'
     })

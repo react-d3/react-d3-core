@@ -1,4 +1,3 @@
-
 'use strict';
 
 var path = require('path'),
@@ -10,10 +9,9 @@ var path = require('path'),
 // for production mode: NODE_ENV=1 webpack
 var ENV = !!(+process.env.NODE_ENV || 0);
 
-
 module.exports = [{
   name: 'react-d3-core-example-es5',
-  devtool: ENV ? "source-map": '',
+  devtool: ENV ? "source-map" : '',
   entry: {
     xaxis: './example/src/xaxis.jsx',
     xaxis_click: './example/src/xaxis_click.jsx',
@@ -26,21 +24,21 @@ module.exports = [{
 
   output: {
     path: path.join(__dirname, './example/dist'),
-    filename: ENV ? '[name].min.js': '[name].js'
+    filename: ENV ? '[name].min.js' : '[name].js'
   },
 
   module: {
-    loaders: [
-      {
-        test: [/\.jsx$/, /\.js$/],
-        exclude: /node_modules/,
-        loaders: ["jsx-loader"],
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
+    loaders: [{
+      loader: 'babel-loader',
+      test: [/\.jsx$/, /\.js$/],
+      exclude: /node_modules/,
+      query: {
+        presets: ['react', 'es2015', 'stage-0']
       }
-    ],
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    }],
   },
 
   resolve: {
@@ -48,7 +46,9 @@ module.exports = [{
   },
 
   plugins: ENV ? [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
-  ]:[]
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true
+    })
+  ] : []
 
 }];
