@@ -142,7 +142,7 @@ You'll also need `react`, `react-dom`, `d3`
 
 ```
 $ npm install
-$ npm install -g babel@5.8.23
+$ npm run dev-server
 $ npm run build
 $ webpack -w
 ```
