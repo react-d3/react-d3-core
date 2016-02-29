@@ -22,7 +22,7 @@ export default class Legend extends Component {
     legendOffset: 90,
     legendClassName: 'react-d3-core__legend',
     swatchShape: 'square',
-    ...CommonProps,
+    ...CommonProps
   }
 
   static propTypes = {

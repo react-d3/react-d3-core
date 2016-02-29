@@ -15,11 +15,12 @@ export default class ChartSvg extends Component {
     super (props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     svgClassName: 'react-d3-core__container_svg',
     onZoom: () => {},
-    scaleExtent: [1, 10]
-  })
+    scaleExtent: [1, 10],
+    ...CommonProps
+  }
 
   static propTypes = {
     id: PropTypes.string,

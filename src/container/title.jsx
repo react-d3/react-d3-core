@@ -13,10 +13,11 @@ export default class ChartTitle extends Component {
     super (props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     titleClassName: 'react-d3-core__container_title',
-    title: ''
-  })
+    title: '',
+    ...CommonProps
+  }
 
   static propTypes = {
     width: PropTypes.number.isRequired,

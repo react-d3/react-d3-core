@@ -15,15 +15,16 @@ export default class Label extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     hTransform: 'rotate(0)',
     vTransform: 'rotate(270)',
     labelTitle: 'label title',
     labelPosition: 'bottom',
     labelOffset: 40,
     textAnchor: 'middle',
-    labelClassName: 'react-d3-core__label'
-  })
+    labelClassName: 'react-d3-core__label',
+    ...CommonProps
+  }
 
   static propTypes = {
     height: PropTypes.number.isRequired,

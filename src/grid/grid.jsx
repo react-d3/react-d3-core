@@ -14,10 +14,11 @@ export default class Grid extends Component {
     super(props);
   }
 
-  static defaultProps = Object.assign(CommonProps, {
+  static defaultProps = {
     type: 'x',
-    gridAxisClassName: 'react-d3-core__grid_axis'
-  })
+    gridAxisClassName: 'react-d3-core__grid_axis',
+    ...CommonProps
+  }
 
   static propTypes = {
     height: PropTypes.number.isRequired,
