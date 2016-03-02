@@ -5,7 +5,8 @@ export function yDomain(props, stack, horizonal) {
     data,
     chartSeries,
     y,
-    yDomain
+    yDomain,
+    yScale
   } = props;
 
   if(yDomain)
