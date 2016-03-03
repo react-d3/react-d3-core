@@ -1,54 +1,50 @@
 'use strict';
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var path = require('path'),
-  webpack = require('webpack'),
-  nodeModulesPath = path.join(__dirname, 'node_modules');
+var js_dist = path.join(__dirname, './example/dist/origin');
 
-// 0 stands for development, 1 stands for production
-// for development mode: NODE_ENV=0 webpack
-// for production mode: NODE_ENV=1 webpack
-var ENV = !!(+process.env.NODE_ENV || 0);
-
-module.exports = [{
-  name: 'react-d3-core-example-es5',
-  devtool: ENV ? "source-map" : '',
+module.exports = {
+  devtool: 'eval-source-map',
   entry: {
-    xaxis: './example/src/xaxis.jsx',
-    xaxis_click: './example/src/xaxis_click.jsx',
-    blank_chart: './example/src/components.jsx',
-    legend: './example/src/legend.jsx',
-    container: './example/src/container.jsx',
-    grid: './example/src/grid.jsx',
-    label: './example/src/label.jsx'
+    index: ['webpack-hot-middleware/client', './example/index.js']
   },
-
   output: {
-    path: path.join(__dirname, './example/dist'),
-    filename: ENV ? '[name].min.js' : '[name].js'
+    path: js_dist,
+    filename: '[name].js',
+    publicPath: '/static/'
   },
-
-  module: {
-    loaders: [{
-      loader: 'babel-loader',
-      test: [/\.jsx$/, /\.js$/],
-      exclude: /node_modules/,
-      query: {
-        presets: ['react', 'es2015', 'stage-0']
-      }
-    }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
-    }],
-  },
-
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
   },
-
-  plugins: ENV ? [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true
-    })
-  ] : []
-
-}];
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("development")
+      }
+    }),
+    new ExtractTextPlugin('[name].css', { allChunks: true })
+  ],
+  module: {
+    loaders: [
+      {
+        test: [/\.jsx$/, /\.js$/],
+        loaders: ["babel"],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+        exclude: /node_modules/
+      }
+    ],
+  }
+}

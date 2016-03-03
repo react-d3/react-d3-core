@@ -6,7 +6,6 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
 import CommonProps from '../commonProps';
 import {scale} from '../utils/scale';
 
