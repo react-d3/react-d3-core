@@ -6,11 +6,6 @@
       "plugins": [
         "add-module-exports"
       ]
-    },
-    "production": {
-      "plugins": [
-        "add-module-exports"
-      ]
     }
   }
 }
