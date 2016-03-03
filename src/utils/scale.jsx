@@ -23,6 +23,8 @@ export function scale(props) {
   else if(scale === 'quantile')
     func = D3Scale.scaleQuantile();
   else if(scale === 'ordinal')
+    func = D3Scale.scaleOrdinal()
+  else if(scale === 'band')
     func = D3Scale.scaleBand();
   else if(scale === 'time')
     func = D3Scale.scaleTime();
@@ -50,7 +52,7 @@ function _mkScaleSettings(props, func) {
   if(domain)
     func.domain(domain)
 
-  if(scale === 'ordinal' && (bandPaddingInner || bandPaddingOuter)) {
+  if(scale === 'band' && (bandPaddingInner || bandPaddingOuter)) {
 
     func
       .round(true)

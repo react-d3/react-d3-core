@@ -75,12 +75,14 @@ export default class Axis extends Component {
   }
 
   _mkScale () {
+    var newScale
 
-    const{
-      type
-    } = this.props;
+    if(this.props.scale === 'ordinal')
+      newScale = 'band'
+    else
+      newScale = this.props.scale
 
-    var func = scale(this.props);
+    var func = scale(Object.assign({}, this.props, {scale: newScale}));
 
     return func;
   }
