@@ -149,9 +149,15 @@ Open `localhost:5000/example`
 
 ## History
 
+#### Before v1.1.x ...
+  
+  - Initial release
+  - Babel 5
+  - D3 3.0
+
 #### 2016 / 3 / 3, v1.2.0
   
-  - Move to babel 6.
+  - Move to Babel 6.
   - D3 4.0.
   - improve example folder.
 
