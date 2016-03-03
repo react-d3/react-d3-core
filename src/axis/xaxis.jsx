@@ -88,7 +88,7 @@ export default class Xaxis extends Component {
       t = `translate(0, ${height - margins.bottom - margins.top})`;
     } else if (xOrient === 'top'){
       // x - top
-      t = `translate(0, ${margins.top})`;
+      t = `translate(0, 0)`;
     }
 
     if(xLabel) {

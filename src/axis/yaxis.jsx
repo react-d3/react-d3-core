@@ -88,7 +88,7 @@ export default class Yaxis extends Component {
       t = `translate(${width - margins.right - margins.left}, 0)`;
     } else if (yOrient === 'left'){
       // y - left
-      t = `translate(${margins.left}, 0)`;
+      t = `translate(0, 0)`;
     }
 
     if(yLabel) {
