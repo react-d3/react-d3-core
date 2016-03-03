@@ -3459,13 +3459,13 @@ var ReactD3Core =
 
 	  if (domain) func.domain(domain);
 
-	  if (scale === 'band' && (bandPaddingInner || bandPaddingOuter)) {
+	  if (scale === 'band') {
 
 	    func.round(true);
 
-	    if (bandPaddingInner) func.paddingInner(bandPaddingInner);
+	    if (bandPaddingInner) func.paddingInner(bandPaddingInner);else func.paddingInner(.1);
 
-	    if (bandPaddingOuter) func.paddingOuter(bandPaddingOuter);
+	    if (bandPaddingOuter) func.paddingOuter(bandPaddingOuter);else func.paddingOuter(.1);
 	  }
 
 	  return func;
