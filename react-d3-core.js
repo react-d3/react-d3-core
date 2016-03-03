@@ -3440,7 +3440,7 @@ var ReactD3Core =
 
 	  var func;
 
-	  if (scale === 'linear') func = _d3Scale2.default.scaleLinear();else if (scale === 'identity') func = _d3Scale2.default.scaleIdentity();else if (scale === 'sqrt') func = _d3Scale2.default.scaleSqrt();else if (scale === 'pow') func = _d3Scale2.default.scalePow();else if (scale === 'log') func = _d3Scale2.default.scaleLog();else if (scale === 'quantize') func = _d3Scale2.default.scaleQuantize();else if (scale === 'quantile') func = _d3Scale2.default.scaleQuantile();else if (scale === 'ordinal') func = _d3Scale2.default.scaleBand();else if (scale === 'time') func = _d3Scale2.default.scaleTime();else new Error('Please check your axis scale setting. "' + scale + '" scale is invalid. ');
+	  if (scale === 'linear') func = _d3Scale2.default.scaleLinear();else if (scale === 'identity') func = _d3Scale2.default.scaleIdentity();else if (scale === 'sqrt') func = _d3Scale2.default.scaleSqrt();else if (scale === 'pow') func = _d3Scale2.default.scalePow();else if (scale === 'log') func = _d3Scale2.default.scaleLog();else if (scale === 'quantize') func = _d3Scale2.default.scaleQuantize();else if (scale === 'quantile') func = _d3Scale2.default.scaleQuantile();else if (scale === 'ordinal') func = _d3Scale2.default.scaleOrdinal();else if (scale === 'band') func = _d3Scale2.default.scaleBand();else if (scale === 'time') func = _d3Scale2.default.scaleTime();else new Error('Please check your axis scale setting. "' + scale + '" scale is invalid. ');
 
 	  func = _mkScaleSettings(props, func);
 
@@ -3459,7 +3459,7 @@ var ReactD3Core =
 
 	  if (domain) func.domain(domain);
 
-	  if (scale === 'ordinal' && (bandPaddingInner || bandPaddingOuter)) {
+	  if (scale === 'band' && (bandPaddingInner || bandPaddingOuter)) {
 
 	    func.round(true);
 
@@ -12349,9 +12349,11 @@ var ReactD3Core =
 	  }, {
 	    key: '_mkScale',
 	    value: function _mkScale() {
-	      var type = this.props.type;
+	      var newScale;
 
-	      var func = (0, _scale.scale)(this.props);
+	      if (this.props.scale === 'ordinal') newScale = 'band';else newScale = this.props.scale;
+
+	      var func = (0, _scale.scale)(Object.assign({}, this.props, { scale: newScale }));
 
 	      return func;
 	    }
@@ -12757,7 +12759,7 @@ var ReactD3Core =
 	        t = 'translate(0, ' + (height - margins.bottom - margins.top) + ')';
 	      } else if (xOrient === 'top') {
 	        // x - top
-	        t = 'translate(0, ' + margins.top + ')';
+	        t = 'translate(0, 0)';
 	      }
 
 	      if (xLabel) {
@@ -13187,7 +13189,7 @@ var ReactD3Core =
 	        t = 'translate(' + (width - margins.right - margins.left) + ', 0)';
 	      } else if (yOrient === 'left') {
 	        // y - left
-	        t = 'translate(' + margins.left + ', 0)';
+	        t = 'translate(0, 0)';
 	      }
 
 	      if (yLabel) {
