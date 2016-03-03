@@ -149,7 +149,7 @@ Open `localhost:5000/example`
 
 ## History
 
-- 2016 / 3 / 3
+#### 2016 / 3 / 3, v1.2.0
   
   - Move to babel 6.
   - D3 4.0.
