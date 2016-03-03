@@ -40,8 +40,10 @@ export default class Xaxis extends Component {
     xOrient: PropTypes.oneOf(['top', 'bottom']),
     xTickOrient: PropTypes.oneOf(['top', 'bottom']),
     xAxisClassName: PropTypes.string,
-    xInnerTickSize: PropTypes.number,
-    xOuterTickSize: PropTypes.number,
+    xTickSizeInner: PropTypes.number,
+    xTickSizeOuter: PropTypes.number,
+    xBandPaddingInner: PropTypes.number,
+    xBandPaddingOuter: PropTypes.number,
     xTickPadding: PropTypes.number,
     xTickFormat: PropTypes.func,
     xTicks: PropTypes.array,
@@ -58,13 +60,14 @@ export default class Xaxis extends Component {
       xAxisClassName,
       xDomain,
       xRange,
-      xRangeRoundBands,
+      xBandPaddingInner,
+      xBandPaddingOuter,
       xScale,
       xOrient,
       xTickOrient,
       xTickPadding,
-      xInnerTickSize,
-      xOuterTickSize,
+      xTickSizeOuter,
+      xTickSizeInner,
       xTickFormat,
       xTicks,
       xLabel,
@@ -85,7 +88,7 @@ export default class Xaxis extends Component {
       t = `translate(0, ${height - margins.bottom - margins.top})`;
     } else if (xOrient === 'top'){
       // x - top
-      t = `translate(0, 0)`;
+      t = `translate(0, ${margins.top})`;
     }
 
     if(xLabel) {
@@ -96,7 +99,8 @@ export default class Xaxis extends Component {
         labelTitle= {xLabel}
         labelPosition= {xLabelPosition}
         labelOffset= {labelOffset}
-        rangeRoundBands= {xRangeRoundBands}
+        bandPaddingInner= {xBandPaddingInner}
+        bandPaddingOuter= {xBandPaddingOuter}
         />
     }
 
@@ -108,7 +112,8 @@ export default class Xaxis extends Component {
           margins= {margins}
           showAxis= {showXAxis}
           axisClassName= {xAxisClassName}
-          rangeRoundBands= {xRangeRoundBands}
+          bandPaddingInner= {xBandPaddingInner}
+          bandPaddingOuter= {xBandPaddingOuter}
           type = "x"
           proxy = {x}
           domain = {xDomain}
@@ -118,8 +123,8 @@ export default class Xaxis extends Component {
           tickOrient = {xTickOrient}
           tickFormat = {xTickFormat}
           tickPadding = {xTickPadding}
-          innerTickSize = {xInnerTickSize}
-          outerTickSize = {xOuterTickSize}
+          tickSizeInner = {xTickSizeInner}
+          tickSizeOuter = {xTickSizeOuter}
           ticks = {xTicks}
           style = {style}
           />

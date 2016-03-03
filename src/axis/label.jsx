@@ -6,7 +6,7 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
+import D3Selection from 'd3-selection'
 import ReactFauxDOM from 'react-faux-dom';
 import CommonProps from '../commonProps';
 
@@ -52,7 +52,7 @@ export default class Label extends Component {
       textAnchor
     } = this.props;
 
-    var labelDom = d3.select(dom);
+    var labelDom = D3Selection.select(dom);
     var fixWidth = width - margins.left - margins.right;
     var fixHeight = height - margins.top - margins.bottom;
 

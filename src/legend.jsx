@@ -6,7 +6,8 @@ import {
   PropTypes,
 } from 'react';
 
-import d3 from 'd3';
+import D3Selection from 'd3-selection'
+import D3Scale from 'd3-scale'
 import ReactFauxDOM from 'react-faux-dom';
 import CommonProps from './commonProps';
 
@@ -46,7 +47,7 @@ export default class Legend extends Component {
       categoricalColors
     } = props;
 
-    const colors = categoricalColors || d3.scale.category10();
+    const colors = categoricalColors || D3Scale.scaleCategory10();
 
     return chartSeries.map(({ name, color, field }, i) => ({
       color: color || colors(i),
@@ -67,7 +68,7 @@ export default class Legend extends Component {
       width,
     } = this.props;
 
-    const legendArea = d3.select(dom);
+    const legendArea = D3Selection.select(dom);
     const series = this._series(this.props);
     const radius = this._radius(swatchShape);
 

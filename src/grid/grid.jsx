@@ -30,12 +30,14 @@ export default class Grid extends Component {
     xDomain: PropTypes.array,
     xRange: PropTypes.array,
     xScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
-    xRangeRoundBands: PropTypes.object,
+    xBandPaddingInner: PropTypes.number,
+    xBandPaddingOuter: PropTypes.number,
     y: PropTypes.func,
     yDomain: PropTypes.array,
     yRange: PropTypes.array,
     yScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
-    yRangeRoundBands: PropTypes.object,
+    yBandPaddingInner: PropTypes.number,
+    yBandPaddingOuter: PropTypes.number
   }
 
   render() {
@@ -46,12 +48,14 @@ export default class Grid extends Component {
       margins,
       type,
       gridAxisClassName,
-      xRangeRoundBands,
+      xBandPaddingInner,
+      xBandPaddingOuter,
       x,
       xDomain,
       xRange,
       xScale,
-      yRangeRoundBands,
+      yBandPaddingInner,
+      yBandPaddingOuter,
       y,
       yDomain,
       yRange,
@@ -81,13 +85,14 @@ export default class Grid extends Component {
         type= "gridx"
         showAxis= {false}
         gridAxisClassName= {gridAxisClassName}
-        rangeRoundBands= {xRangeRoundBands}
+        bandPaddingInner= {xBandPaddingInner}
+        bandPaddingOuter= {xBandPaddingOuter}
         tickOrient= "bottom"
         orient = "bottom"
-        outerTickSize= {0}
+        tickSizeOuter= {0}
         tickPadding= {10}
         tickFormat= {null}
-        innerTickSize = {-tickSize}
+        tickSizeInner = {-tickSize}
         proxy = {x}
         domain = {xDomain}
         range = {xRange}
@@ -105,12 +110,13 @@ export default class Grid extends Component {
         type= "gridy"
         showAxis= {false}
         gridAxisClassName= {gridAxisClassName}
-        rangeRoundBands= {yRangeRoundBands}
+        bandPaddingInner= {yBandPaddingInner}
+        bandPaddingOuter= {yBandPaddingOuter}
         tickOrient= "left"
         orient= "left"
-        outerTickSize= {0}
+        tickSizeOuter= {0}
         tickPadding= {10}
-        innerTickSize = {-tickSize}
+        tickSizeInner = {-tickSize}
         tickFormat= {null}
         proxy = {y}
         scale = {yScale}

@@ -8,7 +8,7 @@ import Grid from './src/grid'
 import Label from './src/label'
 import Legend from './src/legend'
 import Xaxis from './src/xaxis'
-// import Yaxis from './src/yaxis'
+import Yaxis from './src/yaxis'
 
 // Declarative route configuration (could also load this config lazily
 // instead, all you really need is a single root route, you don't need to
@@ -24,6 +24,7 @@ ReactDOM.render((
       <Route path="label" component={Label}/>
       <Route path="legend" component={Legend}/>
       <Route path="xaxis" component={Xaxis}/>
+      <Route path="yaxis" component={Yaxis}/>
     </Route>
   </Router>
 ), document.getElementById('root'))

@@ -1,7 +1,7 @@
 "use strict";
 
 import React, { Component } from 'react'
-import {Xaxis} from '../../src'
+import {Yaxis} from '../../src'
 
 const generalChartData = require("./data/state_age.json");
 const ageNames = Object.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
@@ -12,39 +12,39 @@ generalChartData.forEach(function(d) {
   d.total = d.ages[d.ages.length - 1].y1;
 });
 
-const x = function(d) {
+const y = function(d) {
     return d.State;
   },
-  xDomain = generalChartData.map(function(d) { return d.State; }),
-  xScale = 'ordinal',
-  xLabel = "Age";
+  yDomain = generalChartData.map(function(d) { return d.State; }),
+  yScale = 'ordinal',
+  yLabel = "Age";
 
-export default class XaxisSample extends Component {
+export default class YaxisSample extends Component {
 
   render() {
     return (
       <div>
         <svg width={960} height={500}>
-          <Xaxis
-            x= {x}
-            xDomain= {xDomain}
-            xBandPaddingInner={.1}
-            xScale= {xScale}
-            xLabel = {xLabel}
+          <Yaxis
+            y= {y}
+            yDomain= {yDomain}
+            yBandPaddingInner={.1}
+            yScale= {yScale}
+            yLabel = {yLabel}
             style = {{
               "transform": "rotate(45deg)"
             }}
           />
         </svg>
         <svg width={960} height={500}>
-          <Xaxis
-            x= {x}
-            xDomain= {xDomain}
-            xBandPaddingInner={.1}
-            xScale= {xScale}
-            xOrient="top"
-            xLabelPosition="top"
-            xLabel = {xLabel}
+          <Yaxis
+            y= {y}
+            yDomain= {yDomain}
+            yBandPaddingInner={.1}
+            yScale= {yScale}
+            yOrient="right"
+            yLabelPosition="right"
+            yLabel = {yLabel}
             style = {{
               "transform": "rotate(45deg)"
             }}

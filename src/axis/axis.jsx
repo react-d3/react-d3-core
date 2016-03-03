@@ -6,7 +6,8 @@ import {
   PropTypes
 } from 'react';
 
-import d3 from 'd3';
+import D3Axis from 'd3-axis';
+import D3Selection from 'd3-selection'
 import ReactFauxDOM from 'react-faux-dom';
 import {scale} from '../utils/scale';
 
@@ -36,17 +37,23 @@ export default class Axis extends Component {
       tickOrient,
       tickFormat,
       tickPadding,
-      innerTickSize,
-      outerTickSize,
+      tickSizeInner,
+      tickSizeOuter,
       ticks,
     } = this.props;
 
-    var func = d3.svg.axis();
+    var func = D3Axis;
 
-    func.scale(this._mkScale(this.props));
 
-    if(tickOrient)
-      func.orient(tickOrient);
+    if(tickOrient === 'left') {
+      func = func.axisLeft(this._mkScale(this.props));
+    }else if (tickOrient === 'right') {
+      func = func.axisRight(this._mkScale(this.props))
+    }else if (tickOrient === 'top') {
+      func = func.axisTop(this._mkScale(this.props))
+    }else if (tickOrient === 'bottom') {
+      func = func.axisBottom(this._mkScale(this.props))
+    }
 
     if(tickFormat)
       func.tickFormat(tickFormat);
@@ -54,11 +61,11 @@ export default class Axis extends Component {
     if(tickPadding)
       func.tickPadding(tickPadding);
 
-    if(outerTickSize)
-      func.outerTickSize(outerTickSize);
+    if(tickSizeOuter)
+      func.tickSizeOuter(tickSizeOuter);
 
-    if(innerTickSize)
-      func.innerTickSize(innerTickSize);
+    if(tickSizeInner)
+      func.tickSizeInner(tickSizeInner);
 
     if(ticks)
       func.ticks.apply(null, ticks);
@@ -99,7 +106,7 @@ export default class Axis extends Component {
 
     axisGroup.setAttribute('class', axisClasses);
 
-    var axisDom = d3.select(axisGroup);
+    var axisDom = D3Selection.select(axisGroup);
 
     axisDom.call(this._mkTickAxis());
 

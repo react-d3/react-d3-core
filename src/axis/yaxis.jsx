@@ -32,7 +32,7 @@ export default class Yaxis extends Component {
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
-    showXAxis: PropTypes.bool,
+    showYAxis: PropTypes.bool,
     y: PropTypes.func,
     yDomain: PropTypes.array,
     yRange: PropTypes.array,
@@ -40,8 +40,10 @@ export default class Yaxis extends Component {
     yOrient: PropTypes.oneOf(['left', 'right']),
     yTickOrient: PropTypes.oneOf(['left', 'right']),
     yAxisClassName: PropTypes.string,
-    yInnerTickSize: PropTypes.number,
-    yOuterTickSize: PropTypes.number,
+    yTickSizeInner: PropTypes.number,
+    yTickSizeOuter: PropTypes.number,
+    yBandPaddingInner: PropTypes.number,
+    yBandPaddingOuter: PropTypes.number,
     yTickPadding: PropTypes.number,
     yTickFormat: PropTypes.func,
     yTicks: PropTypes.array,
@@ -57,14 +59,15 @@ export default class Yaxis extends Component {
       yAxisClassName,
       yDomain,
       yRange,
-      yRangeRoundBands,
+      yBandPaddingInner,
+      yBandPaddingOuter,
       yScale,
       yOrient,
       yTickOrient,
       yTickFormat,
       yTickPadding,
-      yInnerTickSize,
-      yOuterTickSize,
+      yTickSizeOuter,
+      yTickSizeInner,
       yTicks,
       yLabel,
       yLabelPosition,
@@ -85,7 +88,7 @@ export default class Yaxis extends Component {
       t = `translate(${width - margins.right - margins.left}, 0)`;
     } else if (yOrient === 'left'){
       // y - left
-      t = `translate(0, 0)`;
+      t = `translate(${margins.left}, 0)`;
     }
 
     if(yLabel) {
@@ -96,6 +99,8 @@ export default class Yaxis extends Component {
         labelTitle= {yLabel}
         labelPosition= {yLabelPosition}
         labelOffset= {labelOffset}
+        bandPaddingInner= {yBandPaddingInner}
+        bandPaddingOuter= {yBandPaddingOuter}
       />
     }
 
@@ -107,8 +112,8 @@ export default class Yaxis extends Component {
           width= {width}
           margins= {margins}
           showAxis= {showYAxis}
-          axisClassName= {yAxisClassName}
-          rangeRoundBands= {yRangeRoundBands}
+          bandPaddingInner= {yBandPaddingInner}
+          bandPaddingOuter= {yBandPaddingOuter}
           type = "y"
           proxy = {y}
           domain = {yDomain}
@@ -118,8 +123,8 @@ export default class Yaxis extends Component {
           tickOrient = {yTickOrient}
           tickFormat = {yTickFormat}
           tickPadding = {yTickPadding}
-          innerTickSize = {yInnerTickSize}
-          outerTickSize = {yOuterTickSize}
+          tickSizeInner = {yTickSizeInner}
+          tickSizeOuter = {yTickSizeOuter}
           ticks = {yTicks}
           style = {style}
           />

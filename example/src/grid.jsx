@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import {Grid} from '../../src'
+import D3Array from 'd3-array'
 
 const generalChartData = require('./data/user_sample.json');
 
@@ -12,13 +13,13 @@ const width = 960,
   x = function(d) {
     return d.index;
   },
-  xDomain = d3.extent(generalChartData, x),
+  xDomain = D3Array.extent(generalChartData, x),
   xRange = [0, width - margins.left - margins.right],
   xScale = 'linear',
   y = function(d) {
     return d.age;
   },
-  yDomain = d3.extent(generalChartData, y),
+  yDomain = D3Array.extent(generalChartData, y),
   yRange = [height - margins.top - margins.bottom, 0],
   yScale = 'linear';
 

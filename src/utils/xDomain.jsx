@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import D3Array from 'd3-array'
 
 export function xDomain(props, stack, horizonal) {
   const {
@@ -16,7 +16,7 @@ export function xDomain(props, stack, horizonal) {
     if(xScale === 'ordinal') {
       return data.map((d) => { return x(d); });
     }else {
-      return d3.extent(data, (d) => { return x(d); });
+      return D3Array.extent(data, (d) => { return x(d); });
     }
   }else {
     if(stack) {
@@ -47,12 +47,12 @@ export function xDomain(props, stack, horizonal) {
       // not stack, single
       var domainArr = chartSeries.map((d) => {
         var field = d.field;
-        var extent = d3.extent(data, (dt) => { return x(dt[field]); });
+        var extent = D3Array.extent(data, (dt) => { return x(dt[field]); });
 
         return extent;
       })
 
-      return d3.extent([].concat.apply([], domainArr));
+      return D3Array.extent([].concat.apply([], domainArr));
     }
   }
 }

@@ -142,10 +142,18 @@ You'll also need `react`, `react-dom`, `d3`
 
 ```
 $ npm install
-$ npm run dev-server
-$ npm run build
-$ webpack -w
+$ node devServer.js
 ```
+
+Open `localhost:5000/example`
+
+## History
+
+- 2016 / 3 / 3
+  
+  - Move to babel 6.
+  - D3 4.0.
+  - improve example folder.
 
 
 ## License

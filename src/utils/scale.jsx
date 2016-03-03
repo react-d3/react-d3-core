@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import D3Scale from 'd3-scale';
 
 export function scale(props) {
   const {
@@ -9,23 +9,23 @@ export function scale(props) {
   var func;
 
   if(scale === 'linear')
-    func = d3.scale.linear();
+    func = D3Scale.scaleLinear();
   else if(scale === 'identity')
-    func = d3.scale.identity();
+    func = D3Scale.scaleIdentity();
   else if(scale === 'sqrt')
-    func = d3.scale.sqrt();
+    func = D3Scale.scaleSqrt();
   else if(scale === 'pow')
-    func = d3.scale.pow();
+    func = D3Scale.scalePow();
   else if(scale === 'log')
-    func = d3.scale.log();
+    func = D3Scale.scaleLog();
   else if(scale === 'quantize')
-    func = d3.scale.quantize();
+    func = D3Scale.scaleQuantize();
   else if(scale === 'quantile')
-    func = d3.scale.quantile();
+    func = D3Scale.scaleQuantile();
   else if(scale === 'ordinal')
-    func = d3.scale.ordinal();
+    func = D3Scale.scaleBand();
   else if(scale === 'time')
-    func = d3.time.scale();
+    func = D3Scale.scaleTime();
   else
     new Error(`Please check your axis scale setting. "${scale}" scale is invalid. `)
 
@@ -40,7 +40,8 @@ function _mkScaleSettings(props, func) {
     range,
     domain,
     scale,
-    rangeRoundBands
+    bandPaddingInner,
+    bandPaddingOuter
   } = props;
 
   if(range)
@@ -49,15 +50,17 @@ function _mkScaleSettings(props, func) {
   if(domain)
     func.domain(domain)
 
-  if(scale === 'ordinal' && rangeRoundBands) {
-    const {interval, padding, outerPadding} = rangeRoundBands;
+  if(scale === 'ordinal' && (bandPaddingInner || bandPaddingOuter)) {
 
-    if(padding && outerPadding)
-      func.rangeRoundBands(interval, padding, outerPadding)
-    else if(padding)
-      func.rangeRoundBands(interval, padding)
-    else
-      func.rangeRoundBands(interval)
+    func
+      .round(true)
+
+    if(bandPaddingInner) 
+      func.paddingInner(bandPaddingInner)
+      
+    if(bandPaddingOuter) 
+      func.paddingOuter(bandPaddingOuter)
+  
   }
 
   return func;
