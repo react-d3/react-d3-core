@@ -46,7 +46,13 @@ export function yDomain(props, stack, horizonal) {
         return extent;
       })
 
-      return D3Array.extent([].concat.apply([], domainArr));
+      var extentArr = D3Array.extent([].concat.apply([], domainArr))
+
+      if(extentArr[0] * extentArr[1] >= 0) {
+        return [0, extentArr[1]]
+      }else {
+        return extentArr
+      }
     }
   }else {
     if(yScale === 'ordinal') {
