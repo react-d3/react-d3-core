@@ -1,6 +1,6 @@
 {
   "name": "react-d3-core",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "react-d3 chart core component",
   "main": "./lib/index.js",
   "scripts": {
@@ -48,14 +48,14 @@
     "webpack-hot-middleware": "^2.9.1"
   },
   "peerDependencies": {
-    "react": "^0.14.7"
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
   },
   "dependencies": {
     "d3-array": "^0.7.1",
     "d3-axis": "^0.3.0",
     "d3-scale": "^0.6.4",
     "d3-selection": "^0.7.0",
-    "react-dom": "^0.14.7",
     "react-faux-dom": "^2.3.0"
   }
 }
