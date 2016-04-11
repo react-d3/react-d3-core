@@ -21,7 +21,8 @@ export default class Axis extends Component {
     rangeRoundBands: null,
     domain: null,
     tickFormat: null,
-    tickOrient: null
+    tickOrient: null,
+    tickExclude: []
   }
 
   static PropTypes = {
@@ -29,6 +30,7 @@ export default class Axis extends Component {
     type: PropTypes.string,
     orient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     tickOrient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    tickExclude: PropTypes.array
   }
 
   _mkTickAxis () {
@@ -94,7 +96,8 @@ export default class Axis extends Component {
       gridAxisClassName,
       axisClassName,
       type,
-      style
+      style,
+      tickExclude
     } = this.props;
 
     var axisGroup = ReactFauxDOM.createElement('g');
@@ -142,6 +145,10 @@ export default class Axis extends Component {
 
     axisDom.selectAll('.axis path')
       .style('display', 'none')
+
+    // Hide the specified ticks
+    axisDom.selectAll('.axis .tick')
+      .style('display', d => tickExclude.indexOf(d) > -1 ? 'none' : 'auto');
 
     var axisText = axisDom.selectAll('.axis text')
 
