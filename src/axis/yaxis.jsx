@@ -112,6 +112,7 @@ export default class Yaxis extends Component {
           width= {width}
           margins= {margins}
           showAxis= {showYAxis}
+          axisClassName= {yAxisClassName}
           bandPaddingInner= {yBandPaddingInner}
           bandPaddingOuter= {yBandPaddingOuter}
           type = "y"
