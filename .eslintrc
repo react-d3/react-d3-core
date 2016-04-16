@@ -1,0 +1,39 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true,
+        "commonjs": true
+    },
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "babel"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": "warn"
+    }
+}
