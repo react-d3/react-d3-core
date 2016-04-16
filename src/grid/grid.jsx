@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
   Component,
-  PropTypes,
+  PropTypes
 } from 'react';
 
 import Axis from '../axis/axis';
@@ -59,11 +59,12 @@ export default class Grid extends Component {
       y,
       yDomain,
       yRange,
-      yScale,
+      yScale
     } = this.props;
 
     var gridAxis;
     var t;
+    var tickSize;
 
     if(!yRange) {
       yRange = [height - margins.top - margins.bottom, 0];
@@ -75,7 +76,7 @@ export default class Grid extends Component {
 
     if(type === 'x') {
       t = `translate(0, ${height - margins.bottom - margins.top})`;
-      var tickSize = height - margins.top - margins.bottom;
+      tickSize = height - margins.top - margins.bottom;
 
       // if grid axis don't pass customize ticks.
       gridAxis = <Axis
@@ -97,10 +98,10 @@ export default class Grid extends Component {
         domain = {xDomain}
         range = {xRange}
         scale = {xScale}
-        />
+        />;
     } else if(type === 'y') {
-      t = `translate(0, 0)`;
-      var tickSize = width - margins.left - margins.right;
+      t = 'translate(0, 0)';
+      tickSize = width - margins.left - margins.right;
 
       // if grid axis don't pass customize ticks.
       gridAxis = <Axis
@@ -122,13 +123,13 @@ export default class Grid extends Component {
         scale = {yScale}
         domain = {yDomain}
         range = {yRange}
-        />
+        />;
     }
 
     return (
       <g transform = {t}>
         {gridAxis}
       </g>
-    )
+    );
   }
 }

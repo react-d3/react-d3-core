@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
   Component,
-  PropTypes,
+  PropTypes
 } from 'react';
 
 import CommonProps from '../commonProps';
@@ -29,7 +29,7 @@ export default class ChartTitle extends Component {
     const {
       titleClassName,
       title,
-      width,
+      width
      } = this.props;
 
     var titleStyle = {
@@ -37,7 +37,7 @@ export default class ChartTitle extends Component {
       textAlign: 'center',
       fontSize: '2em',
       paddingBottom: '1.3em'
-    }
+    };
 
     return (
       <div
@@ -46,6 +46,6 @@ export default class ChartTitle extends Component {
       >
         {title}
       </div>
-    )
+    );
   }
 }

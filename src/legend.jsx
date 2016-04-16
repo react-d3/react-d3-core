@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
   Component,
-  PropTypes,
+  PropTypes
 } from 'react';
 
-import D3Selection from 'd3-selection'
-import D3Scale from 'd3-scale'
+import D3Selection from 'd3-selection';
+import D3Scale from 'd3-scale';
 import ReactFauxDOM from 'react-faux-dom';
 import CommonProps from './commonProps';
 
@@ -16,7 +16,7 @@ export default class Legend extends Component {
     super(props);
   }
 
-  static defaultProps =  {
+  static defaultProps = {
     backgroundColor: '#FFF',
     legendHeight: 50,
     legendPosition: 'left',
@@ -34,7 +34,7 @@ export default class Legend extends Component {
     legendOffset: PropTypes.number.isRequired,
     legendClassName: PropTypes.string.isRequired,
     legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
-    swatchShape: PropTypes.oneOf(['circle', 'square']),
+    swatchShape: PropTypes.oneOf(['circle', 'square'])
   }
 
   _radius(swatchShape) {
@@ -52,7 +52,7 @@ export default class Legend extends Component {
     return chartSeries.map(({ name, color, field }, i) => ({
       color: color || colors(i),
       name: name || field,
-      field,
+      field
     }));
   }
 
@@ -65,7 +65,7 @@ export default class Legend extends Component {
       swatchShape,
       chartSeries,
       margins,
-      width,
+      width
     } = this.props;
 
     const legendArea = D3Selection.select(dom);
@@ -76,25 +76,25 @@ export default class Legend extends Component {
     const legend = legendArea
       .selectAll('div')
       .data(series)
-    .enter().append("div")
-      .attr("class", `${legendClassName} legend`)
-      .style("height", 20)
-      .style("padding", 5)
-      .style("background-color", backgroundColor)
-      .style("display", "inline-block");
+    .enter().append('div')
+      .attr('class', `${legendClassName} legend`)
+      .style('height', 20)
+      .style('padding', 5)
+      .style('background-color', backgroundColor)
+      .style('display', 'inline-block');
 
-    const rect = legend.append("div")
-      .style("width", 18)
-      .style("height", 18)
-      .style("border-radius", radius)
-      .style("background-color", d => d.color)
-      .style("float", legendPosition);
+    const rect = legend.append('div')
+      .style('width', 18)
+      .style('height', 18)
+      .style('border-radius', radius)
+      .style('background-color', d => d.color)
+      .style('float', legendPosition);
 
-    const text = legend.append("div")
-      .style("padding-left", 5)
-      .style("padding-right", 5)
+    const text = legend.append('div')
+      .style('padding-left', 5)
+      .style('padding-right', 5)
       .text(d => d.name)
-      .style("float", legendPosition);
+      .style('float', legendPosition);
 
     return legendArea;
   }

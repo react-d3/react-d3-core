@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -6,8 +6,8 @@ var BlankChart = require('./blank_chart.jsx');
 
 (function() {
 
-  var generalChartData = require("json!./data/state_age.json");
-  var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
+  var generalChartData = require('json!./data/state_age.json');
+  var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== 'State'; });
 
   generalChartData.forEach(function(d) {
     var y0 = 0;
@@ -18,11 +18,11 @@ var BlankChart = require('./blank_chart.jsx');
   var width = 960,
     height = 500,
     margins = {top: 50, right: 50, bottom: 100, left: 100},
-    id = "test-chart",
-    title = "test chart lib",
-    svgClassName = "test-chart-class",
-    titleClassName = "test-chart-title-class",
-    legendClassName = "test-legend",
+    id = 'test-chart',
+    title = 'test chart lib',
+    svgClassName = 'test-chart-class',
+    titleClassName = 'test-chart-title-class',
+    legendClassName = 'test-legend',
     showLegend = true,
     showXAxis = true,
     showYAxis = true,
@@ -73,7 +73,7 @@ var BlankChart = require('./blank_chart.jsx');
     xRangeRoundBands = {interval: [0, width - margins.left - margins.right], padding: .1},
     xScale = 'ordinal',
     xAxisClassName = 'x-axis',
-    xLabel = "Age",
+    xLabel = 'Age',
     y = function(d) {
       return +d;
     },
@@ -82,8 +82,8 @@ var BlankChart = require('./blank_chart.jsx');
     yDomain = [0, d3.max(generalChartData, function(d) { return d.total; })],
     yScale = 'linear',
     yAxisClassName = 'y-axis',
-    yLabel = "Population",
-    yTickFormat = d3.format(".2s");
+    yLabel = 'Population',
+    yTickFormat = d3.format('.2s');
 
   ReactDOM.render(
     <BlankChart
@@ -135,5 +135,5 @@ var BlankChart = require('./blank_chart.jsx');
       yLabelPosition = 'left'
     />
   , document.getElementById('blank-blank_chart')
-  )
-})()
+  );
+})();

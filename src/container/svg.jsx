@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
   Component,
-  PropTypes,
+  PropTypes
 } from 'react';
 
 import CommonProps from '../commonProps';
@@ -26,7 +26,7 @@ export default class ChartSvg extends Component {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     margins: PropTypes.object.isRequired,
-    svgClassName: PropTypes.string.isRequired,
+    svgClassName: PropTypes.string.isRequired
   }
 
   render() {

@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
   Component,
-  PropTypes,
+  PropTypes
 } from 'react';
 
-import D3Selection from 'd3-selection'
+import D3Selection from 'd3-selection';
 import ReactFauxDOM from 'react-faux-dom';
 import CommonProps from '../commonProps';
 
@@ -72,7 +72,7 @@ export default class Label extends Component {
         .attr('y', +labelOffset)
         .attr('x', fixWidth / 2)
         .style('text-anchor', textAnchor)
-        .text(labelTitle)
+        .text(labelTitle);
 
     }else if (labelPosition === 'left') {
 
@@ -81,7 +81,7 @@ export default class Label extends Component {
         .attr('y', -labelOffset)
         .attr('x', -fixHeight / 2)
         .style('text-anchor', textAnchor)
-        .text(labelTitle)
+        .text(labelTitle);
 
     }else if (labelPosition === 'right') {
 
@@ -90,7 +90,7 @@ export default class Label extends Component {
         .attr('y', +labelOffset)
         .attr('x', -fixHeight / 2)
         .style('text-anchor', textAnchor)
-        .text(labelTitle)
+        .text(labelTitle);
     }
 
     return labelDom;

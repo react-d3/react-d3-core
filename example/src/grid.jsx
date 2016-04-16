@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-import React, { Component } from 'react'
-import {Grid} from '../../src'
-import D3Array from 'd3-array'
+import React, { Component } from 'react';
+import {Grid} from '../../src';
+import D3Array from 'd3-array';
 
 const generalChartData = require('./data/user_sample.json');
 
 const width = 960,
   height = 500,
   margins = {top: 20, right: 50, bottom: 30, left: 50},
-  gridAxisClassName = "test-grid-class",
+  gridAxisClassName = 'test-grid-class',
   x = function(d) {
     return d.index;
   },
@@ -60,6 +60,6 @@ export default class GridSample extends Component {
           yScale= {yScale}
         />
       </svg>
-    )
+    );
   }
 }

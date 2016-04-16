@@ -1,4 +1,5 @@
-"use strict";
+/* global d3 */
+'use strict';
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -6,9 +7,9 @@ var Xaxis = require('../../lib/index.js').Xaxis;
 
 (function() {
   // load your general data, for building xDomain.
-  var chartData = require("dsv?delimiter=,!./data/garbage.csv");
+  var chartData = require('dsv?delimiter=,!./data/garbage.csv');
   // your date format, use for parsing
-  var parseDate = d3.time.format("%YM%m").parse;
+  var parseDate = d3.time.format('%YM%m').parse;
 
   // setting you svg width
   var width = 400,
@@ -21,24 +22,24 @@ var Xaxis = require('../../lib/index.js').Xaxis;
       return parseDate(d.month);
     },
     // set your x domain
-    xDomain = d3.extent(chartData, function(d){ return x(d) }),
+    xDomain = d3.extent(chartData, function(d){ return x(d); }),
     // set your x range
     xRange = [0, width - margins.left - margins.right],
     // your scale type 'linear', 'ordinal', 'time'... etc.
     xScale = 'time',
     // set your label name
-    xLabel = "Month";
+    xLabel = 'Month';
 
   var ClickAxis = React.createClass({
     getInitialState: function() {
       return {
         expend: false
-      }
+      };
     },
     _onClick: function() {
       this.setState({
         expend: !this.state.expend
-      })
+      });
     },
     render: function() {
       var expend = this.state.expend;
@@ -58,12 +59,12 @@ var Xaxis = require('../../lib/index.js').Xaxis;
             xLabel= {xLabel}
           />
         </svg>
-      )
+      );
     }
-  })
+  });
 
   ReactDOM.render(
-    <ClickAxis />
-  , document.getElementById('click-xaxis')
-  )
-})()
+    <ClickAxis />,
+    document.getElementById('click-xaxis')
+  );
+})();
