@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-import React, { Component } from 'react'
-import {Label} from '../../src'
+import React, { Component } from 'react';
+import {Label} from '../../src';
 
 
 const labelTitle = 'new label title',
-  labelPosition = 'right'
+  labelPosition = 'right';
 
 export default class LabelSample extends Component {
 
@@ -17,6 +17,6 @@ export default class LabelSample extends Component {
           labelPosition= {labelPosition}
         />
       </svg>
-    )
+    );
   }
 }

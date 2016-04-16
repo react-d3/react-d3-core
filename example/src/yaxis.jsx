@@ -1,10 +1,10 @@
 "use strict";
 
-import React, { Component } from 'react'
-import {Yaxis} from '../../src'
+import React, { Component } from 'react';
+import {Yaxis} from '../../src';
 
-const generalChartData = require("./data/state_age.json");
-const ageNames = Object.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
+const generalChartData = require('./data/state_age.json');
+const ageNames = Object.keys(generalChartData[0]).filter(function(key) { return key !== 'State'; });
 
 generalChartData.forEach(function(d) {
   var y0 = 0;
@@ -17,7 +17,7 @@ const y = function(d) {
   },
   yDomain = generalChartData.map(function(d) { return d.State; }),
   yScale = 'ordinal',
-  yLabel = "Age";
+  yLabel = 'Age';
 
 export default class YaxisSample extends Component {
 
@@ -32,7 +32,7 @@ export default class YaxisSample extends Component {
             yScale= {yScale}
             yLabel = {yLabel}
             style = {{
-              "transform": "rotate(45deg)"
+              transform: 'rotate(45deg)'
             }}
           />
         </svg>
@@ -46,11 +46,11 @@ export default class YaxisSample extends Component {
             yLabelPosition="right"
             yLabel = {yLabel}
             style = {{
-              "transform": "rotate(45deg)"
+              transform: 'rotate(45deg)'
             }}
           />
         </svg>
       </div>
-    )
+    );
   }
 }

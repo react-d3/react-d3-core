@@ -4,6 +4,7 @@
   "description": "react-d3 chart core component",
   "main": "./lib/index.js",
   "scripts": {
+    "lint": "eslint **/*.js **/*.jsx",
     "test": "karma start",
     "build": "rm -rf ./lib && BABEL_ENV=production ./node_modules/.bin/babel ./src --out-dir ./lib",
     "prod": "BABEL_ENV=production NODE_ENV=0 webpack --config webpack.prod.config.js && BABEL_ENV=production NODE_ENV=1 webpack --config webpack.prod.config.js"
@@ -13,7 +14,7 @@
   "devDependencies": {
     "babel-cli": "^6.6.4",
     "babel-core": "^6.5.2",
-    "babel-eslint": "^3.1.9",
+    "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.3",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-react-transform": "^2.0.0",
@@ -25,6 +26,9 @@
     "babel-preset-react-hmre": "1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "dsv-loader": "^1.0.0",
+    "eslint": "^2.8.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-react": "^4.3.0",
     "expect": "^1.13.3",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",

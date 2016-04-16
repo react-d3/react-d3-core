@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-import React, { Component } from 'react'
-import {Xaxis} from '../../src'
+import React, { Component } from 'react';
+import {Xaxis} from '../../src';
 
-const generalChartData = require("./data/state_age.json");
-const ageNames = Object.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
+const generalChartData = require('./data/state_age.json');
+const ageNames = Object.keys(generalChartData[0]).filter(function(key) { return key !== 'State'; });
 
 generalChartData.forEach(function(d) {
   var y0 = 0;
@@ -17,7 +17,7 @@ const x = function(d) {
   },
   xDomain = generalChartData.map(function(d) { return d.State; }),
   xScale = 'ordinal',
-  xLabel = "Age";
+  xLabel = 'Age';
 
 export default class XaxisSample extends Component {
 
@@ -32,7 +32,7 @@ export default class XaxisSample extends Component {
             xScale= {xScale}
             xLabel = {xLabel}
             style = {{
-              "transform": "rotate(45deg)"
+              transform: 'rotate(45deg)'
             }}
           />
         </svg>
@@ -46,11 +46,11 @@ export default class XaxisSample extends Component {
             xLabelPosition="top"
             xLabel = {xLabel}
             style = {{
-              "transform": "rotate(45deg)"
+              transform: 'rotate(45deg)'
             }}
           />
         </svg>
       </div>
-    )
+    );
   }
 }

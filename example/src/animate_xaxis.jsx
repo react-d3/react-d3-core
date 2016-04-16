@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -12,7 +12,7 @@ var Xaxis = require('../../lib').Xaxis;
       return this.props;
     },
     componentDidMount: function() {
-      var generalChartData = require("json!./data/state_age.json");
+      var generalChartData = require('json!./data/state_age.json');
       var i = 0;
 
       var that = this;
@@ -21,22 +21,22 @@ var Xaxis = require('../../lib').Xaxis;
         i++;
 
         if(i % 2 == 1) {
-          var xDomain = generalChartData.map(function(d) { return d.State; })
+          var xDomain = generalChartData.map(function(d) { return d.State; });
         }else {
-          var xDomain = ["CA", "TX"]
+          var xDomain = ['CA', 'TX'];
         }
 
-        that._updateState(xDomain)
-      }, 2000)
+        that._updateState(xDomain);
+      }, 2000);
     },
     _updateState: function(xDomain) {
       this.setState({
         xDomain: xDomain
-      })
+      });
     },
     render: function() {
-      var generalChartData = require("json!./data/state_age.json");
-      var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== "State"; });
+      var generalChartData = require('json!./data/state_age.json');
+      var ageNames = d3.keys(generalChartData[0]).filter(function(key) { return key !== 'State'; });
 
       generalChartData.forEach(function(d) {
         var y0 = 0;
@@ -50,7 +50,7 @@ var Xaxis = require('../../lib').Xaxis;
         xDomain = generalChartData.map(function(d) { return d.State; }),
         xRangeRoundBands = {interval: [0, 860], padding: .1},
         xScale = 'ordinal',
-        xLabel = "Age";
+        xLabel = 'Age';
 
       return (
         <svg width={960} height={500}>
@@ -63,13 +63,13 @@ var Xaxis = require('../../lib').Xaxis;
             {...this.state}
           />
         </svg>
-      )
+      );
     }
-  })
+  });
 
 
   ReactDOM.render(
     <AnimateChart />
-  , document.getElementById('blank-animate_xaxis'))
+  , document.getElementById('blank-animate_xaxis'));
 
-})()
+})();

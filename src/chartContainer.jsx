@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 import {
   default as React,
-  Component,
+  Component
 } from 'react';
 
 import ChartSvg from './container/svg';
@@ -32,7 +32,7 @@ export default class ChartContainer extends Component {
       legend = <Legend
         {...this.props}
         chartSeries = {chartSeries}
-      />
+      />;
     }
 
     return (
@@ -40,6 +40,6 @@ export default class ChartContainer extends Component {
         {legend}
         <ChartSvg {...this.props}/>
       </div>
-    )
+    );
   }
 }

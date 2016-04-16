@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 
@@ -22,19 +22,19 @@ var BlankChart = React.createClass({
           {...this.props}
           {...this.state}
           style= {{
-            "transform": "rotate(45deg)"
+            'transform': 'rotate(45deg)'
           }}
           />
         <Yaxis
           {...this.props}
           {...this.state}
           style= {{
-            "transform": "rotate(-45deg)"
+            'transform': 'rotate(-45deg)'
           }}
           />
       </Chart>
-    )
+    );
   }
-})
+});
 
 module.exports = BlankChart;

@@ -1,4 +1,4 @@
-import D3Array from 'd3-array'
+import D3Array from 'd3-array';
 
 export function xDomain(props, stack, horizonal) {
   const {
@@ -36,11 +36,11 @@ export function xDomain(props, stack, horizonal) {
           }else if (d[field] < 0) {
             totalBottom += x(d[field]);
           }
-        })
+        });
 
         if(totalTop > max) max = totalTop;
         if(totalBottom < min) min = totalBottom;
-      })
+      });
 
       return [min, max];
     }else {
@@ -50,7 +50,7 @@ export function xDomain(props, stack, horizonal) {
         var extent = D3Array.extent(data, (dt) => { return x(dt[field]); });
 
         return extent;
-      })
+      });
 
       return D3Array.extent([].concat.apply([], domainArr));
     }

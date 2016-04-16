@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 import {
   default as React,
@@ -18,6 +18,6 @@ export default class YGrid extends Component {
         {...this.props}
         type="y"
       />
-    )
+    );
   }
 }
