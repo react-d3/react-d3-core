@@ -29,13 +29,13 @@ export default class Grid extends Component {
     x: PropTypes.func,
     xDomain: PropTypes.array,
     xRange: PropTypes.array,
-    xScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+    xScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time', 'band']).isRequired,
     xBandPaddingInner: PropTypes.number,
     xBandPaddingOuter: PropTypes.number,
     y: PropTypes.func,
     yDomain: PropTypes.array,
     yRange: PropTypes.array,
-    yScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+    yScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time', 'band']).isRequired,
     yBandPaddingInner: PropTypes.number,
     yBandPaddingOuter: PropTypes.number
   }
