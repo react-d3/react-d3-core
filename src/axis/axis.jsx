@@ -94,7 +94,11 @@ export default class Axis extends Component {
       gridAxisClassName,
       axisClassName,
       type,
-      style
+      style,
+      axisTextCls, //css class to style axis text labels
+      axisPathCls, //css class to style axis line
+      axisTicksCls, //css class to style ticks on axis
+      gridAxisCls //css class to style grids on chart
     } = this.props;
 
     var axisGroup = ReactFauxDOM.createElement('g');
@@ -123,32 +127,51 @@ export default class Axis extends Component {
       }
     }
 
-    // basic styles
-    axisDom.selectAll('.axis path')
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('shape-rendering', 'crispEdges');
 
-    axisDom.selectAll('.axis line')
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('shape-rendering', 'crispEdges');
+    // apply user defined axis path style (path refers to x-axis line)if provided or else default
+    if(axisPathCls) {
+      var axisPath = axisDom.selectAll('.axis path')
+      axisPath.attr("class", axisPathCls);
+    }
+    else
+      axisDom.selectAll('.axis path')
+          .style('fill', 'none')
+          .style('stroke', '#000')
+          .style('shape-rendering', 'crispEdges')
 
-    axisDom.selectAll('.grid-axis line')
-      .style('opacity', .2)
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('stroke-width', '1.5px')
+    // apply user defined style for axis tick line if provided or else default
+    if(axisTicksCls) {
+      var axisLine = axisDom.selectAll('.axis line')
+      axisLine.attr("class", axisTicksCls);
+    }
+    else
+      axisDom.selectAll('.axis line')
+          .style('fill', 'none')
+          .style('stroke', '#000')
+          .style('shape-rendering', 'crispEdges');
 
-    axisDom.selectAll('.axis path')
-      .style('display', 'none')
+    // apply user defined style for grid axes if provided or else default
+    if(gridAxisCls) {
+        var grids = axisDom.selectAll('.grid-axis line')
+        grids.attr("class", gridAxisCls);
+    }
+    else
+        axisDom.selectAll('.grid-axis line')
+            .style('opacity', .2)
+            .style('fill', 'none')
+            .style('stroke', '#000')
+            .style('stroke-width', '1.5px')
 
+    // Axis tick labels style
     var axisText = axisDom.selectAll('.axis text')
-
     if(style) {
       for(var key in style) {
         axisText.style(key, style[key]);
       }
+    }
+    // user defined style for axis labels
+    else if(axisTextCls) {
+      axisText.attr("class", axisTextCls);
     }
 
     return axisDom.node().toReact();

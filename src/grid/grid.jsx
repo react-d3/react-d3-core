@@ -37,7 +37,11 @@ export default class Grid extends Component {
     yRange: PropTypes.array,
     yScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
     yBandPaddingInner: PropTypes.number,
-    yBandPaddingOuter: PropTypes.number
+    yBandPaddingOuter: PropTypes.number,
+    xGridCount: PropTypes.array,
+    yGridCount: PropTypes.array,
+    xGridStyleCls: PropTypes.string,
+    yGridStyleCls: PropTypes.string
   }
 
   render() {
@@ -54,12 +58,16 @@ export default class Grid extends Component {
       xDomain,
       xRange,
       xScale,
+      xGridCount,
+      xGridStyleCls,
       yBandPaddingInner,
       yBandPaddingOuter,
       y,
       yDomain,
       yRange,
       yScale,
+      yGridCount,
+      yGridStyleCls
     } = this.props;
 
     var gridAxis;
@@ -97,6 +105,8 @@ export default class Grid extends Component {
         domain = {xDomain}
         range = {xRange}
         scale = {xScale}
+        ticks = {xGridCount}
+        gridAxisCls = {xGridStyleCls}
         />
     } else if(type === 'y') {
       t = `translate(0, 0)`;
@@ -122,6 +132,8 @@ export default class Grid extends Component {
         scale = {yScale}
         domain = {yDomain}
         range = {yRange}
+        ticks = {yGridCount}
+        gridAxisCls = {yGridStyleCls}
         />
     }
 

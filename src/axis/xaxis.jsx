@@ -47,7 +47,10 @@ export default class Xaxis extends Component {
     xTickPadding: PropTypes.number,
     xTickFormat: PropTypes.func,
     xTicks: PropTypes.array,
-    style: PropTypes.object
+    style: PropTypes.object,
+    xAxisPathStyleCls : PropTypes.string,
+    xAxisTicksStyleCls : PropTypes.string,
+    xAxisTextStyleCls : PropTypes.string
   }
 
   render() {
@@ -73,7 +76,10 @@ export default class Xaxis extends Component {
       xLabel,
       xLabelPosition,
       labelOffset,
-      style
+      style,
+      xAxisPathStyleCls,
+      xAxisTicksStyleCls,
+      xAxisTextStyleCls
     } = this.props;
 
     var t;
@@ -125,8 +131,11 @@ export default class Xaxis extends Component {
           tickPadding = {xTickPadding}
           tickSizeInner = {xTickSizeInner}
           tickSizeOuter = {xTickSizeOuter}
-          ticks = {xTicks}
           style = {style}
+          ticks = {xTicks}
+          axisTextCls =  {xAxisTextStyleCls}
+          axisTicksCls = {xAxisTicksStyleCls}
+          axisPathCls = {xAxisPathStyleCls}
           />
         {axisLabel}
       </g>
