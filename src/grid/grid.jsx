@@ -40,8 +40,8 @@ export default class Grid extends Component {
     yBandPaddingOuter: PropTypes.number,
     xGridCount: PropTypes.array,
     yGridCount: PropTypes.array,
-    xGridStyleCls: PropTypes.string,
-    yGridStyleCls: PropTypes.string
+    xGridStyleClassName: PropTypes.string,
+    yGridStyleClassName: PropTypes.string
   }
 
   render() {
@@ -59,7 +59,7 @@ export default class Grid extends Component {
       xRange,
       xScale,
       xGridCount,
-      xGridStyleCls,
+      xGridStyleClassName,
       yBandPaddingInner,
       yBandPaddingOuter,
       y,
@@ -67,7 +67,7 @@ export default class Grid extends Component {
       yRange,
       yScale,
       yGridCount,
-      yGridStyleCls
+      yGridStyleClassName
     } = this.props;
 
     var gridAxis;
@@ -106,7 +106,7 @@ export default class Grid extends Component {
         range = {xRange}
         scale = {xScale}
         ticks = {xGridCount}
-        gridAxisCls = {xGridStyleCls}
+        gridStyleClassName = {xGridStyleClassName}
         />
     } else if(type === 'y') {
       t = `translate(0, 0)`;
@@ -133,7 +133,7 @@ export default class Grid extends Component {
         domain = {yDomain}
         range = {yRange}
         ticks = {yGridCount}
-        gridAxisCls = {yGridStyleCls}
+        gridStyleClassName = {yGridStyleClassName}
         />
     }
 

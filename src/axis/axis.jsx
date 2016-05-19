@@ -95,10 +95,8 @@ export default class Axis extends Component {
       axisClassName,
       type,
       style,
-      axisTextCls, //css class to style axis text labels
-      axisPathCls, //css class to style axis line
-      axisTicksCls, //css class to style ticks on axis
-      gridAxisCls //css class to style grids on chart
+      axisStyling, //styling object that holds user defined css classes for different axis elements
+      gridStyleClassName //css class to style grids on chart
     } = this.props;
 
     var axisGroup = ReactFauxDOM.createElement('g');
@@ -129,20 +127,21 @@ export default class Axis extends Component {
 
 
     // apply user defined axis path style (path refers to x-axis line)if provided or else default
-    if(axisPathCls) {
+    if(axisStyling && axisStyling.pathClassName) {
       var axisPath = axisDom.selectAll('.axis path')
-      axisPath.attr("class", axisPathCls);
+      axisPath.attr("class", axisStyling.pathClassName);
     }
     else
       axisDom.selectAll('.axis path')
           .style('fill', 'none')
           .style('stroke', '#000')
           .style('shape-rendering', 'crispEdges')
+          .style('display','none')
 
     // apply user defined style for axis tick line if provided or else default
-    if(axisTicksCls) {
+    if(axisStyling && axisStyling.ticksClassName) {
       var axisLine = axisDom.selectAll('.axis line')
-      axisLine.attr("class", axisTicksCls);
+      axisLine.attr("class", axisStyling.ticksClassName);
     }
     else
       axisDom.selectAll('.axis line')
@@ -151,9 +150,9 @@ export default class Axis extends Component {
           .style('shape-rendering', 'crispEdges');
 
     // apply user defined style for grid axes if provided or else default
-    if(gridAxisCls) {
+    if(gridStyleClassName) {
         var grids = axisDom.selectAll('.grid-axis line')
-        grids.attr("class", gridAxisCls);
+        grids.attr("class", gridStyleClassName);
     }
     else
         axisDom.selectAll('.grid-axis line')
@@ -170,8 +169,8 @@ export default class Axis extends Component {
       }
     }
     // user defined style for axis labels
-    else if(axisTextCls) {
-      axisText.attr("class", axisTextCls);
+    else if(axisStyling && axisStyling.textClassName) {
+      axisText.attr("class", axisStyling.textClassName);
     }
 
     return axisDom.node().toReact();
