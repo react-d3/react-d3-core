@@ -54,7 +54,8 @@ export default class Xaxis extends Component {
      ticksClassName: "someCls"
      textClassName: "someCls"
      */
-    xAxisStyling : PropTypes.object
+    xAxisStyling : PropTypes.object,
+    xTickValues: PropTypes.array,
   }
 
   render() {
@@ -81,7 +82,8 @@ export default class Xaxis extends Component {
       xLabelPosition,
       labelOffset,
       style,
-      xAxisStyling
+      xAxisStyling,
+      xTickValues
     } = this.props;
 
     var t;
@@ -136,6 +138,7 @@ export default class Xaxis extends Component {
           style = {style}
           ticks = {xTicks}
           axisStyling = {xAxisStyling}
+          tickValues = {xTickValues}
           />
         {axisLabel}
       </g>

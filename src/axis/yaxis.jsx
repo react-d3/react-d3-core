@@ -54,7 +54,8 @@ export default class Yaxis extends Component {
      ticksClassName: "someCls"
      textClassName: "someCls"
      */
-    yAxisStyling : PropTypes.object
+    yAxisStyling : PropTypes.object,
+    yTickValues : PropTypes.array
   }
 
   render() {
@@ -81,7 +82,8 @@ export default class Yaxis extends Component {
       labelOffset,
       showYAxis,
       style,
-      yAxisStyling
+      yAxisStyling,
+      yTickValues
     } = this.props;
 
     var t;
@@ -137,6 +139,7 @@ export default class Yaxis extends Component {
           ticks = {yTicks}
           style = {style}
           axisStyling = {yAxisStyling}
+          tickValues = {yTickValues}
           />
         {axisLabel}
       </g>

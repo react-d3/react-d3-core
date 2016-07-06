@@ -40,6 +40,7 @@ export default class Axis extends Component {
       tickSizeInner,
       tickSizeOuter,
       ticks,
+      tickValues
     } = this.props;
 
     var func = D3Axis;
@@ -66,6 +67,9 @@ export default class Axis extends Component {
 
     if(tickSizeInner)
       func.tickSizeInner(tickSizeInner);
+
+    if(tickValues)
+      func.tickValues(tickValues);
 
     if(ticks)
       func.ticks.apply(null, ticks);
