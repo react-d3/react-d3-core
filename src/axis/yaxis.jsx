@@ -47,7 +47,15 @@ export default class Yaxis extends Component {
     yTickPadding: PropTypes.number,
     yTickFormat: PropTypes.func,
     yTicks: PropTypes.array,
-    style: PropTypes.object
+    style: PropTypes.object,
+    /*
+     yAxisStyling object holds css styling classes for axis elements
+     pathClassName: "someCls"
+     ticksClassName: "someCls"
+     textClassName: "someCls"
+     */
+    yAxisStyling : PropTypes.object,
+    yTickValues : PropTypes.array
   }
 
   render() {
@@ -73,7 +81,9 @@ export default class Yaxis extends Component {
       yLabelPosition,
       labelOffset,
       showYAxis,
-      style
+      style,
+      yAxisStyling,
+      yTickValues
     } = this.props;
 
     var t;
@@ -112,6 +122,7 @@ export default class Yaxis extends Component {
           width= {width}
           margins= {margins}
           showAxis= {showYAxis}
+          axisClassName= {yAxisClassName}
           bandPaddingInner= {yBandPaddingInner}
           bandPaddingOuter= {yBandPaddingOuter}
           type = "y"
@@ -127,6 +138,8 @@ export default class Yaxis extends Component {
           tickSizeOuter = {yTickSizeOuter}
           ticks = {yTicks}
           style = {style}
+          axisStyling = {yAxisStyling}
+          tickValues = {yTickValues}
           />
         {axisLabel}
       </g>

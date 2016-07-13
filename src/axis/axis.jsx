@@ -40,6 +40,7 @@ export default class Axis extends Component {
       tickSizeInner,
       tickSizeOuter,
       ticks,
+      tickValues
     } = this.props;
 
     var func = D3Axis;
@@ -66,6 +67,9 @@ export default class Axis extends Component {
 
     if(tickSizeInner)
       func.tickSizeInner(tickSizeInner);
+
+    if(tickValues)
+      func.tickValues(tickValues);
 
     if(ticks)
       func.ticks.apply(null, ticks);
@@ -94,7 +98,9 @@ export default class Axis extends Component {
       gridAxisClassName,
       axisClassName,
       type,
-      style
+      style,
+      axisStyling, //styling object that holds user defined css classes for different axis elements
+      gridStyleClassName //css class to style grids on chart
     } = this.props;
 
     var axisGroup = ReactFauxDOM.createElement('g');
@@ -123,32 +129,52 @@ export default class Axis extends Component {
       }
     }
 
-    // basic styles
-    axisDom.selectAll('.axis path')
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('shape-rendering', 'crispEdges');
 
-    axisDom.selectAll('.axis line')
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('shape-rendering', 'crispEdges');
+    // apply user defined axis path style (path refers to x-axis line)if provided or else default
+    if(axisStyling && axisStyling.pathClassName) {
+      var axisPath = axisDom.selectAll('.axis path')
+      axisPath.attr("class", axisStyling.pathClassName);
+    }
+    else
+      axisDom.selectAll('.axis path')
+          .style('fill', 'none')
+          .style('stroke', '#000')
+          .style('shape-rendering', 'crispEdges')
+          .style('display','none')
 
-    axisDom.selectAll('.grid-axis line')
-      .style('opacity', .2)
-      .style('fill', 'none')
-      .style('stroke', '#000')
-      .style('stroke-width', '1.5px')
+    // apply user defined style for axis tick line if provided or else default
+    if(axisStyling && axisStyling.ticksClassName) {
+      var axisLine = axisDom.selectAll('.axis line')
+      axisLine.attr("class", axisStyling.ticksClassName);
+    }
+    else
+      axisDom.selectAll('.axis line')
+          .style('fill', 'none')
+          .style('stroke', '#000')
+          .style('shape-rendering', 'crispEdges');
 
-    axisDom.selectAll('.axis path')
-      .style('display', 'none')
+    // apply user defined style for grid axes if provided or else default
+    if(gridStyleClassName) {
+        var grids = axisDom.selectAll('.grid-axis line')
+        grids.attr("class", gridStyleClassName);
+    }
+    else
+        axisDom.selectAll('.grid-axis line')
+            .style('opacity', .2)
+            .style('fill', 'none')
+            .style('stroke', '#000')
+            .style('stroke-width', '1.5px')
 
+    // Axis tick labels style
     var axisText = axisDom.selectAll('.axis text')
-
     if(style) {
       for(var key in style) {
         axisText.style(key, style[key]);
       }
+    }
+    // user defined style for axis labels
+    else if(axisStyling && axisStyling.textClassName) {
+      axisText.attr("class", axisStyling.textClassName);
     }
 
     return axisDom.node().toReact();
