@@ -1,6 +1,6 @@
 {
   "name": "react-d3-core",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "description": "react-d3 chart core component",
   "main": "./lib/index.js",
   "scripts": {
