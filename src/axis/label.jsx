@@ -33,7 +33,7 @@ export default class Label extends Component {
     hTransform: PropTypes.string,
     vTransform: PropTypes.string,
     labelTitle: PropTypes.string,
-    labelPosition: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    labelPosition: PropTypes.oneOf(['top', 'bottom', 'left', 'right', 'inline-left']),
     labelOffset: PropTypes.number,
     textAnchor: PropTypes.string,
     labelClassName: PropTypes.string
@@ -91,6 +91,15 @@ export default class Label extends Component {
         .attr('x', -fixHeight / 2)
         .style('text-anchor', textAnchor)
         .text(labelTitle)
+
+    }else if (labelPosition === 'inline-left') {
+
+      labelDom
+          .attr('transform', hTransform)
+          .attr('y', +labelOffset)
+          .attr('x', 0)
+          .style('text-anchor', 'end')
+          .text(labelTitle)
     }
 
     return labelDom;
