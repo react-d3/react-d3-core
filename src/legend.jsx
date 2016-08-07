@@ -23,6 +23,9 @@ export default class Legend extends Component {
     legendOffset: 90,
     legendClassName: 'react-d3-core__legend',
     swatchShape: 'square',
+    swatchHeight: 18,
+    swatchWidth: 18,
+    swatchTranslateY: 0,
     ...CommonProps
   }
 
@@ -34,7 +37,7 @@ export default class Legend extends Component {
     legendOffset: PropTypes.number.isRequired,
     legendClassName: PropTypes.string.isRequired,
     legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
-    swatchShape: PropTypes.oneOf(['circle', 'square']),
+    swatchShape: PropTypes.oneOf(['circle', 'square', 'rect'])
   }
 
   _radius(swatchShape) {
@@ -66,6 +69,9 @@ export default class Legend extends Component {
       chartSeries,
       margins,
       width,
+      swatchHeight,
+      swatchWidth,
+      swatchTranslateY
     } = this.props;
 
     const legendArea = D3Selection.select(dom);
@@ -84,8 +90,9 @@ export default class Legend extends Component {
       .style("display", "inline-block");
 
     const rect = legend.append("div")
-      .style("width", 18)
-      .style("height", 18)
+      .style("width", swatchWidth)
+      .style("height", swatchHeight)
+      .style("transform", `translateY(${swatchTranslateY}px)`)
       .style("border-radius", radius)
       .style("background-color", d => d.color)
       .style("float", legendPosition);
