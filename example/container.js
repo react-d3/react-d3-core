@@ -27,8 +27,8 @@ export default class ContainerExample extends Component {
 	          <NavItem eventKey="grid" href="/example/grid">Grid</NavItem>
 	          <NavItem eventKey="label" href="/example/label">Label</NavItem>
 	          <NavItem eventKey="legend" href="/example/legend">Legend</NavItem>
-	          <NavItem eventKey="xaxis" href="/example/xaxis">Xaixs</NavItem>
-	          <NavItem eventKey="yaxis" href="/example/yaxis">Yaixs</NavItem>
+	          <NavItem eventKey="xaxis" href="/example/xaxis">Xaxis</NavItem>
+	          <NavItem eventKey="yaxis" href="/example/yaxis">Yaxis</NavItem>
 	        </Nav>
 	      </div>
 				{this.props.children}
