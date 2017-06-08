@@ -43,7 +43,7 @@ var ReactD3Core =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -181,13 +181,13 @@ var ReactD3Core =
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -251,19 +251,19 @@ var ReactD3Core =
 	  function ChartSvg(props) {
 	    _classCallCheck(this, ChartSvg);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartSvg.__proto__ || Object.getPrototypeOf(ChartSvg)).call(this, props));
 	  }
 
 	  _createClass(ChartSvg, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var svgClassName = _props.svgClassName;
-	      var id = _props.id;
-	      var children = _props.children;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          svgClassName = _props.svgClassName,
+	          id = _props.id,
+	          children = _props.children;
 
 	      var t = 'translate(' + margins.left + ', ' + margins.top + ')';
 
@@ -296,15 +296,15 @@ var ReactD3Core =
 	};
 	exports.default = ChartSvg;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = React;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -317,9 +317,9 @@ var ReactD3Core =
 	  margins: { top: 80, right: 100, bottom: 80, left: 100 }
 	};
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -337,8 +337,8 @@ var ReactD3Core =
 	}
 
 	function scale(props) {
-	  var type = props.type;
-	  var scale = props.scale;
+	  var type = props.type,
+	      scale = props.scale;
 
 	  var func;
 
@@ -350,12 +350,12 @@ var ReactD3Core =
 	}
 
 	function _mkScaleSettings(props, func) {
-	  var type = props.type;
-	  var range = props.range;
-	  var domain = props.domain;
-	  var scale = props.scale;
-	  var bandPaddingInner = props.bandPaddingInner;
-	  var bandPaddingOuter = props.bandPaddingOuter;
+	  var type = props.type,
+	      range = props.range,
+	      domain = props.domain,
+	      scale = props.scale,
+	      bandPaddingInner = props.bandPaddingInner,
+	      bandPaddingOuter = props.bandPaddingOuter;
 
 	  if (range) func.range(range);
 
@@ -373,9 +373,9 @@ var ReactD3Core =
 	  return func;
 	}
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports, __webpack_require__(6), __webpack_require__(7), __webpack_require__(8), __webpack_require__(10), __webpack_require__(11), __webpack_require__(12), __webpack_require__(9)) :
@@ -1307,9 +1307,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -1781,9 +1781,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -2010,9 +2010,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports, __webpack_require__(9)) :
@@ -2525,9 +2525,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -3047,9 +3047,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -3554,15 +3554,17 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
 	  typeof define === 'function' && define.amd ? define(['exports'], factory) :
 	  (factory((global.d3_time = global.d3_time || {})));
 	}(this, function (exports) { 'use strict';
+
+	  var version = "0.2.6";
 
 	  var t0 = new Date;
 	  var t1 = new Date;
@@ -3823,9 +3825,7 @@ var ReactD3Core =
 	  var timeMonths = month.range;
 	  var timeYears = year.range;
 
-	  var utcMillisecond = millisecond;
 	  var utcMilliseconds = timeMilliseconds;
-	  var utcSecond = second;
 	  var utcSeconds = timeSeconds;
 	  var utcMinutes = utcMinute.range;
 	  var utcHours = utcHour.range;
@@ -3841,9 +3841,6 @@ var ReactD3Core =
 	  var utcMonths = utcMonth.range;
 	  var utcYears = utcYear.range;
 
-	  var version = "0.2.5";
-
-	  exports.version = version;
 	  exports.timeMilliseconds = timeMilliseconds;
 	  exports.timeSeconds = timeSeconds;
 	  exports.timeMinutes = timeMinutes;
@@ -3859,9 +3856,7 @@ var ReactD3Core =
 	  exports.timeWeeks = timeWeeks;
 	  exports.timeMonths = timeMonths;
 	  exports.timeYears = timeYears;
-	  exports.utcMillisecond = utcMillisecond;
 	  exports.utcMilliseconds = utcMilliseconds;
-	  exports.utcSecond = utcSecond;
 	  exports.utcSeconds = utcSeconds;
 	  exports.utcMinutes = utcMinutes;
 	  exports.utcHours = utcHours;
@@ -3891,6 +3886,8 @@ var ReactD3Core =
 	  exports.timeWeek = sunday;
 	  exports.timeMonth = month;
 	  exports.timeYear = year;
+	  exports.utcMillisecond = millisecond;
+	  exports.utcSecond = second;
 	  exports.utcMinute = utcMinute;
 	  exports.utcHour = utcHour;
 	  exports.utcDay = utcDay;
@@ -3904,13 +3901,16 @@ var ReactD3Core =
 	  exports.utcWeek = utcSunday;
 	  exports.utcMonth = utcMonth;
 	  exports.utcYear = utcYear;
+	  exports.version = version;
 	  exports.timeInterval = newInterval;
+
+	  Object.defineProperty(exports, '__esModule', { value: true });
 
 	}));
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports, __webpack_require__(11)) :
@@ -4746,13 +4746,13 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4814,16 +4814,16 @@ var ReactD3Core =
 	  function ChartTitle(props) {
 	    _classCallCheck(this, ChartTitle);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartTitle).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartTitle.__proto__ || Object.getPrototypeOf(ChartTitle)).call(this, props));
 	  }
 
 	  _createClass(ChartTitle, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var titleClassName = _props.titleClassName;
-	      var title = _props.title;
-	      var width = _props.width;
+	      var _props = this.props,
+	          titleClassName = _props.titleClassName,
+	          title = _props.title,
+	          width = _props.width;
 
 	      var titleStyle = {
 	        width: width,
@@ -4853,13 +4853,13 @@ var ReactD3Core =
 	};
 	exports.default = ChartTitle;
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4929,15 +4929,15 @@ var ReactD3Core =
 	  function ChartContainer(props) {
 	    _classCallCheck(this, ChartContainer);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartContainer).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartContainer.__proto__ || Object.getPrototypeOf(ChartContainer)).call(this, props));
 	  }
 
 	  _createClass(ChartContainer, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var width = _props.width;
-	      var chartSeries = _props.chartSeries;
+	      var _props = this.props,
+	          width = _props.width,
+	          chartSeries = _props.chartSeries;
 
 	      var legend;
 
@@ -4961,13 +4961,13 @@ var ReactD3Core =
 	ChartContainer.defaultProps = _commonProps2.default;
 	exports.default = ChartContainer;
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -5041,7 +5041,7 @@ var ReactD3Core =
 	  function Legend(props) {
 	    _classCallCheck(this, Legend);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Legend).call(this, props));
+	    return _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
 	  }
 
 	  _createClass(Legend, [{
@@ -5052,15 +5052,15 @@ var ReactD3Core =
 	  }, {
 	    key: '_series',
 	    value: function _series(props) {
-	      var chartSeries = props.chartSeries;
-	      var categoricalColors = props.categoricalColors;
+	      var chartSeries = props.chartSeries,
+	          categoricalColors = props.categoricalColors;
 
 	      var colors = categoricalColors || _d3Scale2.default.scaleCategory10();
 
 	      return chartSeries.map(function (_ref, i) {
-	        var name = _ref.name;
-	        var color = _ref.color;
-	        var field = _ref.field;
+	        var name = _ref.name,
+	            color = _ref.color,
+	            field = _ref.field;
 	        return {
 	          color: color || colors(i),
 	          name: name || field,
@@ -5071,15 +5071,15 @@ var ReactD3Core =
 	  }, {
 	    key: '_mkLegend',
 	    value: function _mkLegend(dom) {
-	      var _props = this.props;
-	      var legendClassName = _props.legendClassName;
-	      var backgroundColor = _props.backgroundColor;
-	      var legendPosition = _props.legendPosition;
-	      var legendOffset = _props.legendOffset;
-	      var swatchShape = _props.swatchShape;
-	      var chartSeries = _props.chartSeries;
-	      var margins = _props.margins;
-	      var width = _props.width;
+	      var _props = this.props,
+	          legendClassName = _props.legendClassName,
+	          backgroundColor = _props.backgroundColor,
+	          legendPosition = _props.legendPosition,
+	          legendOffset = _props.legendOffset,
+	          swatchShape = _props.swatchShape,
+	          chartSeries = _props.chartSeries,
+	          margins = _props.margins,
+	          width = _props.width;
 
 	      var legendArea = _d3Selection2.default.select(dom);
 	      var series = this._series(this.props);
@@ -5101,10 +5101,10 @@ var ReactD3Core =
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props2 = this.props;
-	      var legendClassName = _props2.legendClassName;
-	      var width = _props2.width;
-	      var height = _props2.height;
+	      var _props2 = this.props,
+	          legendClassName = _props2.legendClassName,
+	          width = _props2.width,
+	          height = _props2.height;
 
 	      var legendGroup = _reactFauxDom2.default.createElement('div');
 	      var legendClasses = legendClassName + ' legend';
@@ -5140,9 +5140,9 @@ var ReactD3Core =
 	};
 	exports.default = Legend;
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -5150,7 +5150,7 @@ var ReactD3Core =
 	  (factory((global.d3_selection = global.d3_selection || {})));
 	}(this, function (exports) { 'use strict';
 
-	  var version = "0.7.2";
+	  var version = "0.7.3";
 
 	  var xhtml = "http://www.w3.org/1999/xhtml";
 
@@ -5448,43 +5448,35 @@ var ReactD3Core =
 	        keyValue;
 
 	    // Compute the key for each node.
-	    // If multiple nodes have the same key, only the first one counts.
+	    // If multiple nodes have the same key, the duplicates are added to exit.
 	    for (i = 0; i < groupLength; ++i) {
 	      if (node = group[i]) {
 	        keyValues[i] = keyValue = keyPrefix + key.call(node, node.__data__, i, group);
-	        if (!nodeByKeyValue[keyValue]) {
+	        if (keyValue in nodeByKeyValue) {
+	          exit[i] = node;
+	        } else {
 	          nodeByKeyValue[keyValue] = node;
 	        }
 	      }
 	    }
 
 	    // Compute the key for each datum.
-	    // If multiple data have the same key, only the first one counts.
+	    // If there a node associated with this key, join and add it to update.
+	    // If there is not (or the key is a duplicate), add it to enter.
 	    for (i = 0; i < dataLength; ++i) {
 	      keyValue = keyPrefix + key.call(parent, data[i], i, data);
-
-	      // Is there a node associated with this key?
-	      // If not, this datum is added to the enter selection.
-	      if (!(node = nodeByKeyValue[keyValue])) {
-	        enter[i] = new EnterNode(parent, data[i]);
-	      }
-
-	      // Did we already bind a node using this key? (Or is a duplicate?)
-	      // If unique, the node and datum are joined in the update selection.
-	      // Otherwise, the datum is ignored, neither entering nor exiting.
-	      else if (node !== true) {
+	      if (node = nodeByKeyValue[keyValue]) {
 	        update[i] = node;
 	        node.__data__ = data[i];
+	        nodeByKeyValue[keyValue] = null;
+	      } else {
+	        enter[i] = new EnterNode(parent, data[i]);
 	      }
-
-	      // Record that we consumed this key, either to enter or update.
-	      nodeByKeyValue[keyValue] = true;
 	    }
 
-	    // Take any remaining nodes that were not bound to data,
-	    // and place them in the exit selection.
+	    // Add any remaining nodes that were not bound to data to exit.
 	    for (i = 0; i < groupLength; ++i) {
-	      if ((node = group[i]) && (nodeByKeyValue[keyValues[i]] !== true)) {
+	      if ((node = group[i]) && (nodeByKeyValue[keyValues[i]] === node)) {
 	        exit[i] = node;
 	      }
 	    }
@@ -6097,9 +6089,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var Element = __webpack_require__(18)
 	var Window = __webpack_require__(30)
@@ -6131,9 +6123,9 @@ var ReactD3Core =
 	module.exports = ReactFauxDOM
 
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2)
 	var styleAttr = __webpack_require__(19)
@@ -6151,7 +6143,11 @@ var ReactD3Core =
 	  this.childNodes = []
 	  this.eventListeners = {}
 	  this.text = ''
+	  var self = this
 	  var props = this.props = {
+	    ref: function (component) {
+	      self.component = component
+	    },
 	    style: {
 	      setProperty: function (name, value) {
 	        props.style[styleCamelCase(name)] = value
@@ -6370,6 +6366,14 @@ var ReactD3Core =
 	  }
 	}
 
+	Element.prototype.getBoundingClientRect = function () {
+	  if (!this.component) {
+	    return undefined
+	  }
+
+	  return this.component.getBoundingClientRect()
+	}
+
 	Element.prototype.toReact = function (index) {
 	  index = index || 0
 	  var props = assign({}, this.props)
@@ -6482,11 +6486,14 @@ var ReactD3Core =
 	module.exports = Element
 
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	
+
+	/*:: type Attr = { [key: string]: string | number } */
+	/*:: type Opts = { preserveNumbers: ?boolean } */
 
 	/*
 
@@ -6501,7 +6508,12 @@ var ReactD3Core =
 	Convert a style attribute string to an object.
 
 	*/
-	function parse(raw) {
+
+	/*:: declare function parse (raw: string, opts: ?Opts): Attr */
+	function parse(raw, opts) {
+	  opts = opts || {};
+
+	  var preserveNumbers = opts.preserveNumbers;
 	  var trim = function (s) {
 	    return s.trim();
 	  };
@@ -6512,11 +6524,30 @@ var ReactD3Core =
 	    var pos = item.indexOf(':');
 	    var key = item.substr(0, pos).trim();
 	    var val = item.substr(pos + 1).trim();
+	    if (preserveNumbers && isNumeric(val)) {
+	      val = Number(val);
+	    }
 
 	    obj[key] = val;
 	  });
 
 	  return obj;
+	}
+
+	/*
+
+	`isNumeric`
+	----
+
+	Check if a value is numeric.
+	Via: https://stackoverflow.com/a/1830844/9324
+
+	*/
+
+	/*:: declare function isNumeric (n: any): boolean */
+
+	function isNumeric(n) {
+	  return !isNaN(parseFloat(n)) && isFinite(n);
 	}
 
 	/*
@@ -6527,6 +6558,7 @@ var ReactD3Core =
 	Split a string into chunks matching `<key>: <value>`
 
 	*/
+	/*:: declare function getKeyValueChunks (raw: string): Array<string> */
 	function getKeyValueChunks(raw) {
 	  var chunks = [];
 	  var offset = 0;
@@ -6565,6 +6597,7 @@ var ReactD3Core =
 	Convert an object into an attribute string
 
 	*/
+	/*:: declare function stringify (obj: Attr): string */
 	function stringify(obj) {
 	  return Object.keys(obj).map(function (key) {
 	    return key + ':' + obj[key];
@@ -6579,23 +6612,24 @@ var ReactD3Core =
 	Normalize an attribute string (eg. collapse duplicates)
 
 	*/
-	function normalize(str) {
-	  return stringify(parse(str));
+	/*:: declare function normalize (str: string, opts: ?Opts): string */
+	function normalize(str, opts) {
+	  return stringify(parse(str, opts));
 	}
 
 	module.exports.parse = parse;
 	module.exports.stringify = stringify;
 	module.exports.normalize = normalize;
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(21);
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @ignore
@@ -7296,9 +7330,9 @@ var ReactD3Core =
 	 *  - http://sizzlejs.com/
 	 */
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * attr fix for old ie
@@ -7647,9 +7681,9 @@ var ReactD3Core =
 	  }
 	};
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	  Generated by kison.*/
@@ -8856,9 +8890,9 @@ var ReactD3Core =
 	    module.exports = parser;
 	}
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var hyphenExpression = /\-+([a-z])/gi
 
@@ -8879,9 +8913,9 @@ var ReactD3Core =
 	module.exports = camelCase
 
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	function isString (value) {
 	  return typeof value === 'string'
@@ -8890,9 +8924,9 @@ var ReactD3Core =
 	module.exports = isString
 
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	function isUndefined (value) {
 	  return typeof value === 'undefined'
@@ -8901,9 +8935,9 @@ var ReactD3Core =
 	module.exports = isUndefined
 
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	function assign (dest) {
 	  var args = arguments
@@ -8923,9 +8957,9 @@ var ReactD3Core =
 	module.exports = assign
 
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	function mapValues (source, fn) {
 	  var destination = {}
@@ -8942,9 +8976,9 @@ var ReactD3Core =
 	module.exports = mapValues
 
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var camelCase = __webpack_require__(24)
 
@@ -8968,9 +9002,9 @@ var ReactD3Core =
 	module.exports = styleCamelCase
 
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var Window = {
 	  getComputedStyle: function (node) {
@@ -8983,9 +9017,9 @@ var ReactD3Core =
 	module.exports = Window
 
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var Element = __webpack_require__(18)
 	var mapValues = __webpack_require__(28)
@@ -9011,9 +9045,9 @@ var ReactD3Core =
 	module.exports = mixin
 
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var anim = {
 	  animateFauxDOM: function (duration) {
@@ -9043,13 +9077,13 @@ var ReactD3Core =
 	module.exports = anim
 
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9111,21 +9145,21 @@ var ReactD3Core =
 	  function Axis(props) {
 	    _classCallCheck(this, Axis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Axis).call(this, props));
+	    return _possibleConstructorReturn(this, (Axis.__proto__ || Object.getPrototypeOf(Axis)).call(this, props));
 	  }
 
 	  _createClass(Axis, [{
 	    key: '_mkTickAxis',
 	    value: function _mkTickAxis() {
-	      var _props = this.props;
-	      var type = _props.type;
-	      var tickOrient = _props.tickOrient;
-	      var tickFormat = _props.tickFormat;
-	      var tickPadding = _props.tickPadding;
-	      var tickSizeInner = _props.tickSizeInner;
-	      var tickSizeOuter = _props.tickSizeOuter;
-	      var ticks = _props.ticks;
-	      var tickValues = _props.tickValues;
+	      var _props = this.props,
+	          type = _props.type,
+	          tickOrient = _props.tickOrient,
+	          tickFormat = _props.tickFormat,
+	          tickPadding = _props.tickPadding,
+	          tickSizeInner = _props.tickSizeInner,
+	          tickSizeOuter = _props.tickSizeOuter,
+	          ticks = _props.ticks,
+	          tickValues = _props.tickValues;
 
 	      var func = _d3Axis2.default;
 
@@ -9167,16 +9201,14 @@ var ReactD3Core =
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props2 = //styling object that holds user defined css classes for different axis elements
-	      //css class to style grids on chart
-	      this.props;
-	      var showAxis = _props2.showAxis;
-	      var gridAxisClassName = _props2.gridAxisClassName;
-	      var axisClassName = _props2.axisClassName;
-	      var type = _props2.type;
-	      var style = _props2.style;
-	      var axisStyling = _props2.axisStyling;
-	      var gridStyleClassName = _props2.gridStyleClassName;
+	      var _props2 = this.props,
+	          showAxis = _props2.showAxis,
+	          gridAxisClassName = _props2.gridAxisClassName,
+	          axisClassName = _props2.axisClassName,
+	          type = _props2.type,
+	          style = _props2.style,
+	          axisStyling = _props2.axisStyling,
+	          gridStyleClassName = _props2.gridStyleClassName;
 
 	      var axisGroup = _reactFauxDom2.default.createElement('g');
 
@@ -9201,10 +9233,10 @@ var ReactD3Core =
 	      if (axisStyling && axisStyling.pathClassName) {
 	        var axisPath = axisDom.selectAll('.axis path');
 	        axisPath.attr("class", axisStyling.pathClassName);
-	      } else axisDom.selectAll('.axis path').style('fill', 'none').style('stroke', '#000').style('shape-rendering', 'crispEdges').style('display', 'none');
+	      } else axisDom.selectAll('.axis path').style('fill', 'none').style('stroke', '#000').style('shape-rendering', 'crispEdges').style('display', 'none'
 
 	      // apply user defined style for axis tick line if provided or else default
-	      if (axisStyling && axisStyling.ticksClassName) {
+	      );if (axisStyling && axisStyling.ticksClassName) {
 	        var axisLine = axisDom.selectAll('.axis line');
 	        axisLine.attr("class", axisStyling.ticksClassName);
 	      } else axisDom.selectAll('.axis line').style('fill', 'none').style('stroke', '#000').style('shape-rendering', 'crispEdges');
@@ -9213,10 +9245,10 @@ var ReactD3Core =
 	      if (gridStyleClassName) {
 	        var grids = axisDom.selectAll('.grid-axis line');
 	        grids.attr("class", gridStyleClassName);
-	      } else axisDom.selectAll('.grid-axis line').style('opacity', .2).style('fill', 'none').style('stroke', '#000').style('stroke-width', '1.5px');
+	      } else axisDom.selectAll('.grid-axis line').style('opacity', .2).style('fill', 'none').style('stroke', '#000').style('stroke-width', '1.5px'
 
 	      // Axis tick labels style
-	      var axisText = axisDom.selectAll('.axis text');
+	      );var axisText = axisDom.selectAll('.axis text');
 	      if (style) {
 	        for (var key in style) {
 	          axisText.style(key, style[key]);
@@ -9249,9 +9281,9 @@ var ReactD3Core =
 	};
 	exports.default = Axis;
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -9259,7 +9291,7 @@ var ReactD3Core =
 	  (factory((global.d3_axis = global.d3_axis || {})));
 	}(this, function (exports) { 'use strict';
 
-	  var version = "0.3.1";
+	  var version = "0.3.2";
 
 	  var slice = Array.prototype.slice;
 
@@ -9303,8 +9335,8 @@ var ReactD3Core =
 	          spacing = Math.max(tickSizeInner, 0) + tickPadding,
 	          transform = orient === top || orient === bottom ? translateX : translateY,
 	          range = scale.range(),
-	          range0 = range[0],
-	          range1 = range[range.length - 1],
+	          range0 = range[0] + 0.5,
+	          range1 = range[range.length - 1] + 0.5,
 	          position = (scale.bandwidth ? center : identity)(scale.copy()),
 	          selection = context.selection ? context.selection() : context,
 	          path = selection.selectAll(".domain").data([null]),
@@ -9312,54 +9344,67 @@ var ReactD3Core =
 	          tickExit = tick.exit(),
 	          tickEnter = tick.enter().append("g", ".domain").attr("class", "tick"),
 	          line = tick.select("line"),
-	          text = tick.select("text");
+	          text = tick.select("text"),
+	          k = orient === top || orient === left ? -1 : 1,
+	          x, y = orient === left || orient === right ? (x = "x", "y") : (x = "y", "x");
 
-	      path = path.merge(path.enter().append("path").attr("class", "domain"));
+	      path = path.merge(path.enter().append("path")
+	          .attr("class", "domain")
+	          .attr("stroke", "#000"));
+
 	      tick = tick.merge(tickEnter);
-	      line = line.merge(tickEnter.append("line"));
-	      text = text.merge(tickEnter.append("text"));
+
+	      line = line.merge(tickEnter.append("line")
+	          .attr("stroke", "#000")
+	          .attr(x + "2", k * tickSizeInner));
+
+	      text = text.merge(tickEnter.append("text")
+	          .attr("fill", "#000")
+	          .attr(x, k * spacing));
 
 	      if (context !== selection) {
 	        path = path.transition(context);
 	        tick = tick.transition(context);
-	        tickExit = tickExit.transition(context).style("opacity", epsilon).attr("transform", function(d) { return transform(position, this.parentNode.__axis || position, d); });
-	        tickEnter.style("opacity", epsilon).attr("transform", function(d) { return transform(this.parentNode.__axis || position, position, d); });
 	        line = line.transition(context);
 	        text = text.transition(context);
+
+	        tickExit = tickExit.transition(context)
+	            .attr("opacity", epsilon)
+	            .attr("transform", function(d) { return transform(position, this.parentNode.__axis || position, d); });
+
+	        tickEnter
+	            .attr("opacity", epsilon)
+	            .attr("transform", function(d) { return transform(this.parentNode.__axis || position, position, d); });
 	      }
 
-	      tick.style("opacity", 1).attr("transform", function(d) { return transform(position, position, d); });
 	      tickExit.remove();
-	      text.text(format);
 
-	      switch (orient) {
-	        case top: {
-	          path.attr("d", "M" + range0 + "," + -tickSizeOuter + "V0H" + range1 + "V" + -tickSizeOuter);
-	          line.attr("x2", 0).attr("y2", -tickSizeInner);
-	          text.attr("x", 0).attr("y", -spacing).attr("dy", "0em").style("text-anchor", "middle");
-	          break;
-	        }
-	        case right: {
-	          path.attr("d", "M" + tickSizeOuter + "," + range0 + "H0V" + range1 + "H" + tickSizeOuter);
-	          line.attr("y2", 0).attr("x2", tickSizeInner);
-	          text.attr("y", 0).attr("x", spacing).attr("dy", ".32em").style("text-anchor", "start");
-	          break;
-	        }
-	        case bottom: {
-	          path.attr("d", "M" + range0 + "," + tickSizeOuter + "V0H" + range1 + "V" + tickSizeOuter);
-	          line.attr("x2", 0).attr("y2", tickSizeInner);
-	          text.attr("x", 0).attr("y", spacing).attr("dy", ".71em").style("text-anchor", "middle");
-	          break;
-	        }
-	        case left: {
-	          path.attr("d", "M" + -tickSizeOuter + "," + range0 + "H0V" + range1 + "H" + -tickSizeOuter);
-	          line.attr("y2", 0).attr("x2", -tickSizeInner);
-	          text.attr("y", 0).attr("x", -spacing).attr("dy", ".32em").style("text-anchor", "end");
-	          break;
-	        }
-	      }
+	      path
+	          .attr("d", orient === left || orient == right
+	              ? "M" + k * tickSizeOuter + "," + range0 + "H0.5V" + range1 + "H" + k * tickSizeOuter
+	              : "M" + range0 + "," + k * tickSizeOuter + "V0.5H" + range1 + "V" + k * tickSizeOuter)
 
-	      selection.each(function() { this.__axis = position; });
+	      tick
+	          .attr("opacity", 1)
+	          .attr("transform", function(d) { return transform(position, position, d); });
+
+	      line
+	          .attr(x + "2", k * tickSizeInner)
+	          .attr(y + "1", 0.5)
+	          .attr(y + "2", 0.5);
+
+	      text
+	          .attr(x, k * spacing)
+	          .attr(y, 0.5)
+	          .attr("dy", orient === top ? "0em" : orient === bottom ? ".71em" : ".32em")
+	          .text(format);
+
+	      selection
+	          .attr("fill", "none")
+	          .attr("font-size", 10)
+	          .attr("font-family", "sans-serif")
+	          .attr("text-anchor", orient === right ? "start" : orient === left ? "end" : "middle")
+	          .each(function() { this.__axis = position; });
 	    }
 
 	    axis.scale = function(_) {
@@ -9425,13 +9470,13 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9501,37 +9546,37 @@ var ReactD3Core =
 	  function Xaxis(props) {
 	    _classCallCheck(this, Xaxis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Xaxis).call(this, props));
+	    return _possibleConstructorReturn(this, (Xaxis.__proto__ || Object.getPrototypeOf(Xaxis)).call(this, props));
 	  }
 
 	  _createClass(Xaxis, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var showXAxis = _props.showXAxis;
-	      var x = _props.x;
-	      var xAxisClassName = _props.xAxisClassName;
-	      var xDomain = _props.xDomain;
-	      var xRange = _props.xRange;
-	      var xBandPaddingInner = _props.xBandPaddingInner;
-	      var xBandPaddingOuter = _props.xBandPaddingOuter;
-	      var xScale = _props.xScale;
-	      var xOrient = _props.xOrient;
-	      var xTickOrient = _props.xTickOrient;
-	      var xTickPadding = _props.xTickPadding;
-	      var xTickSizeOuter = _props.xTickSizeOuter;
-	      var xTickSizeInner = _props.xTickSizeInner;
-	      var xTickFormat = _props.xTickFormat;
-	      var xTicks = _props.xTicks;
-	      var xLabel = _props.xLabel;
-	      var xLabelPosition = _props.xLabelPosition;
-	      var labelOffset = _props.labelOffset;
-	      var style = _props.style;
-	      var xAxisStyling = _props.xAxisStyling;
-	      var xTickValues = _props.xTickValues;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          showXAxis = _props.showXAxis,
+	          x = _props.x,
+	          xAxisClassName = _props.xAxisClassName,
+	          xDomain = _props.xDomain,
+	          xRange = _props.xRange,
+	          xBandPaddingInner = _props.xBandPaddingInner,
+	          xBandPaddingOuter = _props.xBandPaddingOuter,
+	          xScale = _props.xScale,
+	          xOrient = _props.xOrient,
+	          xTickOrient = _props.xTickOrient,
+	          xTickPadding = _props.xTickPadding,
+	          xTickSizeOuter = _props.xTickSizeOuter,
+	          xTickSizeInner = _props.xTickSizeInner,
+	          xTickFormat = _props.xTickFormat,
+	          xTicks = _props.xTicks,
+	          xLabel = _props.xLabel,
+	          xLabelPosition = _props.xLabelPosition,
+	          labelOffset = _props.labelOffset,
+	          style = _props.style,
+	          xAxisStyling = _props.xAxisStyling,
+	          xTickValues = _props.xTickValues;
 
 	      var t;
 	      var axisLabel;
@@ -9633,13 +9678,13 @@ var ReactD3Core =
 	};
 	exports.default = Xaxis;
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9709,22 +9754,22 @@ var ReactD3Core =
 	  function Label(props) {
 	    _classCallCheck(this, Label);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Label).call(this, props));
+	    return _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
 	  }
 
 	  _createClass(Label, [{
 	    key: '_mkLabel',
 	    value: function _mkLabel(dom) {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var labelOffset = _props.labelOffset;
-	      var labelTitle = _props.labelTitle;
-	      var labelPosition = _props.labelPosition;
-	      var vTransform = _props.vTransform;
-	      var hTransform = _props.hTransform;
-	      var textAnchor = _props.textAnchor;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          labelOffset = _props.labelOffset,
+	          labelTitle = _props.labelTitle,
+	          labelPosition = _props.labelPosition,
+	          vTransform = _props.vTransform,
+	          hTransform = _props.hTransform,
+	          textAnchor = _props.textAnchor;
 
 	      var labelDom = _d3Selection2.default.select(dom);
 	      var fixWidth = width - margins.left - margins.right;
@@ -9787,13 +9832,13 @@ var ReactD3Core =
 	};
 	exports.default = Label;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9863,37 +9908,37 @@ var ReactD3Core =
 	  function Yaxis(props) {
 	    _classCallCheck(this, Yaxis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Yaxis).call(this, props));
+	    return _possibleConstructorReturn(this, (Yaxis.__proto__ || Object.getPrototypeOf(Yaxis)).call(this, props));
 	  }
 
 	  _createClass(Yaxis, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var width = _props.width;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var y = _props.y;
-	      var yAxisClassName = _props.yAxisClassName;
-	      var yDomain = _props.yDomain;
-	      var yRange = _props.yRange;
-	      var yBandPaddingInner = _props.yBandPaddingInner;
-	      var yBandPaddingOuter = _props.yBandPaddingOuter;
-	      var yScale = _props.yScale;
-	      var yOrient = _props.yOrient;
-	      var yTickOrient = _props.yTickOrient;
-	      var yTickFormat = _props.yTickFormat;
-	      var yTickPadding = _props.yTickPadding;
-	      var yTickSizeOuter = _props.yTickSizeOuter;
-	      var yTickSizeInner = _props.yTickSizeInner;
-	      var yTicks = _props.yTicks;
-	      var yLabel = _props.yLabel;
-	      var yLabelPosition = _props.yLabelPosition;
-	      var labelOffset = _props.labelOffset;
-	      var showYAxis = _props.showYAxis;
-	      var style = _props.style;
-	      var yAxisStyling = _props.yAxisStyling;
-	      var yTickValues = _props.yTickValues;
+	      var _props = this.props,
+	          width = _props.width,
+	          height = _props.height,
+	          margins = _props.margins,
+	          y = _props.y,
+	          yAxisClassName = _props.yAxisClassName,
+	          yDomain = _props.yDomain,
+	          yRange = _props.yRange,
+	          yBandPaddingInner = _props.yBandPaddingInner,
+	          yBandPaddingOuter = _props.yBandPaddingOuter,
+	          yScale = _props.yScale,
+	          yOrient = _props.yOrient,
+	          yTickOrient = _props.yTickOrient,
+	          yTickFormat = _props.yTickFormat,
+	          yTickPadding = _props.yTickPadding,
+	          yTickSizeOuter = _props.yTickSizeOuter,
+	          yTickSizeInner = _props.yTickSizeInner,
+	          yTicks = _props.yTicks,
+	          yLabel = _props.yLabel,
+	          yLabelPosition = _props.yLabelPosition,
+	          labelOffset = _props.labelOffset,
+	          showYAxis = _props.showYAxis,
+	          style = _props.style,
+	          yAxisStyling = _props.yAxisStyling,
+	          yTickValues = _props.yTickValues;
 
 	      var t;
 	      var axisLabel;
@@ -9995,13 +10040,13 @@ var ReactD3Core =
 	};
 	exports.default = Yaxis;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10067,36 +10112,36 @@ var ReactD3Core =
 	  function Grid(props) {
 	    _classCallCheck(this, Grid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this, props));
+	    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).call(this, props));
 	  }
 
 	  _createClass(Grid, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var type = _props.type;
-	      var gridAxisClassName = _props.gridAxisClassName;
-	      var xBandPaddingInner = _props.xBandPaddingInner;
-	      var xBandPaddingOuter = _props.xBandPaddingOuter;
-	      var x = _props.x;
-	      var xDomain = _props.xDomain;
-	      var xRange = _props.xRange;
-	      var xScale = _props.xScale;
-	      var xGridCount = _props.xGridCount;
-	      var xGridStyleClassName = _props.xGridStyleClassName;
-	      var yBandPaddingInner = _props.yBandPaddingInner;
-	      var yBandPaddingOuter = _props.yBandPaddingOuter;
-	      var y = _props.y;
-	      var yDomain = _props.yDomain;
-	      var yRange = _props.yRange;
-	      var yScale = _props.yScale;
-	      var yGridCount = _props.yGridCount;
-	      var yGridStyleClassName = _props.yGridStyleClassName;
-	      var xTickValues = _props.xTickValues;
-	      var yTickValues = _props.yTickValues;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          type = _props.type,
+	          gridAxisClassName = _props.gridAxisClassName,
+	          xBandPaddingInner = _props.xBandPaddingInner,
+	          xBandPaddingOuter = _props.xBandPaddingOuter,
+	          x = _props.x,
+	          xDomain = _props.xDomain,
+	          xRange = _props.xRange,
+	          xScale = _props.xScale,
+	          xGridCount = _props.xGridCount,
+	          xGridStyleClassName = _props.xGridStyleClassName,
+	          yBandPaddingInner = _props.yBandPaddingInner,
+	          yBandPaddingOuter = _props.yBandPaddingOuter,
+	          y = _props.y,
+	          yDomain = _props.yDomain,
+	          yRange = _props.yRange,
+	          yScale = _props.yScale,
+	          yGridCount = _props.yGridCount,
+	          yGridStyleClassName = _props.yGridStyleClassName,
+	          xTickValues = _props.xTickValues,
+	          yTickValues = _props.yTickValues;
 
 	      var gridAxis;
 	      var t;
@@ -10204,13 +10249,13 @@ var ReactD3Core =
 	};
 	exports.default = Grid;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10272,7 +10317,7 @@ var ReactD3Core =
 	  function XGrid(props) {
 	    _classCallCheck(this, XGrid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(XGrid).call(this, props));
+	    return _possibleConstructorReturn(this, (XGrid.__proto__ || Object.getPrototypeOf(XGrid)).call(this, props));
 	  }
 
 	  _createClass(XGrid, [{
@@ -10289,13 +10334,13 @@ var ReactD3Core =
 
 	exports.default = XGrid;
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10357,7 +10402,7 @@ var ReactD3Core =
 	  function YGrid(props) {
 	    _classCallCheck(this, YGrid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(YGrid).call(this, props));
+	    return _possibleConstructorReturn(this, (YGrid.__proto__ || Object.getPrototypeOf(YGrid)).call(this, props));
 	  }
 
 	  _createClass(YGrid, [{
@@ -10374,9 +10419,9 @@ var ReactD3Core =
 
 	exports.default = YGrid;
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -10394,11 +10439,11 @@ var ReactD3Core =
 	}
 
 	function xDomain(props, stack, horizonal) {
-	  var data = props.data;
-	  var chartSeries = props.chartSeries;
-	  var x = props.x;
-	  var xScale = props.xScale;
-	  var xDomain = props.xDomain;
+	  var data = props.data,
+	      chartSeries = props.chartSeries,
+	      x = props.x,
+	      xScale = props.xScale,
+	      xDomain = props.xDomain;
 
 	  if (xDomain) return xDomain;
 
@@ -10453,9 +10498,9 @@ var ReactD3Core =
 	  }
 	}
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -10473,11 +10518,11 @@ var ReactD3Core =
 	}
 
 	function yDomain(props, stack, horizonal) {
-	  var data = props.data;
-	  var chartSeries = props.chartSeries;
-	  var y = props.y;
-	  var yDomain = props.yDomain;
-	  var yScale = props.yScale;
+	  var data = props.data,
+	      chartSeries = props.chartSeries,
+	      y = props.y,
+	      yDomain = props.yDomain,
+	      yScale = props.yScale;
 
 	  if (yDomain) return yDomain;
 
@@ -10538,5 +10583,5 @@ var ReactD3Core =
 	  }
 	}
 
-/***/ }
+/***/ })
 /******/ ]);
