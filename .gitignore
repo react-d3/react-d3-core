@@ -4,5 +4,4 @@ dist/
 example/dist
 example/dist_es5
 npm-debug.log
-lib
 .idea
