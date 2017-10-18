@@ -3,8 +3,9 @@
 import {
   default as React,
   Component,
-  PropTypes,
 } from 'react';
+
+import * as PropTypes from 'prop-types';
 
 import Axis from '../axis/axis';
 import CommonProps from '../commonProps';
