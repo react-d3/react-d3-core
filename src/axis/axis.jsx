@@ -2,9 +2,10 @@
 
 import {
   default as React,
-  Component,
-  PropTypes
+  Component
 } from 'react';
+
+import * as PropTypes from 'prop-types';
 
 import D3Axis from 'd3-axis';
 import D3Selection from 'd3-selection'

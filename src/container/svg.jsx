@@ -2,7 +2,7 @@
 
 import {
   default as React,
-  Component,
+  Component
 } from 'react';
 
 import * as PropTypes from 'prop-types';

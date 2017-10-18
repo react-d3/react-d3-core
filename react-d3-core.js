@@ -10337,6 +10337,10 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
 	var _d3Axis = __webpack_require__(44);
 
 	var _d3Axis2 = _interopRequireDefault(_d3Axis);
@@ -10350,6 +10354,18 @@ var ReactD3Core =
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
 	var _scale = __webpack_require__(14);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -10508,10 +10524,10 @@ var ReactD3Core =
 	  tickOrient: null
 	};
 	Axis.PropTypes = {
-	  showAxis: _react.PropTypes.bool,
-	  type: _react.PropTypes.string,
-	  orient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-	  tickOrient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
+	  showAxis: PropTypes.bool,
+	  type: PropTypes.string,
+	  orient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+	  tickOrient: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
 	};
 	exports.default = Axis;
 
@@ -10740,6 +10756,10 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
 	var _axis = __webpack_require__(43);
 
 	var _axis2 = _interopRequireDefault(_axis);
@@ -10751,6 +10771,18 @@ var ReactD3Core =
 	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -10882,33 +10914,33 @@ var ReactD3Core =
 	  xOuterTickSize: 6
 	}, _commonProps2.default);
 	Xaxis.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  showXAxis: _react.PropTypes.bool,
-	  x: _react.PropTypes.func,
-	  xDomain: _react.PropTypes.array,
-	  xRange: _react.PropTypes.array,
-	  xScale: _react.PropTypes.string.isRequired,
-	  xOrient: _react.PropTypes.oneOf(['top', 'bottom']),
-	  xTickOrient: _react.PropTypes.oneOf(['top', 'bottom']),
-	  xAxisClassName: _react.PropTypes.string,
-	  xTickSizeInner: _react.PropTypes.number,
-	  xTickSizeOuter: _react.PropTypes.number,
-	  xBandPaddingInner: _react.PropTypes.number,
-	  xBandPaddingOuter: _react.PropTypes.number,
-	  xTickPadding: _react.PropTypes.number,
-	  xTickFormat: _react.PropTypes.func,
-	  xTicks: _react.PropTypes.array,
-	  style: _react.PropTypes.object,
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  showXAxis: PropTypes.bool,
+	  x: PropTypes.func,
+	  xDomain: PropTypes.array,
+	  xRange: PropTypes.array,
+	  xScale: PropTypes.string.isRequired,
+	  xOrient: PropTypes.oneOf(['top', 'bottom']),
+	  xTickOrient: PropTypes.oneOf(['top', 'bottom']),
+	  xAxisClassName: PropTypes.string,
+	  xTickSizeInner: PropTypes.number,
+	  xTickSizeOuter: PropTypes.number,
+	  xBandPaddingInner: PropTypes.number,
+	  xBandPaddingOuter: PropTypes.number,
+	  xTickPadding: PropTypes.number,
+	  xTickFormat: PropTypes.func,
+	  xTicks: PropTypes.array,
+	  style: PropTypes.object,
 	  /*
 	   xAxisStyling object holds css styling classes for axis elements
 	   pathClassName: "someCls"
 	   ticksClassName: "someCls"
 	   textClassName: "someCls"
 	   */
-	  xAxisStyling: _react.PropTypes.object,
-	  xTickValues: _react.PropTypes.array
+	  xAxisStyling: PropTypes.object,
+	  xTickValues: PropTypes.array
 	};
 	exports.default = Xaxis;
 
@@ -11118,6 +11150,10 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
 	var _axis = __webpack_require__(43);
 
 	var _axis2 = _interopRequireDefault(_axis);
@@ -11129,6 +11165,18 @@ var ReactD3Core =
 	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -11260,33 +11308,33 @@ var ReactD3Core =
 	  yOuterTickSize: 6
 	}, _commonProps2.default);
 	Yaxis.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  showYAxis: _react.PropTypes.bool,
-	  y: _react.PropTypes.func,
-	  yDomain: _react.PropTypes.array,
-	  yRange: _react.PropTypes.array,
-	  yScale: _react.PropTypes.string.isRequired,
-	  yOrient: _react.PropTypes.oneOf(['left', 'right']),
-	  yTickOrient: _react.PropTypes.oneOf(['left', 'right']),
-	  yAxisClassName: _react.PropTypes.string,
-	  yTickSizeInner: _react.PropTypes.number,
-	  yTickSizeOuter: _react.PropTypes.number,
-	  yBandPaddingInner: _react.PropTypes.number,
-	  yBandPaddingOuter: _react.PropTypes.number,
-	  yTickPadding: _react.PropTypes.number,
-	  yTickFormat: _react.PropTypes.func,
-	  yTicks: _react.PropTypes.array,
-	  style: _react.PropTypes.object,
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  showYAxis: PropTypes.bool,
+	  y: PropTypes.func,
+	  yDomain: PropTypes.array,
+	  yRange: PropTypes.array,
+	  yScale: PropTypes.string.isRequired,
+	  yOrient: PropTypes.oneOf(['left', 'right']),
+	  yTickOrient: PropTypes.oneOf(['left', 'right']),
+	  yAxisClassName: PropTypes.string,
+	  yTickSizeInner: PropTypes.number,
+	  yTickSizeOuter: PropTypes.number,
+	  yBandPaddingInner: PropTypes.number,
+	  yBandPaddingOuter: PropTypes.number,
+	  yTickPadding: PropTypes.number,
+	  yTickFormat: PropTypes.func,
+	  yTicks: PropTypes.array,
+	  style: PropTypes.object,
 	  /*
 	   yAxisStyling object holds css styling classes for axis elements
 	   pathClassName: "someCls"
 	   ticksClassName: "someCls"
 	   textClassName: "someCls"
 	   */
-	  yAxisStyling: _react.PropTypes.object,
-	  yTickValues: _react.PropTypes.array
+	  yAxisStyling: PropTypes.object,
+	  yTickValues: PropTypes.array
 	};
 	exports.default = Yaxis;
 
