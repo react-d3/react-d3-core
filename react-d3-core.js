@@ -43,7 +43,7 @@ var ReactD3Core =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -60,7 +60,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _title = __webpack_require__(13);
+	var _title = __webpack_require__(23);
 
 	Object.defineProperty(exports, 'Title', {
 	  enumerable: true,
@@ -69,7 +69,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _chartContainer = __webpack_require__(14);
+	var _chartContainer = __webpack_require__(24);
 
 	Object.defineProperty(exports, 'Chart', {
 	  enumerable: true,
@@ -78,7 +78,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _axis = __webpack_require__(33);
+	var _axis = __webpack_require__(43);
 
 	Object.defineProperty(exports, 'Axis', {
 	  enumerable: true,
@@ -87,7 +87,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _xaxis = __webpack_require__(35);
+	var _xaxis = __webpack_require__(45);
 
 	Object.defineProperty(exports, 'Xaxis', {
 	  enumerable: true,
@@ -96,7 +96,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _yaxis = __webpack_require__(37);
+	var _yaxis = __webpack_require__(47);
 
 	Object.defineProperty(exports, 'Yaxis', {
 	  enumerable: true,
@@ -105,7 +105,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _label = __webpack_require__(36);
+	var _label = __webpack_require__(46);
 
 	Object.defineProperty(exports, 'Label', {
 	  enumerable: true,
@@ -114,7 +114,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _legend = __webpack_require__(15);
+	var _legend = __webpack_require__(25);
 
 	Object.defineProperty(exports, 'Legend', {
 	  enumerable: true,
@@ -123,7 +123,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _grid = __webpack_require__(38);
+	var _grid = __webpack_require__(48);
 
 	Object.defineProperty(exports, 'Grid', {
 	  enumerable: true,
@@ -132,7 +132,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _xgrid = __webpack_require__(39);
+	var _xgrid = __webpack_require__(49);
 
 	Object.defineProperty(exports, 'Xgrid', {
 	  enumerable: true,
@@ -141,7 +141,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _ygrid = __webpack_require__(40);
+	var _ygrid = __webpack_require__(50);
 
 	Object.defineProperty(exports, 'Ygrid', {
 	  enumerable: true,
@@ -150,7 +150,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _scale = __webpack_require__(4);
+	var _scale = __webpack_require__(14);
 
 	Object.defineProperty(exports, 'scale', {
 	  enumerable: true,
@@ -159,7 +159,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _xDomain = __webpack_require__(41);
+	var _xDomain = __webpack_require__(51);
 
 	Object.defineProperty(exports, 'xDomainCount', {
 	  enumerable: true,
@@ -168,7 +168,7 @@ var ReactD3Core =
 	  }
 	});
 
-	var _yDomain = __webpack_require__(42);
+	var _yDomain = __webpack_require__(52);
 
 	Object.defineProperty(exports, 'yDomainCount', {
 	  enumerable: true,
@@ -181,13 +181,13 @@ var ReactD3Core =
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -217,11 +217,27 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(3);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _scale = __webpack_require__(4);
+	var _scale = __webpack_require__(14);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -251,19 +267,19 @@ var ReactD3Core =
 	  function ChartSvg(props) {
 	    _classCallCheck(this, ChartSvg);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartSvg).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartSvg.__proto__ || Object.getPrototypeOf(ChartSvg)).call(this, props));
 	  }
 
 	  _createClass(ChartSvg, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var svgClassName = _props.svgClassName;
-	      var id = _props.id;
-	      var children = _props.children;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          svgClassName = _props.svgClassName,
+	          id = _props.id,
+	          children = _props.children;
 
 	      var t = 'translate(' + margins.left + ', ' + margins.top + ')';
 
@@ -288,23 +304,1209 @@ var ReactD3Core =
 	  scaleExtent: [1, 10]
 	}, _commonProps2.default);
 	ChartSvg.propTypes = {
-	  id: _react.PropTypes.string,
-	  width: _react.PropTypes.number.isRequired,
-	  height: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  svgClassName: _react.PropTypes.string.isRequired
+	  id: PropTypes.string,
+	  width: PropTypes.number.isRequired,
+	  height: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  svgClassName: PropTypes.string.isRequired
 	};
 	exports.default = ChartSvg;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = React;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	if (process.env.NODE_ENV !== 'production') {
+	  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+	    Symbol.for &&
+	    Symbol.for('react.element')) ||
+	    0xeac7;
+
+	  var isValidElement = function(object) {
+	    return typeof object === 'object' &&
+	      object !== null &&
+	      object.$$typeof === REACT_ELEMENT_TYPE;
+	  };
+
+	  // By explicitly using `prop-types` you are opting into new development behavior.
+	  // http://fb.me/prop-types-in-prod
+	  var throwOnDirectAccess = true;
+	  module.exports = __webpack_require__(5)(isValidElement, throwOnDirectAccess);
+	} else {
+	  // By explicitly using `prop-types` you are opting into new production behavior.
+	  // http://fb.me/prop-types-in-prod
+	  module.exports = __webpack_require__(12)();
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	'use strict';
+
+	var emptyFunction = __webpack_require__(6);
+	var invariant = __webpack_require__(7);
+	var warning = __webpack_require__(8);
+	var assign = __webpack_require__(9);
+
+	var ReactPropTypesSecret = __webpack_require__(10);
+	var checkPropTypes = __webpack_require__(11);
+
+	module.exports = function(isValidElement, throwOnDirectAccess) {
+	  /* global Symbol */
+	  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+	  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+	  /**
+	   * Returns the iterator method function contained on the iterable object.
+	   *
+	   * Be sure to invoke the function with the iterable as context:
+	   *
+	   *     var iteratorFn = getIteratorFn(myIterable);
+	   *     if (iteratorFn) {
+	   *       var iterator = iteratorFn.call(myIterable);
+	   *       ...
+	   *     }
+	   *
+	   * @param {?object} maybeIterable
+	   * @return {?function}
+	   */
+	  function getIteratorFn(maybeIterable) {
+	    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+	    if (typeof iteratorFn === 'function') {
+	      return iteratorFn;
+	    }
+	  }
+
+	  /**
+	   * Collection of methods that allow declaration and validation of props that are
+	   * supplied to React components. Example usage:
+	   *
+	   *   var Props = require('ReactPropTypes');
+	   *   var MyArticle = React.createClass({
+	   *     propTypes: {
+	   *       // An optional string prop named "description".
+	   *       description: Props.string,
+	   *
+	   *       // A required enum prop named "category".
+	   *       category: Props.oneOf(['News','Photos']).isRequired,
+	   *
+	   *       // A prop named "dialog" that requires an instance of Dialog.
+	   *       dialog: Props.instanceOf(Dialog).isRequired
+	   *     },
+	   *     render: function() { ... }
+	   *   });
+	   *
+	   * A more formal specification of how these methods are used:
+	   *
+	   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+	   *   decl := ReactPropTypes.{type}(.isRequired)?
+	   *
+	   * Each and every declaration produces a function with the same signature. This
+	   * allows the creation of custom validation functions. For example:
+	   *
+	   *  var MyLink = React.createClass({
+	   *    propTypes: {
+	   *      // An optional string or URI prop named "href".
+	   *      href: function(props, propName, componentName) {
+	   *        var propValue = props[propName];
+	   *        if (propValue != null && typeof propValue !== 'string' &&
+	   *            !(propValue instanceof URI)) {
+	   *          return new Error(
+	   *            'Expected a string or an URI for ' + propName + ' in ' +
+	   *            componentName
+	   *          );
+	   *        }
+	   *      }
+	   *    },
+	   *    render: function() {...}
+	   *  });
+	   *
+	   * @internal
+	   */
+
+	  var ANONYMOUS = '<<anonymous>>';
+
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+	  var ReactPropTypes = {
+	    array: createPrimitiveTypeChecker('array'),
+	    bool: createPrimitiveTypeChecker('boolean'),
+	    func: createPrimitiveTypeChecker('function'),
+	    number: createPrimitiveTypeChecker('number'),
+	    object: createPrimitiveTypeChecker('object'),
+	    string: createPrimitiveTypeChecker('string'),
+	    symbol: createPrimitiveTypeChecker('symbol'),
+
+	    any: createAnyTypeChecker(),
+	    arrayOf: createArrayOfTypeChecker,
+	    element: createElementTypeChecker(),
+	    instanceOf: createInstanceTypeChecker,
+	    node: createNodeChecker(),
+	    objectOf: createObjectOfTypeChecker,
+	    oneOf: createEnumTypeChecker,
+	    oneOfType: createUnionTypeChecker,
+	    shape: createShapeTypeChecker,
+	    exact: createStrictShapeTypeChecker,
+	  };
+
+	  /**
+	   * inlined Object.is polyfill to avoid requiring consumers ship their own
+	   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+	   */
+	  /*eslint-disable no-self-compare*/
+	  function is(x, y) {
+	    // SameValue algorithm
+	    if (x === y) {
+	      // Steps 1-5, 7-10
+	      // Steps 6.b-6.e: +0 != -0
+	      return x !== 0 || 1 / x === 1 / y;
+	    } else {
+	      // Step 6.a: NaN == NaN
+	      return x !== x && y !== y;
+	    }
+	  }
+	  /*eslint-enable no-self-compare*/
+
+	  /**
+	   * We use an Error-like object for backward compatibility as people may call
+	   * PropTypes directly and inspect their output. However, we don't use real
+	   * Errors anymore. We don't inspect their stack anyway, and creating them
+	   * is prohibitively expensive if they are created too often, such as what
+	   * happens in oneOfType() for any type before the one that matched.
+	   */
+	  function PropTypeError(message) {
+	    this.message = message;
+	    this.stack = '';
+	  }
+	  // Make `instanceof Error` still work for returned errors.
+	  PropTypeError.prototype = Error.prototype;
+
+	  function createChainableTypeChecker(validate) {
+	    if (process.env.NODE_ENV !== 'production') {
+	      var manualPropTypeCallCache = {};
+	      var manualPropTypeWarningCount = 0;
+	    }
+	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+	      componentName = componentName || ANONYMOUS;
+	      propFullName = propFullName || propName;
+
+	      if (secret !== ReactPropTypesSecret) {
+	        if (throwOnDirectAccess) {
+	          // New behavior only for users of `prop-types` package
+	          invariant(
+	            false,
+	            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+	            'Use `PropTypes.checkPropTypes()` to call them. ' +
+	            'Read more at http://fb.me/use-check-prop-types'
+	          );
+	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+	          // Old behavior for people using React.PropTypes
+	          var cacheKey = componentName + ':' + propName;
+	          if (
+	            !manualPropTypeCallCache[cacheKey] &&
+	            // Avoid spamming the console because they are often not actionable except for lib authors
+	            manualPropTypeWarningCount < 3
+	          ) {
+	            warning(
+	              false,
+	              'You are manually calling a React.PropTypes validation ' +
+	              'function for the `%s` prop on `%s`. This is deprecated ' +
+	              'and will throw in the standalone `prop-types` package. ' +
+	              'You may be seeing this warning due to a third-party PropTypes ' +
+	              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
+	              propFullName,
+	              componentName
+	            );
+	            manualPropTypeCallCache[cacheKey] = true;
+	            manualPropTypeWarningCount++;
+	          }
+	        }
+	      }
+	      if (props[propName] == null) {
+	        if (isRequired) {
+	          if (props[propName] === null) {
+	            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+	          }
+	          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+	        }
+	        return null;
+	      } else {
+	        return validate(props, propName, componentName, location, propFullName);
+	      }
+	    }
+
+	    var chainedCheckType = checkType.bind(null, false);
+	    chainedCheckType.isRequired = checkType.bind(null, true);
+
+	    return chainedCheckType;
+	  }
+
+	  function createPrimitiveTypeChecker(expectedType) {
+	    function validate(props, propName, componentName, location, propFullName, secret) {
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== expectedType) {
+	        // `propValue` being instance of, say, date/regexp, pass the 'object'
+	        // check, but we can offer a more precise error message here rather than
+	        // 'of type `object`'.
+	        var preciseType = getPreciseType(propValue);
+
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createAnyTypeChecker() {
+	    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+	  }
+
+	  function createArrayOfTypeChecker(typeChecker) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      if (typeof typeChecker !== 'function') {
+	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+	      }
+	      var propValue = props[propName];
+	      if (!Array.isArray(propValue)) {
+	        var propType = getPropType(propValue);
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+	      }
+	      for (var i = 0; i < propValue.length; i++) {
+	        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+	        if (error instanceof Error) {
+	          return error;
+	        }
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createElementTypeChecker() {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      if (!isValidElement(propValue)) {
+	        var propType = getPropType(propValue);
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createInstanceTypeChecker(expectedClass) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      if (!(props[propName] instanceof expectedClass)) {
+	        var expectedClassName = expectedClass.name || ANONYMOUS;
+	        var actualClassName = getClassName(props[propName]);
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createEnumTypeChecker(expectedValues) {
+	    if (!Array.isArray(expectedValues)) {
+	      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+	      return emptyFunction.thatReturnsNull;
+	    }
+
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      for (var i = 0; i < expectedValues.length; i++) {
+	        if (is(propValue, expectedValues[i])) {
+	          return null;
+	        }
+	      }
+
+	      var valuesString = JSON.stringify(expectedValues);
+	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createObjectOfTypeChecker(typeChecker) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      if (typeof typeChecker !== 'function') {
+	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+	      }
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== 'object') {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+	      }
+	      for (var key in propValue) {
+	        if (propValue.hasOwnProperty(key)) {
+	          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	          if (error instanceof Error) {
+	            return error;
+	          }
+	        }
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createUnionTypeChecker(arrayOfTypeCheckers) {
+	    if (!Array.isArray(arrayOfTypeCheckers)) {
+	      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+	      return emptyFunction.thatReturnsNull;
+	    }
+
+	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+	      var checker = arrayOfTypeCheckers[i];
+	      if (typeof checker !== 'function') {
+	        warning(
+	          false,
+	          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+	          'received %s at index %s.',
+	          getPostfixForTypeWarning(checker),
+	          i
+	        );
+	        return emptyFunction.thatReturnsNull;
+	      }
+	    }
+
+	    function validate(props, propName, componentName, location, propFullName) {
+	      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+	        var checker = arrayOfTypeCheckers[i];
+	        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+	          return null;
+	        }
+	      }
+
+	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createNodeChecker() {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      if (!isNode(props[propName])) {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createShapeTypeChecker(shapeTypes) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== 'object') {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+	      }
+	      for (var key in shapeTypes) {
+	        var checker = shapeTypes[key];
+	        if (!checker) {
+	          continue;
+	        }
+	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	        if (error) {
+	          return error;
+	        }
+	      }
+	      return null;
+	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createStrictShapeTypeChecker(shapeTypes) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== 'object') {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+	      }
+	      // We need to check all keys in case some are required but missing from
+	      // props.
+	      var allKeys = assign({}, props[propName], shapeTypes);
+	      for (var key in allKeys) {
+	        var checker = shapeTypes[key];
+	        if (!checker) {
+	          return new PropTypeError(
+	            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+	            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+	            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+	          );
+	        }
+	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	        if (error) {
+	          return error;
+	        }
+	      }
+	      return null;
+	    }
+
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function isNode(propValue) {
+	    switch (typeof propValue) {
+	      case 'number':
+	      case 'string':
+	      case 'undefined':
+	        return true;
+	      case 'boolean':
+	        return !propValue;
+	      case 'object':
+	        if (Array.isArray(propValue)) {
+	          return propValue.every(isNode);
+	        }
+	        if (propValue === null || isValidElement(propValue)) {
+	          return true;
+	        }
+
+	        var iteratorFn = getIteratorFn(propValue);
+	        if (iteratorFn) {
+	          var iterator = iteratorFn.call(propValue);
+	          var step;
+	          if (iteratorFn !== propValue.entries) {
+	            while (!(step = iterator.next()).done) {
+	              if (!isNode(step.value)) {
+	                return false;
+	              }
+	            }
+	          } else {
+	            // Iterator will provide entry [k,v] tuples rather than values.
+	            while (!(step = iterator.next()).done) {
+	              var entry = step.value;
+	              if (entry) {
+	                if (!isNode(entry[1])) {
+	                  return false;
+	                }
+	              }
+	            }
+	          }
+	        } else {
+	          return false;
+	        }
+
+	        return true;
+	      default:
+	        return false;
+	    }
+	  }
+
+	  function isSymbol(propType, propValue) {
+	    // Native Symbol.
+	    if (propType === 'symbol') {
+	      return true;
+	    }
+
+	    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+	    if (propValue['@@toStringTag'] === 'Symbol') {
+	      return true;
+	    }
+
+	    // Fallback for non-spec compliant Symbols which are polyfilled.
+	    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+	      return true;
+	    }
+
+	    return false;
+	  }
+
+	  // Equivalent of `typeof` but with special handling for array and regexp.
+	  function getPropType(propValue) {
+	    var propType = typeof propValue;
+	    if (Array.isArray(propValue)) {
+	      return 'array';
+	    }
+	    if (propValue instanceof RegExp) {
+	      // Old webkits (at least until Android 4.0) return 'function' rather than
+	      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+	      // passes PropTypes.object.
+	      return 'object';
+	    }
+	    if (isSymbol(propType, propValue)) {
+	      return 'symbol';
+	    }
+	    return propType;
+	  }
+
+	  // This handles more types than `getPropType`. Only used for error messages.
+	  // See `createPrimitiveTypeChecker`.
+	  function getPreciseType(propValue) {
+	    if (typeof propValue === 'undefined' || propValue === null) {
+	      return '' + propValue;
+	    }
+	    var propType = getPropType(propValue);
+	    if (propType === 'object') {
+	      if (propValue instanceof Date) {
+	        return 'date';
+	      } else if (propValue instanceof RegExp) {
+	        return 'regexp';
+	      }
+	    }
+	    return propType;
+	  }
+
+	  // Returns a string that is postfixed to a warning about an invalid type.
+	  // For example, "undefined" or "of type array"
+	  function getPostfixForTypeWarning(value) {
+	    var type = getPreciseType(value);
+	    switch (type) {
+	      case 'array':
+	      case 'object':
+	        return 'an ' + type;
+	      case 'boolean':
+	      case 'date':
+	      case 'regexp':
+	        return 'a ' + type;
+	      default:
+	        return type;
+	    }
+	  }
+
+	  // Returns class name of the object, if any.
+	  function getClassName(propValue) {
+	    if (!propValue.constructor || !propValue.constructor.name) {
+	      return ANONYMOUS;
+	    }
+	    return propValue.constructor.name;
+	  }
+
+	  ReactPropTypes.checkPropTypes = checkPropTypes;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
+
+	  return ReactPropTypes;
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 * 
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	var emptyFunction = function emptyFunction() {};
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+
+	module.exports = emptyFunction;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 */
+
+	'use strict';
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	var validateFormat = function validateFormat(format) {};
+
+	if (process.env.NODE_ENV !== 'production') {
+	  validateFormat = function validateFormat(format) {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  };
+	}
+
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
+
+	module.exports = invariant;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2014-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 */
+
+	'use strict';
+
+	var emptyFunction = __webpack_require__(6);
+
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+
+	var warning = emptyFunction;
+
+	if (process.env.NODE_ENV !== 'production') {
+	  var printWarning = function printWarning(format) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+
+	    var argIndex = 0;
+	    var message = 'Warning: ' + format.replace(/%s/g, function () {
+	      return args[argIndex++];
+	    });
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+
+	  warning = function warning(condition, format) {
+	    if (format === undefined) {
+	      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+	    }
+
+	    if (format.indexOf('Failed Composite propType: ') === 0) {
+	      return; // Ignore CompositeComponent proptype check.
+	    }
+
+	    if (!condition) {
+	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	        args[_key2 - 2] = arguments[_key2];
+	      }
+
+	      printWarning.apply(undefined, [format].concat(args));
+	    }
+	  };
+	}
+
+	module.exports = warning;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+
+			// Detect buggy property enumeration order in older V8 versions.
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+
+			return true;
+		} catch (err) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	'use strict';
+
+	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+	module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	'use strict';
+
+	if (process.env.NODE_ENV !== 'production') {
+	  var invariant = __webpack_require__(7);
+	  var warning = __webpack_require__(8);
+	  var ReactPropTypesSecret = __webpack_require__(10);
+	  var loggedTypeFailures = {};
+	}
+
+	/**
+	 * Assert that the values match with the type specs.
+	 * Error messages are memorized and will only be shown once.
+	 *
+	 * @param {object} typeSpecs Map of name to a ReactPropType
+	 * @param {object} values Runtime values that need to be type-checked
+	 * @param {string} location e.g. "prop", "context", "child context"
+	 * @param {string} componentName Name of the component for error messages.
+	 * @param {?Function} getStack Returns the component stack.
+	 * @private
+	 */
+	function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    for (var typeSpecName in typeSpecs) {
+	      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+	        var error;
+	        // Prop type validation may throw. In case they do, we don't want to
+	        // fail the render phase where it didn't fail before. So we log it.
+	        // After these have been cleaned up, we'll let them throw.
+	        try {
+	          // This is intentionally an invariant that gets caught. It's the same
+	          // behavior as without this statement except with a better message.
+	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+	          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+	        } catch (ex) {
+	          error = ex;
+	        }
+	        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+	        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+	          // Only monitor this failure once because there tends to be a lot of the
+	          // same error.
+	          loggedTypeFailures[error.message] = true;
+
+	          var stack = getStack ? getStack() : '';
+
+	          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+	        }
+	      }
+	    }
+	  }
+	}
+
+	module.exports = checkPropTypes;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	'use strict';
+
+	var emptyFunction = __webpack_require__(6);
+	var invariant = __webpack_require__(7);
+	var ReactPropTypesSecret = __webpack_require__(10);
+
+	module.exports = function() {
+	  function shim(props, propName, componentName, location, propFullName, secret) {
+	    if (secret === ReactPropTypesSecret) {
+	      // It is still safe when called from React.
+	      return;
+	    }
+	    invariant(
+	      false,
+	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+	      'Use PropTypes.checkPropTypes() to call them. ' +
+	      'Read more at http://fb.me/use-check-prop-types'
+	    );
+	  };
+	  shim.isRequired = shim;
+	  function getShim() {
+	    return shim;
+	  };
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+	  var ReactPropTypes = {
+	    array: shim,
+	    bool: shim,
+	    func: shim,
+	    number: shim,
+	    object: shim,
+	    string: shim,
+	    symbol: shim,
+
+	    any: shim,
+	    arrayOf: getShim,
+	    element: shim,
+	    instanceOf: getShim,
+	    node: shim,
+	    objectOf: getShim,
+	    oneOf: getShim,
+	    oneOfType: getShim,
+	    shape: getShim,
+	    exact: getShim
+	  };
+
+	  ReactPropTypes.checkPropTypes = emptyFunction;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
+
+	  return ReactPropTypes;
+	};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -317,9 +1519,9 @@ var ReactD3Core =
 	  margins: { top: 80, right: 100, bottom: 80, left: 100 }
 	};
 
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -328,7 +1530,7 @@ var ReactD3Core =
 	});
 	exports.scale = scale;
 
-	var _d3Scale = __webpack_require__(5);
+	var _d3Scale = __webpack_require__(15);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
@@ -337,8 +1539,8 @@ var ReactD3Core =
 	}
 
 	function scale(props) {
-	  var type = props.type;
-	  var scale = props.scale;
+	  var type = props.type,
+	      scale = props.scale;
 
 	  var func;
 
@@ -350,12 +1552,12 @@ var ReactD3Core =
 	}
 
 	function _mkScaleSettings(props, func) {
-	  var type = props.type;
-	  var range = props.range;
-	  var domain = props.domain;
-	  var scale = props.scale;
-	  var bandPaddingInner = props.bandPaddingInner;
-	  var bandPaddingOuter = props.bandPaddingOuter;
+	  var type = props.type,
+	      range = props.range,
+	      domain = props.domain,
+	      scale = props.scale,
+	      bandPaddingInner = props.bandPaddingInner,
+	      bandPaddingOuter = props.bandPaddingOuter;
 
 	  if (range) func.range(range);
 
@@ -373,12 +1575,12 @@ var ReactD3Core =
 	  return func;
 	}
 
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(6), __webpack_require__(7), __webpack_require__(8), __webpack_require__(10), __webpack_require__(11), __webpack_require__(12), __webpack_require__(9)) :
+	   true ? factory(exports, __webpack_require__(16), __webpack_require__(17), __webpack_require__(18), __webpack_require__(20), __webpack_require__(21), __webpack_require__(22), __webpack_require__(19)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-array', 'd3-collection', 'd3-interpolate', 'd3-format', 'd3-time', 'd3-time-format', 'd3-color'], factory) :
 	  (factory((global.d3_scale = global.d3_scale || {}),global.d3_array,global.d3_collection,global.d3_interpolate,global.d3_format,global.d3_time,global.d3_time_format,global.d3_color));
 	}(this, function (exports,d3Array,d3Collection,d3Interpolate,d3Format,d3Time,d3TimeFormat,d3Color) { 'use strict';
@@ -1307,9 +2509,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -1781,9 +2983,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -2010,12 +3212,12 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(9)) :
+	   true ? factory(exports, __webpack_require__(19)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-color'], factory) :
 	  (factory((global.d3_interpolate = global.d3_interpolate || {}),global.d3_color));
 	}(this, function (exports,d3Color) { 'use strict';
@@ -2525,9 +3727,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -3047,9 +4249,9 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -3554,15 +4756,17 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
 	  typeof define === 'function' && define.amd ? define(['exports'], factory) :
 	  (factory((global.d3_time = global.d3_time || {})));
 	}(this, function (exports) { 'use strict';
+
+	  var version = "0.2.6";
 
 	  var t0 = new Date;
 	  var t1 = new Date;
@@ -3823,9 +5027,7 @@ var ReactD3Core =
 	  var timeMonths = month.range;
 	  var timeYears = year.range;
 
-	  var utcMillisecond = millisecond;
 	  var utcMilliseconds = timeMilliseconds;
-	  var utcSecond = second;
 	  var utcSeconds = timeSeconds;
 	  var utcMinutes = utcMinute.range;
 	  var utcHours = utcHour.range;
@@ -3841,9 +5043,6 @@ var ReactD3Core =
 	  var utcMonths = utcMonth.range;
 	  var utcYears = utcYear.range;
 
-	  var version = "0.2.5";
-
-	  exports.version = version;
 	  exports.timeMilliseconds = timeMilliseconds;
 	  exports.timeSeconds = timeSeconds;
 	  exports.timeMinutes = timeMinutes;
@@ -3859,9 +5058,7 @@ var ReactD3Core =
 	  exports.timeWeeks = timeWeeks;
 	  exports.timeMonths = timeMonths;
 	  exports.timeYears = timeYears;
-	  exports.utcMillisecond = utcMillisecond;
 	  exports.utcMilliseconds = utcMilliseconds;
-	  exports.utcSecond = utcSecond;
 	  exports.utcSeconds = utcSeconds;
 	  exports.utcMinutes = utcMinutes;
 	  exports.utcHours = utcHours;
@@ -3891,6 +5088,8 @@ var ReactD3Core =
 	  exports.timeWeek = sunday;
 	  exports.timeMonth = month;
 	  exports.timeYear = year;
+	  exports.utcMillisecond = millisecond;
+	  exports.utcSecond = second;
 	  exports.utcMinute = utcMinute;
 	  exports.utcHour = utcHour;
 	  exports.utcDay = utcDay;
@@ -3904,16 +5103,19 @@ var ReactD3Core =
 	  exports.utcWeek = utcSunday;
 	  exports.utcMonth = utcMonth;
 	  exports.utcYear = utcYear;
+	  exports.version = version;
 	  exports.timeInterval = newInterval;
+
+	  Object.defineProperty(exports, '__esModule', { value: true });
 
 	}));
 
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(11)) :
+	   true ? factory(exports, __webpack_require__(21)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
 	  (factory((global.d3_time_format = global.d3_time_format || {}),global.d3_time));
 	}(this, function (exports,d3Time) { 'use strict';
@@ -4746,13 +5948,13 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4782,9 +5984,25 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _commonProps = __webpack_require__(3);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -4814,16 +6032,16 @@ var ReactD3Core =
 	  function ChartTitle(props) {
 	    _classCallCheck(this, ChartTitle);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartTitle).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartTitle.__proto__ || Object.getPrototypeOf(ChartTitle)).call(this, props));
 	  }
 
 	  _createClass(ChartTitle, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var titleClassName = _props.titleClassName;
-	      var title = _props.title;
-	      var width = _props.width;
+	      var _props = this.props,
+	          titleClassName = _props.titleClassName,
+	          title = _props.title,
+	          width = _props.width;
 
 	      var titleStyle = {
 	        width: width,
@@ -4847,19 +6065,19 @@ var ReactD3Core =
 	  title: ''
 	}, _commonProps2.default);
 	ChartTitle.propTypes = {
-	  width: _react.PropTypes.number.isRequired,
-	  title: _react.PropTypes.string,
-	  titleClassName: _react.PropTypes.string
+	  width: PropTypes.number.isRequired,
+	  title: PropTypes.string,
+	  titleClassName: PropTypes.string
 	};
 	exports.default = ChartTitle;
 
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4893,11 +6111,11 @@ var ReactD3Core =
 
 	var _svg2 = _interopRequireDefault(_svg);
 
-	var _legend = __webpack_require__(15);
+	var _legend = __webpack_require__(25);
 
 	var _legend2 = _interopRequireDefault(_legend);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -4929,15 +6147,15 @@ var ReactD3Core =
 	  function ChartContainer(props) {
 	    _classCallCheck(this, ChartContainer);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ChartContainer).call(this, props));
+	    return _possibleConstructorReturn(this, (ChartContainer.__proto__ || Object.getPrototypeOf(ChartContainer)).call(this, props));
 	  }
 
 	  _createClass(ChartContainer, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var width = _props.width;
-	      var chartSeries = _props.chartSeries;
+	      var _props = this.props,
+	          width = _props.width,
+	          chartSeries = _props.chartSeries;
 
 	      var legend;
 
@@ -4961,13 +6179,13 @@ var ReactD3Core =
 	ChartContainer.defaultProps = _commonProps2.default;
 	exports.default = ChartContainer;
 
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4997,21 +6215,37 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(16);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _d3Selection = __webpack_require__(26);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _d3Scale = __webpack_require__(5);
+	var _d3Scale = __webpack_require__(15);
 
 	var _d3Scale2 = _interopRequireDefault(_d3Scale);
 
-	var _reactFauxDom = __webpack_require__(17);
+	var _reactFauxDom = __webpack_require__(27);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -5041,7 +6275,7 @@ var ReactD3Core =
 	  function Legend(props) {
 	    _classCallCheck(this, Legend);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Legend).call(this, props));
+	    return _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
 	  }
 
 	  _createClass(Legend, [{
@@ -5052,15 +6286,15 @@ var ReactD3Core =
 	  }, {
 	    key: '_series',
 	    value: function _series(props) {
-	      var chartSeries = props.chartSeries;
-	      var categoricalColors = props.categoricalColors;
+	      var chartSeries = props.chartSeries,
+	          categoricalColors = props.categoricalColors;
 
 	      var colors = categoricalColors || _d3Scale2.default.scaleCategory10();
 
 	      return chartSeries.map(function (_ref, i) {
-	        var name = _ref.name;
-	        var color = _ref.color;
-	        var field = _ref.field;
+	        var name = _ref.name,
+	            color = _ref.color,
+	            field = _ref.field;
 	        return {
 	          color: color || colors(i),
 	          name: name || field,
@@ -5071,15 +6305,15 @@ var ReactD3Core =
 	  }, {
 	    key: '_mkLegend',
 	    value: function _mkLegend(dom) {
-	      var _props = this.props;
-	      var legendClassName = _props.legendClassName;
-	      var backgroundColor = _props.backgroundColor;
-	      var legendPosition = _props.legendPosition;
-	      var legendOffset = _props.legendOffset;
-	      var swatchShape = _props.swatchShape;
-	      var chartSeries = _props.chartSeries;
-	      var margins = _props.margins;
-	      var width = _props.width;
+	      var _props = this.props,
+	          legendClassName = _props.legendClassName,
+	          backgroundColor = _props.backgroundColor,
+	          legendPosition = _props.legendPosition,
+	          legendOffset = _props.legendOffset,
+	          swatchShape = _props.swatchShape,
+	          chartSeries = _props.chartSeries,
+	          margins = _props.margins,
+	          width = _props.width;
 
 	      var legendArea = _d3Selection2.default.select(dom);
 	      var series = this._series(this.props);
@@ -5101,10 +6335,10 @@ var ReactD3Core =
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props2 = this.props;
-	      var legendClassName = _props2.legendClassName;
-	      var width = _props2.width;
-	      var height = _props2.height;
+	      var _props2 = this.props,
+	          legendClassName = _props2.legendClassName,
+	          width = _props2.width,
+	          height = _props2.height;
 
 	      var legendGroup = _reactFauxDom2.default.createElement('div');
 	      var legendClasses = legendClassName + ' legend';
@@ -5129,20 +6363,20 @@ var ReactD3Core =
 	  swatchShape: 'square'
 	}, _commonProps2.default);
 	Legend.propTypes = {
-	  backgroundColor: _react.PropTypes.string,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  chartSeries: _react.PropTypes.array.isRequired,
-	  legendOffset: _react.PropTypes.number.isRequired,
-	  legendClassName: _react.PropTypes.string.isRequired,
-	  legendPosition: _react.PropTypes.oneOf(['left', 'right']).isRequired,
-	  swatchShape: _react.PropTypes.oneOf(['circle', 'square'])
+	  backgroundColor: PropTypes.string,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  chartSeries: PropTypes.array.isRequired,
+	  legendOffset: PropTypes.number.isRequired,
+	  legendClassName: PropTypes.string.isRequired,
+	  legendPosition: PropTypes.oneOf(['left', 'right']).isRequired,
+	  swatchShape: PropTypes.oneOf(['circle', 'square'])
 	};
 	exports.default = Legend;
 
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -5150,7 +6384,7 @@ var ReactD3Core =
 	  (factory((global.d3_selection = global.d3_selection || {})));
 	}(this, function (exports) { 'use strict';
 
-	  var version = "0.7.2";
+	  var version = "0.7.3";
 
 	  var xhtml = "http://www.w3.org/1999/xhtml";
 
@@ -5448,43 +6682,35 @@ var ReactD3Core =
 	        keyValue;
 
 	    // Compute the key for each node.
-	    // If multiple nodes have the same key, only the first one counts.
+	    // If multiple nodes have the same key, the duplicates are added to exit.
 	    for (i = 0; i < groupLength; ++i) {
 	      if (node = group[i]) {
 	        keyValues[i] = keyValue = keyPrefix + key.call(node, node.__data__, i, group);
-	        if (!nodeByKeyValue[keyValue]) {
+	        if (keyValue in nodeByKeyValue) {
+	          exit[i] = node;
+	        } else {
 	          nodeByKeyValue[keyValue] = node;
 	        }
 	      }
 	    }
 
 	    // Compute the key for each datum.
-	    // If multiple data have the same key, only the first one counts.
+	    // If there a node associated with this key, join and add it to update.
+	    // If there is not (or the key is a duplicate), add it to enter.
 	    for (i = 0; i < dataLength; ++i) {
 	      keyValue = keyPrefix + key.call(parent, data[i], i, data);
-
-	      // Is there a node associated with this key?
-	      // If not, this datum is added to the enter selection.
-	      if (!(node = nodeByKeyValue[keyValue])) {
-	        enter[i] = new EnterNode(parent, data[i]);
-	      }
-
-	      // Did we already bind a node using this key? (Or is a duplicate?)
-	      // If unique, the node and datum are joined in the update selection.
-	      // Otherwise, the datum is ignored, neither entering nor exiting.
-	      else if (node !== true) {
+	      if (node = nodeByKeyValue[keyValue]) {
 	        update[i] = node;
 	        node.__data__ = data[i];
+	        nodeByKeyValue[keyValue] = null;
+	      } else {
+	        enter[i] = new EnterNode(parent, data[i]);
 	      }
-
-	      // Record that we consumed this key, either to enter or update.
-	      nodeByKeyValue[keyValue] = true;
 	    }
 
-	    // Take any remaining nodes that were not bound to data,
-	    // and place them in the exit selection.
+	    // Add any remaining nodes that were not bound to data to exit.
 	    for (i = 0; i < groupLength; ++i) {
-	      if ((node = group[i]) && (nodeByKeyValue[keyValues[i]] !== true)) {
+	      if ((node = group[i]) && (nodeByKeyValue[keyValues[i]] === node)) {
 	        exit[i] = node;
 	      }
 	    }
@@ -6097,14 +7323,14 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(18)
-	var Window = __webpack_require__(30)
-	var core = __webpack_require__(31)
-	var anim = __webpack_require__(32)
+	var Element = __webpack_require__(28)
+	var Window = __webpack_require__(40)
+	var core = __webpack_require__(41)
+	var anim = __webpack_require__(42)
 
 	var ReactFauxDOM = {
 	  Element: Element,
@@ -6131,19 +7357,19 @@ var ReactD3Core =
 	module.exports = ReactFauxDOM
 
 
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2)
-	var styleAttr = __webpack_require__(19)
-	var querySelectorAll = __webpack_require__(20)
-	var camelCase = __webpack_require__(24)
-	var isString = __webpack_require__(25)
-	var isUndefined = __webpack_require__(26)
-	var assign = __webpack_require__(27)
-	var mapValues = __webpack_require__(28)
-	var styleCamelCase = __webpack_require__(29)
+	var styleAttr = __webpack_require__(29)
+	var querySelectorAll = __webpack_require__(30)
+	var camelCase = __webpack_require__(34)
+	var isString = __webpack_require__(35)
+	var isUndefined = __webpack_require__(36)
+	var assign = __webpack_require__(37)
+	var mapValues = __webpack_require__(38)
+	var styleCamelCase = __webpack_require__(39)
 
 	function Element (nodeName, parentNode) {
 	  this.nodeName = nodeName
@@ -6151,7 +7377,11 @@ var ReactD3Core =
 	  this.childNodes = []
 	  this.eventListeners = {}
 	  this.text = ''
+	  var self = this
 	  var props = this.props = {
+	    ref: function (component) {
+	      self.component = component
+	    },
 	    style: {
 	      setProperty: function (name, value) {
 	        props.style[styleCamelCase(name)] = value
@@ -6370,6 +7600,14 @@ var ReactD3Core =
 	  }
 	}
 
+	Element.prototype.getBoundingClientRect = function () {
+	  if (!this.component) {
+	    return undefined
+	  }
+
+	  return this.component.getBoundingClientRect()
+	}
+
 	Element.prototype.toReact = function (index) {
 	  index = index || 0
 	  var props = assign({}, this.props)
@@ -6482,11 +7720,14 @@ var ReactD3Core =
 	module.exports = Element
 
 
-/***/ },
-/* 19 */
-/***/ function(module, exports) {
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
 
 	
+
+	/*:: type Attr = { [key: string]: string | number } */
+	/*:: type Opts = { preserveNumbers: ?boolean } */
 
 	/*
 
@@ -6501,7 +7742,12 @@ var ReactD3Core =
 	Convert a style attribute string to an object.
 
 	*/
-	function parse(raw) {
+
+	/*:: declare function parse (raw: string, opts: ?Opts): Attr */
+	function parse(raw, opts) {
+	  opts = opts || {};
+
+	  var preserveNumbers = opts.preserveNumbers;
 	  var trim = function (s) {
 	    return s.trim();
 	  };
@@ -6512,11 +7758,30 @@ var ReactD3Core =
 	    var pos = item.indexOf(':');
 	    var key = item.substr(0, pos).trim();
 	    var val = item.substr(pos + 1).trim();
+	    if (preserveNumbers && isNumeric(val)) {
+	      val = Number(val);
+	    }
 
 	    obj[key] = val;
 	  });
 
 	  return obj;
+	}
+
+	/*
+
+	`isNumeric`
+	----
+
+	Check if a value is numeric.
+	Via: https://stackoverflow.com/a/1830844/9324
+
+	*/
+
+	/*:: declare function isNumeric (n: any): boolean */
+
+	function isNumeric(n) {
+	  return !isNaN(parseFloat(n)) && isFinite(n);
 	}
 
 	/*
@@ -6527,6 +7792,7 @@ var ReactD3Core =
 	Split a string into chunks matching `<key>: <value>`
 
 	*/
+	/*:: declare function getKeyValueChunks (raw: string): Array<string> */
 	function getKeyValueChunks(raw) {
 	  var chunks = [];
 	  var offset = 0;
@@ -6565,6 +7831,7 @@ var ReactD3Core =
 	Convert an object into an attribute string
 
 	*/
+	/*:: declare function stringify (obj: Attr): string */
 	function stringify(obj) {
 	  return Object.keys(obj).map(function (key) {
 	    return key + ':' + obj[key];
@@ -6579,23 +7846,24 @@ var ReactD3Core =
 	Normalize an attribute string (eg. collapse duplicates)
 
 	*/
-	function normalize(str) {
-	  return stringify(parse(str));
+	/*:: declare function normalize (str: string, opts: ?Opts): string */
+	function normalize(str, opts) {
+	  return stringify(parse(str, opts));
 	}
 
 	module.exports.parse = parse;
 	module.exports.stringify = stringify;
 	module.exports.normalize = normalize;
 
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(21);
+	module.exports = __webpack_require__(31);
 
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @ignore
@@ -6603,8 +7871,8 @@ var ReactD3Core =
 	 * @author yiminghe@gmail.com
 	 */
 
-	var util = __webpack_require__(22);
-	var parser = __webpack_require__(23);
+	var util = __webpack_require__(32);
+	var parser = __webpack_require__(33);
 
 	var EXPANDO_SELECTOR_KEY = '_ks_data_selector_id_',
 	  caches = {},
@@ -7296,9 +8564,9 @@ var ReactD3Core =
 	 *  - http://sizzlejs.com/
 	 */
 
-/***/ },
-/* 22 */
-/***/ function(module, exports) {
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
 
 	/**
 	 * attr fix for old ie
@@ -7647,9 +8915,9 @@ var ReactD3Core =
 	  }
 	};
 
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	  Generated by kison.*/
@@ -8856,9 +10124,9 @@ var ReactD3Core =
 	    module.exports = parser;
 	}
 
-/***/ },
-/* 24 */
-/***/ function(module, exports) {
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
 
 	var hyphenExpression = /\-+([a-z])/gi
 
@@ -8879,9 +10147,9 @@ var ReactD3Core =
 	module.exports = camelCase
 
 
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
 
 	function isString (value) {
 	  return typeof value === 'string'
@@ -8890,9 +10158,9 @@ var ReactD3Core =
 	module.exports = isString
 
 
-/***/ },
-/* 26 */
-/***/ function(module, exports) {
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
 
 	function isUndefined (value) {
 	  return typeof value === 'undefined'
@@ -8901,9 +10169,9 @@ var ReactD3Core =
 	module.exports = isUndefined
 
 
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
 
 	function assign (dest) {
 	  var args = arguments
@@ -8923,9 +10191,9 @@ var ReactD3Core =
 	module.exports = assign
 
 
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
 
 	function mapValues (source, fn) {
 	  var destination = {}
@@ -8942,11 +10210,11 @@ var ReactD3Core =
 	module.exports = mapValues
 
 
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	var camelCase = __webpack_require__(24)
+	var camelCase = __webpack_require__(34)
 
 	function styleCamelCase (name) {
 	  var camel = camelCase(name)
@@ -8968,9 +10236,9 @@ var ReactD3Core =
 	module.exports = styleCamelCase
 
 
-/***/ },
-/* 30 */
-/***/ function(module, exports) {
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
 
 	var Window = {
 	  getComputedStyle: function (node) {
@@ -8983,12 +10251,12 @@ var ReactD3Core =
 	module.exports = Window
 
 
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	var Element = __webpack_require__(18)
-	var mapValues = __webpack_require__(28)
+	var Element = __webpack_require__(28)
+	var mapValues = __webpack_require__(38)
 
 	var mixin = {
 	  componentWillMount: function () {
@@ -9011,9 +10279,9 @@ var ReactD3Core =
 	module.exports = mixin
 
 
-/***/ },
-/* 32 */
-/***/ function(module, exports) {
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
 
 	var anim = {
 	  animateFauxDOM: function (duration) {
@@ -9043,13 +10311,13 @@ var ReactD3Core =
 	module.exports = anim
 
 
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9069,19 +10337,35 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Axis = __webpack_require__(34);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _d3Axis = __webpack_require__(44);
 
 	var _d3Axis2 = _interopRequireDefault(_d3Axis);
 
-	var _d3Selection = __webpack_require__(16);
+	var _d3Selection = __webpack_require__(26);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(17);
+	var _reactFauxDom = __webpack_require__(27);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _scale = __webpack_require__(4);
+	var _scale = __webpack_require__(14);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -9111,21 +10395,21 @@ var ReactD3Core =
 	  function Axis(props) {
 	    _classCallCheck(this, Axis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Axis).call(this, props));
+	    return _possibleConstructorReturn(this, (Axis.__proto__ || Object.getPrototypeOf(Axis)).call(this, props));
 	  }
 
 	  _createClass(Axis, [{
 	    key: '_mkTickAxis',
 	    value: function _mkTickAxis() {
-	      var _props = this.props;
-	      var type = _props.type;
-	      var tickOrient = _props.tickOrient;
-	      var tickFormat = _props.tickFormat;
-	      var tickPadding = _props.tickPadding;
-	      var tickSizeInner = _props.tickSizeInner;
-	      var tickSizeOuter = _props.tickSizeOuter;
-	      var ticks = _props.ticks;
-	      var tickValues = _props.tickValues;
+	      var _props = this.props,
+	          type = _props.type,
+	          tickOrient = _props.tickOrient,
+	          tickFormat = _props.tickFormat,
+	          tickPadding = _props.tickPadding,
+	          tickSizeInner = _props.tickSizeInner,
+	          tickSizeOuter = _props.tickSizeOuter,
+	          ticks = _props.ticks,
+	          tickValues = _props.tickValues;
 
 	      var func = _d3Axis2.default;
 
@@ -9167,16 +10451,14 @@ var ReactD3Core =
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props2 = //styling object that holds user defined css classes for different axis elements
-	      //css class to style grids on chart
-	      this.props;
-	      var showAxis = _props2.showAxis;
-	      var gridAxisClassName = _props2.gridAxisClassName;
-	      var axisClassName = _props2.axisClassName;
-	      var type = _props2.type;
-	      var style = _props2.style;
-	      var axisStyling = _props2.axisStyling;
-	      var gridStyleClassName = _props2.gridStyleClassName;
+	      var _props2 = this.props,
+	          showAxis = _props2.showAxis,
+	          gridAxisClassName = _props2.gridAxisClassName,
+	          axisClassName = _props2.axisClassName,
+	          type = _props2.type,
+	          style = _props2.style,
+	          axisStyling = _props2.axisStyling,
+	          gridStyleClassName = _props2.gridStyleClassName;
 
 	      var axisGroup = _reactFauxDom2.default.createElement('g');
 
@@ -9242,16 +10524,16 @@ var ReactD3Core =
 	  tickOrient: null
 	};
 	Axis.PropTypes = {
-	  showAxis: _react.PropTypes.bool,
-	  type: _react.PropTypes.string,
-	  orient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-	  tickOrient: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
+	  showAxis: PropTypes.bool,
+	  type: PropTypes.string,
+	  orient: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+	  tickOrient: PropTypes.oneOf(['top', 'bottom', 'left', 'right'])
 	};
 	exports.default = Axis;
 
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
 	   true ? factory(exports) :
@@ -9259,7 +10541,7 @@ var ReactD3Core =
 	  (factory((global.d3_axis = global.d3_axis || {})));
 	}(this, function (exports) { 'use strict';
 
-	  var version = "0.3.1";
+	  var version = "0.3.2";
 
 	  var slice = Array.prototype.slice;
 
@@ -9303,8 +10585,8 @@ var ReactD3Core =
 	          spacing = Math.max(tickSizeInner, 0) + tickPadding,
 	          transform = orient === top || orient === bottom ? translateX : translateY,
 	          range = scale.range(),
-	          range0 = range[0],
-	          range1 = range[range.length - 1],
+	          range0 = range[0] + 0.5,
+	          range1 = range[range.length - 1] + 0.5,
 	          position = (scale.bandwidth ? center : identity)(scale.copy()),
 	          selection = context.selection ? context.selection() : context,
 	          path = selection.selectAll(".domain").data([null]),
@@ -9312,54 +10594,67 @@ var ReactD3Core =
 	          tickExit = tick.exit(),
 	          tickEnter = tick.enter().append("g", ".domain").attr("class", "tick"),
 	          line = tick.select("line"),
-	          text = tick.select("text");
+	          text = tick.select("text"),
+	          k = orient === top || orient === left ? -1 : 1,
+	          x, y = orient === left || orient === right ? (x = "x", "y") : (x = "y", "x");
 
-	      path = path.merge(path.enter().append("path").attr("class", "domain"));
+	      path = path.merge(path.enter().append("path")
+	          .attr("class", "domain")
+	          .attr("stroke", "#000"));
+
 	      tick = tick.merge(tickEnter);
-	      line = line.merge(tickEnter.append("line"));
-	      text = text.merge(tickEnter.append("text"));
+
+	      line = line.merge(tickEnter.append("line")
+	          .attr("stroke", "#000")
+	          .attr(x + "2", k * tickSizeInner));
+
+	      text = text.merge(tickEnter.append("text")
+	          .attr("fill", "#000")
+	          .attr(x, k * spacing));
 
 	      if (context !== selection) {
 	        path = path.transition(context);
 	        tick = tick.transition(context);
-	        tickExit = tickExit.transition(context).style("opacity", epsilon).attr("transform", function(d) { return transform(position, this.parentNode.__axis || position, d); });
-	        tickEnter.style("opacity", epsilon).attr("transform", function(d) { return transform(this.parentNode.__axis || position, position, d); });
 	        line = line.transition(context);
 	        text = text.transition(context);
+
+	        tickExit = tickExit.transition(context)
+	            .attr("opacity", epsilon)
+	            .attr("transform", function(d) { return transform(position, this.parentNode.__axis || position, d); });
+
+	        tickEnter
+	            .attr("opacity", epsilon)
+	            .attr("transform", function(d) { return transform(this.parentNode.__axis || position, position, d); });
 	      }
 
-	      tick.style("opacity", 1).attr("transform", function(d) { return transform(position, position, d); });
 	      tickExit.remove();
-	      text.text(format);
 
-	      switch (orient) {
-	        case top: {
-	          path.attr("d", "M" + range0 + "," + -tickSizeOuter + "V0H" + range1 + "V" + -tickSizeOuter);
-	          line.attr("x2", 0).attr("y2", -tickSizeInner);
-	          text.attr("x", 0).attr("y", -spacing).attr("dy", "0em").style("text-anchor", "middle");
-	          break;
-	        }
-	        case right: {
-	          path.attr("d", "M" + tickSizeOuter + "," + range0 + "H0V" + range1 + "H" + tickSizeOuter);
-	          line.attr("y2", 0).attr("x2", tickSizeInner);
-	          text.attr("y", 0).attr("x", spacing).attr("dy", ".32em").style("text-anchor", "start");
-	          break;
-	        }
-	        case bottom: {
-	          path.attr("d", "M" + range0 + "," + tickSizeOuter + "V0H" + range1 + "V" + tickSizeOuter);
-	          line.attr("x2", 0).attr("y2", tickSizeInner);
-	          text.attr("x", 0).attr("y", spacing).attr("dy", ".71em").style("text-anchor", "middle");
-	          break;
-	        }
-	        case left: {
-	          path.attr("d", "M" + -tickSizeOuter + "," + range0 + "H0V" + range1 + "H" + -tickSizeOuter);
-	          line.attr("y2", 0).attr("x2", -tickSizeInner);
-	          text.attr("y", 0).attr("x", -spacing).attr("dy", ".32em").style("text-anchor", "end");
-	          break;
-	        }
-	      }
+	      path
+	          .attr("d", orient === left || orient == right
+	              ? "M" + k * tickSizeOuter + "," + range0 + "H0.5V" + range1 + "H" + k * tickSizeOuter
+	              : "M" + range0 + "," + k * tickSizeOuter + "V0.5H" + range1 + "V" + k * tickSizeOuter)
 
-	      selection.each(function() { this.__axis = position; });
+	      tick
+	          .attr("opacity", 1)
+	          .attr("transform", function(d) { return transform(position, position, d); });
+
+	      line
+	          .attr(x + "2", k * tickSizeInner)
+	          .attr(y + "1", 0.5)
+	          .attr(y + "2", 0.5);
+
+	      text
+	          .attr(x, k * spacing)
+	          .attr(y, 0.5)
+	          .attr("dy", orient === top ? "0em" : orient === bottom ? ".71em" : ".32em")
+	          .text(format);
+
+	      selection
+	          .attr("fill", "none")
+	          .attr("font-size", 10)
+	          .attr("font-family", "sans-serif")
+	          .attr("text-anchor", orient === right ? "start" : orient === left ? "end" : "middle")
+	          .each(function() { this.__axis = position; });
 	    }
 
 	    axis.scale = function(_) {
@@ -9425,13 +10720,13 @@ var ReactD3Core =
 
 	}));
 
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9461,17 +10756,33 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(33);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _axis = __webpack_require__(43);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(36);
+	var _label = __webpack_require__(46);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -9501,37 +10812,37 @@ var ReactD3Core =
 	  function Xaxis(props) {
 	    _classCallCheck(this, Xaxis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Xaxis).call(this, props));
+	    return _possibleConstructorReturn(this, (Xaxis.__proto__ || Object.getPrototypeOf(Xaxis)).call(this, props));
 	  }
 
 	  _createClass(Xaxis, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var showXAxis = _props.showXAxis;
-	      var x = _props.x;
-	      var xAxisClassName = _props.xAxisClassName;
-	      var xDomain = _props.xDomain;
-	      var xRange = _props.xRange;
-	      var xBandPaddingInner = _props.xBandPaddingInner;
-	      var xBandPaddingOuter = _props.xBandPaddingOuter;
-	      var xScale = _props.xScale;
-	      var xOrient = _props.xOrient;
-	      var xTickOrient = _props.xTickOrient;
-	      var xTickPadding = _props.xTickPadding;
-	      var xTickSizeOuter = _props.xTickSizeOuter;
-	      var xTickSizeInner = _props.xTickSizeInner;
-	      var xTickFormat = _props.xTickFormat;
-	      var xTicks = _props.xTicks;
-	      var xLabel = _props.xLabel;
-	      var xLabelPosition = _props.xLabelPosition;
-	      var labelOffset = _props.labelOffset;
-	      var style = _props.style;
-	      var xAxisStyling = _props.xAxisStyling;
-	      var xTickValues = _props.xTickValues;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          showXAxis = _props.showXAxis,
+	          x = _props.x,
+	          xAxisClassName = _props.xAxisClassName,
+	          xDomain = _props.xDomain,
+	          xRange = _props.xRange,
+	          xBandPaddingInner = _props.xBandPaddingInner,
+	          xBandPaddingOuter = _props.xBandPaddingOuter,
+	          xScale = _props.xScale,
+	          xOrient = _props.xOrient,
+	          xTickOrient = _props.xTickOrient,
+	          xTickPadding = _props.xTickPadding,
+	          xTickSizeOuter = _props.xTickSizeOuter,
+	          xTickSizeInner = _props.xTickSizeInner,
+	          xTickFormat = _props.xTickFormat,
+	          xTicks = _props.xTicks,
+	          xLabel = _props.xLabel,
+	          xLabelPosition = _props.xLabelPosition,
+	          labelOffset = _props.labelOffset,
+	          style = _props.style,
+	          xAxisStyling = _props.xAxisStyling,
+	          xTickValues = _props.xTickValues;
 
 	      var t;
 	      var axisLabel;
@@ -9603,43 +10914,43 @@ var ReactD3Core =
 	  xOuterTickSize: 6
 	}, _commonProps2.default);
 	Xaxis.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  showXAxis: _react.PropTypes.bool,
-	  x: _react.PropTypes.func,
-	  xDomain: _react.PropTypes.array,
-	  xRange: _react.PropTypes.array,
-	  xScale: _react.PropTypes.string.isRequired,
-	  xOrient: _react.PropTypes.oneOf(['top', 'bottom']),
-	  xTickOrient: _react.PropTypes.oneOf(['top', 'bottom']),
-	  xAxisClassName: _react.PropTypes.string,
-	  xTickSizeInner: _react.PropTypes.number,
-	  xTickSizeOuter: _react.PropTypes.number,
-	  xBandPaddingInner: _react.PropTypes.number,
-	  xBandPaddingOuter: _react.PropTypes.number,
-	  xTickPadding: _react.PropTypes.number,
-	  xTickFormat: _react.PropTypes.func,
-	  xTicks: _react.PropTypes.array,
-	  style: _react.PropTypes.object,
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  showXAxis: PropTypes.bool,
+	  x: PropTypes.func,
+	  xDomain: PropTypes.array,
+	  xRange: PropTypes.array,
+	  xScale: PropTypes.string.isRequired,
+	  xOrient: PropTypes.oneOf(['top', 'bottom']),
+	  xTickOrient: PropTypes.oneOf(['top', 'bottom']),
+	  xAxisClassName: PropTypes.string,
+	  xTickSizeInner: PropTypes.number,
+	  xTickSizeOuter: PropTypes.number,
+	  xBandPaddingInner: PropTypes.number,
+	  xBandPaddingOuter: PropTypes.number,
+	  xTickPadding: PropTypes.number,
+	  xTickFormat: PropTypes.func,
+	  xTicks: PropTypes.array,
+	  style: PropTypes.object,
 	  /*
 	   xAxisStyling object holds css styling classes for axis elements
 	   pathClassName: "someCls"
 	   ticksClassName: "someCls"
 	   textClassName: "someCls"
 	   */
-	  xAxisStyling: _react.PropTypes.object,
-	  xTickValues: _react.PropTypes.array
+	  xAxisStyling: PropTypes.object,
+	  xTickValues: PropTypes.array
 	};
 	exports.default = Xaxis;
 
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9669,17 +10980,33 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(16);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _d3Selection = __webpack_require__(26);
 
 	var _d3Selection2 = _interopRequireDefault(_d3Selection);
 
-	var _reactFauxDom = __webpack_require__(17);
+	var _reactFauxDom = __webpack_require__(27);
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -9709,22 +11036,22 @@ var ReactD3Core =
 	  function Label(props) {
 	    _classCallCheck(this, Label);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Label).call(this, props));
+	    return _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
 	  }
 
 	  _createClass(Label, [{
 	    key: '_mkLabel',
 	    value: function _mkLabel(dom) {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var labelOffset = _props.labelOffset;
-	      var labelTitle = _props.labelTitle;
-	      var labelPosition = _props.labelPosition;
-	      var vTransform = _props.vTransform;
-	      var hTransform = _props.hTransform;
-	      var textAnchor = _props.textAnchor;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          labelOffset = _props.labelOffset,
+	          labelTitle = _props.labelTitle,
+	          labelPosition = _props.labelPosition,
+	          vTransform = _props.vTransform,
+	          hTransform = _props.hTransform,
+	          textAnchor = _props.textAnchor;
 
 	      var labelDom = _d3Selection2.default.select(dom);
 	      var fixWidth = width - margins.left - margins.right;
@@ -9774,26 +11101,26 @@ var ReactD3Core =
 	  labelClassName: 'react-d3-core__label'
 	}, _commonProps2.default);
 	Label.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  hTransform: _react.PropTypes.string,
-	  vTransform: _react.PropTypes.string,
-	  labelTitle: _react.PropTypes.string,
-	  labelPosition: _react.PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-	  labelOffset: _react.PropTypes.number,
-	  textAnchor: _react.PropTypes.string,
-	  labelClassName: _react.PropTypes.string
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  hTransform: PropTypes.string,
+	  vTransform: PropTypes.string,
+	  labelTitle: PropTypes.string,
+	  labelPosition: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+	  labelOffset: PropTypes.number,
+	  textAnchor: PropTypes.string,
+	  labelClassName: PropTypes.string
 	};
 	exports.default = Label;
 
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -9823,17 +11150,33 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(33);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _axis = __webpack_require__(43);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(36);
+	var _label = __webpack_require__(46);
 
 	var _label2 = _interopRequireDefault(_label);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -9863,37 +11206,37 @@ var ReactD3Core =
 	  function Yaxis(props) {
 	    _classCallCheck(this, Yaxis);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Yaxis).call(this, props));
+	    return _possibleConstructorReturn(this, (Yaxis.__proto__ || Object.getPrototypeOf(Yaxis)).call(this, props));
 	  }
 
 	  _createClass(Yaxis, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var width = _props.width;
-	      var height = _props.height;
-	      var margins = _props.margins;
-	      var y = _props.y;
-	      var yAxisClassName = _props.yAxisClassName;
-	      var yDomain = _props.yDomain;
-	      var yRange = _props.yRange;
-	      var yBandPaddingInner = _props.yBandPaddingInner;
-	      var yBandPaddingOuter = _props.yBandPaddingOuter;
-	      var yScale = _props.yScale;
-	      var yOrient = _props.yOrient;
-	      var yTickOrient = _props.yTickOrient;
-	      var yTickFormat = _props.yTickFormat;
-	      var yTickPadding = _props.yTickPadding;
-	      var yTickSizeOuter = _props.yTickSizeOuter;
-	      var yTickSizeInner = _props.yTickSizeInner;
-	      var yTicks = _props.yTicks;
-	      var yLabel = _props.yLabel;
-	      var yLabelPosition = _props.yLabelPosition;
-	      var labelOffset = _props.labelOffset;
-	      var showYAxis = _props.showYAxis;
-	      var style = _props.style;
-	      var yAxisStyling = _props.yAxisStyling;
-	      var yTickValues = _props.yTickValues;
+	      var _props = this.props,
+	          width = _props.width,
+	          height = _props.height,
+	          margins = _props.margins,
+	          y = _props.y,
+	          yAxisClassName = _props.yAxisClassName,
+	          yDomain = _props.yDomain,
+	          yRange = _props.yRange,
+	          yBandPaddingInner = _props.yBandPaddingInner,
+	          yBandPaddingOuter = _props.yBandPaddingOuter,
+	          yScale = _props.yScale,
+	          yOrient = _props.yOrient,
+	          yTickOrient = _props.yTickOrient,
+	          yTickFormat = _props.yTickFormat,
+	          yTickPadding = _props.yTickPadding,
+	          yTickSizeOuter = _props.yTickSizeOuter,
+	          yTickSizeInner = _props.yTickSizeInner,
+	          yTicks = _props.yTicks,
+	          yLabel = _props.yLabel,
+	          yLabelPosition = _props.yLabelPosition,
+	          labelOffset = _props.labelOffset,
+	          showYAxis = _props.showYAxis,
+	          style = _props.style,
+	          yAxisStyling = _props.yAxisStyling,
+	          yTickValues = _props.yTickValues;
 
 	      var t;
 	      var axisLabel;
@@ -9965,43 +11308,43 @@ var ReactD3Core =
 	  yOuterTickSize: 6
 	}, _commonProps2.default);
 	Yaxis.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  showYAxis: _react.PropTypes.bool,
-	  y: _react.PropTypes.func,
-	  yDomain: _react.PropTypes.array,
-	  yRange: _react.PropTypes.array,
-	  yScale: _react.PropTypes.string.isRequired,
-	  yOrient: _react.PropTypes.oneOf(['left', 'right']),
-	  yTickOrient: _react.PropTypes.oneOf(['left', 'right']),
-	  yAxisClassName: _react.PropTypes.string,
-	  yTickSizeInner: _react.PropTypes.number,
-	  yTickSizeOuter: _react.PropTypes.number,
-	  yBandPaddingInner: _react.PropTypes.number,
-	  yBandPaddingOuter: _react.PropTypes.number,
-	  yTickPadding: _react.PropTypes.number,
-	  yTickFormat: _react.PropTypes.func,
-	  yTicks: _react.PropTypes.array,
-	  style: _react.PropTypes.object,
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  showYAxis: PropTypes.bool,
+	  y: PropTypes.func,
+	  yDomain: PropTypes.array,
+	  yRange: PropTypes.array,
+	  yScale: PropTypes.string.isRequired,
+	  yOrient: PropTypes.oneOf(['left', 'right']),
+	  yTickOrient: PropTypes.oneOf(['left', 'right']),
+	  yAxisClassName: PropTypes.string,
+	  yTickSizeInner: PropTypes.number,
+	  yTickSizeOuter: PropTypes.number,
+	  yBandPaddingInner: PropTypes.number,
+	  yBandPaddingOuter: PropTypes.number,
+	  yTickPadding: PropTypes.number,
+	  yTickFormat: PropTypes.func,
+	  yTicks: PropTypes.array,
+	  style: PropTypes.object,
 	  /*
 	   yAxisStyling object holds css styling classes for axis elements
 	   pathClassName: "someCls"
 	   ticksClassName: "someCls"
 	   textClassName: "someCls"
 	   */
-	  yAxisStyling: _react.PropTypes.object,
-	  yTickValues: _react.PropTypes.array
+	  yAxisStyling: PropTypes.object,
+	  yTickValues: PropTypes.array
 	};
 	exports.default = Yaxis;
 
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10031,13 +11374,29 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(33);
+	var _propTypes = __webpack_require__(3);
+
+	var PropTypes = _interopRequireWildcard(_propTypes);
+
+	var _axis = __webpack_require__(43);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _commonProps = __webpack_require__(3);
+	var _commonProps = __webpack_require__(13);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
+
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -10067,36 +11426,36 @@ var ReactD3Core =
 	  function Grid(props) {
 	    _classCallCheck(this, Grid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this, props));
+	    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).call(this, props));
 	  }
 
 	  _createClass(Grid, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var height = _props.height;
-	      var width = _props.width;
-	      var margins = _props.margins;
-	      var type = _props.type;
-	      var gridAxisClassName = _props.gridAxisClassName;
-	      var xBandPaddingInner = _props.xBandPaddingInner;
-	      var xBandPaddingOuter = _props.xBandPaddingOuter;
-	      var x = _props.x;
-	      var xDomain = _props.xDomain;
-	      var xRange = _props.xRange;
-	      var xScale = _props.xScale;
-	      var xGridCount = _props.xGridCount;
-	      var xGridStyleClassName = _props.xGridStyleClassName;
-	      var yBandPaddingInner = _props.yBandPaddingInner;
-	      var yBandPaddingOuter = _props.yBandPaddingOuter;
-	      var y = _props.y;
-	      var yDomain = _props.yDomain;
-	      var yRange = _props.yRange;
-	      var yScale = _props.yScale;
-	      var yGridCount = _props.yGridCount;
-	      var yGridStyleClassName = _props.yGridStyleClassName;
-	      var xTickValues = _props.xTickValues;
-	      var yTickValues = _props.yTickValues;
+	      var _props = this.props,
+	          height = _props.height,
+	          width = _props.width,
+	          margins = _props.margins,
+	          type = _props.type,
+	          gridAxisClassName = _props.gridAxisClassName,
+	          xBandPaddingInner = _props.xBandPaddingInner,
+	          xBandPaddingOuter = _props.xBandPaddingOuter,
+	          x = _props.x,
+	          xDomain = _props.xDomain,
+	          xRange = _props.xRange,
+	          xScale = _props.xScale,
+	          xGridCount = _props.xGridCount,
+	          xGridStyleClassName = _props.xGridStyleClassName,
+	          yBandPaddingInner = _props.yBandPaddingInner,
+	          yBandPaddingOuter = _props.yBandPaddingOuter,
+	          y = _props.y,
+	          yDomain = _props.yDomain,
+	          yRange = _props.yRange,
+	          yScale = _props.yScale,
+	          yGridCount = _props.yGridCount,
+	          yGridStyleClassName = _props.yGridStyleClassName,
+	          xTickValues = _props.xTickValues,
+	          yTickValues = _props.yTickValues;
 
 	      var gridAxis;
 	      var t;
@@ -10179,38 +11538,38 @@ var ReactD3Core =
 	  gridAxisClassName: 'react-d3-core__grid_axis'
 	}, _commonProps2.default);
 	Grid.propTypes = {
-	  height: _react.PropTypes.number.isRequired,
-	  width: _react.PropTypes.number.isRequired,
-	  margins: _react.PropTypes.object.isRequired,
-	  type: _react.PropTypes.oneOf(['x', 'y']).isRequired,
-	  gridAxisClassName: _react.PropTypes.string,
-	  x: _react.PropTypes.func,
-	  xDomain: _react.PropTypes.array,
-	  xRange: _react.PropTypes.array,
-	  xScale: _react.PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
-	  xBandPaddingInner: _react.PropTypes.number,
-	  xBandPaddingOuter: _react.PropTypes.number,
-	  y: _react.PropTypes.func,
-	  yDomain: _react.PropTypes.array,
-	  yRange: _react.PropTypes.array,
-	  yScale: _react.PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
-	  yBandPaddingInner: _react.PropTypes.number,
-	  yBandPaddingOuter: _react.PropTypes.number,
-	  xGridCount: _react.PropTypes.array,
-	  yGridCount: _react.PropTypes.array,
-	  xGridStyleClassName: _react.PropTypes.string,
-	  yGridStyleClassName: _react.PropTypes.string,
-	  xTickValues: _react.PropTypes.array
+	  height: PropTypes.number.isRequired,
+	  width: PropTypes.number.isRequired,
+	  margins: PropTypes.object.isRequired,
+	  type: PropTypes.oneOf(['x', 'y']).isRequired,
+	  gridAxisClassName: PropTypes.string,
+	  x: PropTypes.func,
+	  xDomain: PropTypes.array,
+	  xRange: PropTypes.array,
+	  xScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+	  xBandPaddingInner: PropTypes.number,
+	  xBandPaddingOuter: PropTypes.number,
+	  y: PropTypes.func,
+	  yDomain: PropTypes.array,
+	  yRange: PropTypes.array,
+	  yScale: PropTypes.oneOf(['linear', 'identity', 'sqrt', 'pow', 'log', 'quantize', 'quantile', 'ordinal', 'time']).isRequired,
+	  yBandPaddingInner: PropTypes.number,
+	  yBandPaddingOuter: PropTypes.number,
+	  xGridCount: PropTypes.array,
+	  yGridCount: PropTypes.array,
+	  xGridStyleClassName: PropTypes.string,
+	  yGridStyleClassName: PropTypes.string,
+	  xTickValues: PropTypes.array
 	};
 	exports.default = Grid;
 
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10240,7 +11599,7 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(38);
+	var _grid = __webpack_require__(48);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -10272,7 +11631,7 @@ var ReactD3Core =
 	  function XGrid(props) {
 	    _classCallCheck(this, XGrid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(XGrid).call(this, props));
+	    return _possibleConstructorReturn(this, (XGrid.__proto__ || Object.getPrototypeOf(XGrid)).call(this, props));
 	  }
 
 	  _createClass(XGrid, [{
@@ -10289,13 +11648,13 @@ var ReactD3Core =
 
 	exports.default = XGrid;
 
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10325,7 +11684,7 @@ var ReactD3Core =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(38);
+	var _grid = __webpack_require__(48);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -10357,7 +11716,7 @@ var ReactD3Core =
 	  function YGrid(props) {
 	    _classCallCheck(this, YGrid);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(YGrid).call(this, props));
+	    return _possibleConstructorReturn(this, (YGrid.__proto__ || Object.getPrototypeOf(YGrid)).call(this, props));
 	  }
 
 	  _createClass(YGrid, [{
@@ -10374,9 +11733,9 @@ var ReactD3Core =
 
 	exports.default = YGrid;
 
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -10385,7 +11744,7 @@ var ReactD3Core =
 	});
 	exports.xDomain = xDomain;
 
-	var _d3Array = __webpack_require__(6);
+	var _d3Array = __webpack_require__(16);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -10394,11 +11753,11 @@ var ReactD3Core =
 	}
 
 	function xDomain(props, stack, horizonal) {
-	  var data = props.data;
-	  var chartSeries = props.chartSeries;
-	  var x = props.x;
-	  var xScale = props.xScale;
-	  var xDomain = props.xDomain;
+	  var data = props.data,
+	      chartSeries = props.chartSeries,
+	      x = props.x,
+	      xScale = props.xScale,
+	      xDomain = props.xDomain;
 
 	  if (xDomain) return xDomain;
 
@@ -10453,9 +11812,9 @@ var ReactD3Core =
 	  }
 	}
 
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -10464,7 +11823,7 @@ var ReactD3Core =
 	});
 	exports.yDomain = yDomain;
 
-	var _d3Array = __webpack_require__(6);
+	var _d3Array = __webpack_require__(16);
 
 	var _d3Array2 = _interopRequireDefault(_d3Array);
 
@@ -10473,11 +11832,11 @@ var ReactD3Core =
 	}
 
 	function yDomain(props, stack, horizonal) {
-	  var data = props.data;
-	  var chartSeries = props.chartSeries;
-	  var y = props.y;
-	  var yDomain = props.yDomain;
-	  var yScale = props.yScale;
+	  var data = props.data,
+	      chartSeries = props.chartSeries,
+	      y = props.y,
+	      yDomain = props.yDomain,
+	      yScale = props.yScale;
 
 	  if (yDomain) return yDomain;
 
@@ -10538,5 +11897,5 @@ var ReactD3Core =
 	  }
 	}
 
-/***/ }
+/***/ })
 /******/ ]);
